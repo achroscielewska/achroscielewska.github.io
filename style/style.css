@@ -131,6 +131,7 @@ div.article-text-left {
     margin-right: 50%;
     height: 100vh;
     z-index: 2;
+    position: relative;
 }
 
 /*must dive */

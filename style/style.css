@@ -49,7 +49,7 @@ header nav li a:hover {
     color:#656565;
     background-color: #f5f5f5;
 }
-/*header - END*/
+/*header - ENDs*/
 
 /* articles */
 div.article-image {
@@ -63,13 +63,18 @@ div.article-image {
     background-image: url("../img/helm-677990_1920.jpg");
 }
 
+/* section visited-divesites */
 #visited-divesites-img {
     background-image: url("../img/diving-786792_1920.jpg");
     min-width: 50%;
     float: right;
 }
 
-/* articles - END */
+/* section must-dive */
+#must-dive-img {
+    background-image: url("../img/divers-2329604_1920.jpg");
+}
+/* articles - ENDs*/
 
 /*hero-header */
 div.hero-header-text {
@@ -106,3 +111,14 @@ div.article-text-left {
     height: 100vh;
     z-index: 2;
 }
+
+/*must dive */
+div.article-text-center {
+    background-color: #f5f5f5;
+    margin-right: 25%;
+    margin-left: 25%;
+    height: 100vh;
+    z-index: 2;
+}
+
+/* article's short text - ENDs */

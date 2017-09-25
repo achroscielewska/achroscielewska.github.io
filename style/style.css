@@ -3,9 +3,7 @@ body {
     color: #4d4d4d;
     font-size: 16px;
     font-family: Verdana, serif;
-    /*
     box-sizing: border-box;
-    */
     margin-top: 0;
 }
 
@@ -65,6 +63,12 @@ div.article-image {
     background-image: url("../img/helm-677990_1920.jpg");
 }
 
+#visited-divesites-img {
+    background-image: url("../img/diving-786792_1920.jpg");
+    min-width: 50%;
+    float: right;
+}
+
 /* articles - END */
 
 /*hero-header */
@@ -80,3 +84,25 @@ div.hero-header-text {
     letter-spacing: 0.10em;
 }
 
+/* article's short text */
+div.text {
+    max-height: 50%;
+    padding: 25% 15% 15% 15%;
+}
+
+article h1.article-header {
+    font-variant: small-caps;
+    color: #393939;
+}
+
+article p.article-text {
+    text-align: justify;
+}
+
+/* visited divesites */
+div.article-text-left {
+    background-color: #f5f5f5;
+    margin-right: 50%;
+    height: 100vh;
+    z-index: 2;
+}

@@ -1,0 +1,260 @@
+body {
+    background-color: #f5f5f5;
+    color: #4d4d4d;
+    font-size: 16px;
+    font-family: Verdana, serif;
+    box-sizing: border-box;
+    margin-top: 0;
+}
+
+/* main */
+h1 {
+    font-size: 3em;
+    text-align: center;
+}
+
+p {
+    font-size: 1.5em;
+    margin: 0;
+}
+
+/*header */
+header {
+    position: sticky;
+    top:0;
+    overflow: hidden;
+    background-color: #656565;
+    width: 100%;
+    z-index: 4;
+}
+
+header nav ul {
+    list-style-type: none;
+    max-width: 30%;
+    margin: 0 auto;
+}
+
+header nav li {
+    float: left;
+}
+
+header nav li a {
+    color: #f5f5f5;
+    display: block;
+    text-decoration: none;
+    padding: 10px;
+}
+
+header nav li a:hover {
+    color:#656565;
+    background-color: #f5f5f5;
+}
+/*header - ENDs*/
+
+/* articles */
+div.article-image {
+    height: 100vh;
+    background: no-repeat fixed;
+    background-size: cover;
+    position: relative;
+}
+/* article's images */
+#hero-header-img {
+    background-image: url("../img/helm-677990_1920.jpg");
+}
+
+/* section visited-divesites */
+#visited-divesites-img {
+    background-image: url("../img/diving-786792_1920.jpg");
+    min-width: 50%;
+    float: right;
+}
+
+/* section must-dive */
+#must-dive-img {
+    background-image: url("../img/divers-2329604_1920.jpg");
+}
+
+/* section the-best */
+#the-best-img {
+    background-image: url("../img/turtle-684348_1920.jpg");
+    min-width: 50%;
+    float: left;
+}
+/* red arrow */
+div.arrow {
+    position: absolute;
+    bottom: 0;
+    left:49%;
+}
+
+a.arrow-link {
+    text-decoration: none;
+    color: #d42d2d;
+    font-size: 2em;
+}
+
+/* articles - ENDs*/
+
+/*hero-header */
+div.hero-header-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #ffffff;
+    text-shadow: 1px 2px 2px #808080;
+    font-size: 2em;
+    opacity: 0.9;
+    letter-spacing: 0.10em;
+}
+
+/* article's short text */
+div.text {
+    max-height: 50%;
+    padding: 25% 15% 15% 15%;
+}
+
+article h1.article-header {
+    font-variant: small-caps;
+    color: #393939;
+}
+
+article p.article-text {
+    text-align: justify;
+}
+
+/* visited divesites */
+div.article-text-left {
+    background-color: #f5f5f5;
+    margin-right: 50%;
+    height: 100vh;
+    z-index: 2;
+    position: relative;
+}
+
+/*must dive */
+div.article-text-center {
+    background-color: #f5f5f5;
+    margin-right: 25%;
+    margin-left: 25%;
+    height: 100vh;
+    z-index: 2;
+    position: relative;
+}
+
+/*the best */
+div.article-text-right {
+    background-color: #f5f5f5;
+    margin-left: 50%;
+    height: 100vh;
+    z-index: 2;
+}
+/* article's short text - ENDs */
+
+/* article's details */
+.ovarlay-container {
+    width: 5%;
+    height: 10%;
+    margin-top: 45%;
+    font-size: 1.5em;
+}
+
+/*overlay*/
+.overlay {
+    position: absolute;
+    background-color: #393939;
+    overflow: hidden;
+    width: 0;
+    height: 100%;
+    transition: 2.0s ease;
+}
+
+/* article's details - wisited divesites */
+#overlay-right {
+    bottom:0;
+    left:0;
+    right:0;
+}
+
+.ovarlay-container:hover #overlay-right {
+    width: 100%;
+}
+
+/* article's details - must dive */
+#overlay-center {
+    width: 100%;
+    opacity: 0;
+}
+
+.ovarlay-container-center:hover #overlay-center {
+    opacity: 1;
+}
+
+/* article's details - the best */
+#overlay-left {
+    bottom: 0;
+    left: 100%;
+    right: 0;
+}
+.ovarlay-container:hover #overlay-left {
+    width: 100%;
+    left: 0;
+}
+
+/* article's details - text */
+.article-details {
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+}
+
+/* section buttom - nav */
+section.buttom-nav {
+    background-color: #393939;
+    min-height: 40px;
+    width: 100%;
+}
+
+section.buttom-nav ul {
+    list-style-type: none;
+    max-width: 30%;
+    margin: 0 auto;
+}
+
+section.buttom-nav li {
+    float: left;
+}
+
+section.buttom-nav li a {
+    color:#919191;
+    display: block;
+    text-decoration: none;
+    padding: 10px;
+}
+
+section.buttom-nav li a:hover {
+    color:#ffffff;
+}
+/* section buttom - nav -ENDs*/
+
+/*footer */
+footer {
+    background-color: #242424;
+    color:#656565;
+    width: 100%;
+    min-height: 40px;
+}
+
+p.p-footer {
+    min-height: 20px;
+    max-width: 20%;
+    margin: 10px;
+    font-size: 0.80em;
+}
+/*footer - ENDs */

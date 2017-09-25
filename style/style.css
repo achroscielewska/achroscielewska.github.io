@@ -81,6 +81,19 @@ div.article-image {
     min-width: 50%;
     float: left;
 }
+/* red arrow */
+div.arrow {
+    position: absolute;
+    bottom: 0;
+}
+
+a.arrow-link {
+    text-decoration: none;
+    color: #d42d2d;
+    font-size: 2em;
+    transition: 2.0s ease;
+}
+
 /* articles - ENDs*/
 
 /*hero-header */
@@ -234,7 +247,6 @@ footer {
     color:#656565;
     width: 100%;
     min-height: 40px;
-
 }
 
 p.p-footer {

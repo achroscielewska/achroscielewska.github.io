@@ -85,6 +85,7 @@ div.article-image {
 div.arrow {
     position: absolute;
     bottom: 0;
+    left:49%;
 }
 
 a.arrow-link {
@@ -140,6 +141,7 @@ div.article-text-center {
     margin-left: 25%;
     height: 100vh;
     z-index: 2;
+    position: relative;
 }
 
 /*the best */

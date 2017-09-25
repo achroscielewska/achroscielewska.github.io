@@ -9,6 +9,17 @@ body {
     margin-top: 0;
 }
 
+/* main */
+h1 {
+    font-size: 3em;
+    text-align: center;
+}
+
+p {
+    font-size: 1.5em;
+    margin: 0;
+}
+
 /*header */
 header {
     position: sticky;
@@ -40,3 +51,32 @@ header nav li a:hover {
     color:#656565;
     background-color: #f5f5f5;
 }
+/*header - END*/
+
+/* articles */
+div.article-image {
+    height: 100vh;
+    background: no-repeat fixed;
+    background-size: cover;
+    position: relative;
+}
+/* article's images */
+#hero-header-img {
+    background-image: url("../img/helm-677990_1920.jpg");
+}
+
+/* articles - END */
+
+/*hero-header */
+div.hero-header-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #ffffff;
+    text-shadow: 1px 2px 2px #808080;
+    font-size: 2em;
+    letter-spacing: 0.10em;
+}
+

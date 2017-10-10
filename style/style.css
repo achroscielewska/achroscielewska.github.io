@@ -28,21 +28,27 @@ header {
     z-index: 4;
 }
 
+header nav {
+    max-width: 100%;
+    margin: auto;
+    text-align: center;
+}
+
 header nav ul {
     list-style-type: none;
-    max-width: 30%;
-    margin: 0 auto;
+    padding-left: 0;
+    margin: 10px;
 }
 
 header nav li {
-    float: left;
+    display: inline;
 }
 
 header nav li a {
     color: #f5f5f5;
-    display: block;
     text-decoration: none;
     padding: 10px;
+    transition: all 1s linear;
 }
 
 header nav li a:hover {
@@ -161,6 +167,10 @@ div.article-text-right {
     font-size: 1.5em;
 }
 
+.ovarlay-container-left{
+    margin-left: 95%;
+}
+
 /*overlay*/
 .overlay {
     position: absolute;
@@ -215,30 +225,37 @@ div.article-text-right {
 }
 
 /* section buttom - nav */
-section.buttom-nav {
+.buttom-nav {
     background-color: #393939;
     min-height: 40px;
     width: 100%;
+    margin: auto;
+    text-align: center;
 }
 
-section.buttom-nav ul {
+.buttom-nav ul {
     list-style-type: none;
-    max-width: 30%;
-    margin: 0 auto;
+    padding-left: 0;
+    padding-top: 5px;
+    margin: 0;
 }
 
 section.buttom-nav li {
-    float: left;
+    display: inline;
 }
 
 section.buttom-nav li a {
     color:#919191;
-    display: block;
     text-decoration: none;
     padding: 10px;
+    transition: all 1s linear;
 }
 
-section.buttom-nav li a:hover {
+.buttom-nav li a span {
+    color:#d42d2d
+}
+
+.buttom-nav li a:hover {
     color:#ffffff;
 }
 /* section buttom - nav -ENDs*/
@@ -251,10 +268,22 @@ footer {
     min-height: 40px;
 }
 
-p.p-footer {
+.p-footer {
     min-height: 20px;
-    max-width: 20%;
+    max-width: 40%;
     margin: 10px;
     font-size: 0.80em;
+}
+
+.p-footer-left {float: left;}
+
+.p-footer-right {
+    float: right;
+    text-align: right;
+}
+
+footer a {
+    text-decoration:none;
+    color:#d3d3d3;
 }
 /*footer - ENDs */

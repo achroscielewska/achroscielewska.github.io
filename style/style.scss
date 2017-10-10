@@ -1,0 +1,298 @@
+$standard-font-size: 16px;
+$standard-font: Verdana, serif;
+$background-color: #656565;
+$nav-color: #393939;
+$accent-color: #d42d2d;
+$secondary-color: #f5f5f5;
+
+@mixin text-center
+{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+
+@mixin article-image
+{
+  height: 100vh;
+  background: no-repeat fixed;
+  background-size: cover;
+  position: relative;
+}
+
+@mixin article-text-container ($margin-right, $margin-left)
+{
+  background-color: $secondary-color;
+  margin-right: $margin-right;
+  margin-left: $margin-left;
+  height: 100vh;
+  z-index: 2;
+}
+
+@mixin overlay
+{
+  position: absolute;
+  background-color: $background-color;
+  overflow: hidden;
+  width: 0;
+  height: 100%;
+  transition: 2.0s ease;
+}
+
+@mixin p-footer
+{
+  min-height: 20px;
+  max-width: 40%;
+  margin: 10px;
+  font-size: 0.80em;
+}
+
+body {
+  color: $background-color;
+  font-size: $standard-font-size;
+  font-family: $standard-font;
+  box-sizing: border-box;
+  margin-top: 0;
+  h1 {
+    font-size: $standard-font-size*3;
+    text-align: center;
+  }
+  p {
+    font-size: $standard-font-size*1.5;
+    margin: 0;
+  }
+}
+
+/*header */
+header {
+  position: sticky;
+  top:0;
+  overflow: hidden;
+  background-color: $background-color;
+  width: 100%;
+  z-index: 4;
+}
+
+nav {
+  max-width: 100%;
+  margin: auto;
+  text-align: center;
+  ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 10px;
+    li {
+      display: inline;
+      a {
+        color: $secondary-color;
+        text-decoration: none;
+        padding: 10px;
+        transition: all 1s linear;
+      }
+    }
+  }
+}
+
+header nav li a:hover {
+  color: $background-color;
+  background-color: $secondary-color;
+}
+/*header - ENDs*/
+
+/**** articles ****/
+/* article's images */
+.hero-header-img {
+  @include article-image;
+  background-image: url("../img/helm-677990_1920.jpg");
+}
+
+/* section visited-divesites */
+.visited-divesites-img {
+  @include article-image;
+  background-image: url("../img/diving-786792_1920.jpg");
+  min-width: 50%;
+  float: right;
+}
+
+/* section must-dive */
+.must-dive-img {
+  @include article-image;
+  background-image: url("../img/divers-2329604_1920.jpg");
+}
+
+/* section the-best */
+.the-best-img {
+  @include article-image;
+  background-image: url("../img/turtle-684348_1920.jpg");
+  min-width: 50%;
+  float: left;
+}
+/* red arrow */
+.arrow {
+  position: absolute;
+  bottom: 0;
+  left: 49%;
+  a.arrow-link {
+    text-decoration: none;
+    color: $accent-color;
+    font-size: $standard-font-size*2;
+  }
+}
+/* articles - ENDs*/
+
+/*hero-header */
+.hero-header-text {
+  @include text-center;
+  .hero-text {
+    font-size: $standard-font-size*6;
+    color: $secondary-color;
+    opacity: 0.95;
+  }
+}
+
+/* articles */
+/* visited divesites */
+.article-text-left {
+  @include article-text-container(50%,0);
+}
+/*must dive */
+.article-text-center {
+  @include article-text-container(25%,25%);
+  position: relative;
+}
+/*the best */
+.article-text-right {
+  @include article-text-container(0,50%);
+}
+
+/* article's short text */
+.text {
+  max-height: 50%;
+  padding: 25% 15% 15% 15%;
+  .article-header {
+    font-variant: small-caps;
+    color: $background-color;
+  }
+  .article-text {
+    text-align: justify;
+  }
+}
+/* article's short text - ENDs */
+
+/* article's details */
+.ovarlay-container {
+  width: 5%;
+  height: 10%;
+  margin-top: 45%;
+  .ovarlay-arrow {
+    font-size: $standard-font-size*2;
+  }
+}
+
+.ovarlay-container-left{
+  margin-left: 96%;
+}
+
+/*overlay*/
+/* article's details - wisited divesites */
+.overlay-right {
+  @include overlay;
+  bottom:0;
+  left:0;
+  right:0;
+}
+
+.ovarlay-container:hover .overlay-right {
+  width: 100%;
+}
+
+/* article's details - must dive */
+.overlay-center {
+  @include overlay;
+  width: 100%;
+  opacity: 0;
+}
+
+.ovarlay-container-center:hover .overlay-center {
+  opacity: 1;
+}
+
+/* article's details - the best */
+.overlay-left {
+  @include overlay;
+  bottom: 0;
+  left: 100%;
+  right: 0;
+}
+.ovarlay-container:hover .overlay-left {
+  width: 100%;
+  left: 0;
+}
+
+/* article's details - text */
+.article-details {
+  color: $secondary-color;
+  font-size: 20px;
+  @include text-center;
+}
+
+/* section buttom - nav */
+.buttom-nav {
+  background-color: #393939;
+  min-height: 40px;
+  width: 100%;
+  margin: auto;
+  text-align: center;
+}
+
+.buttom-nav ul {
+  list-style-type: none;
+  padding-left: 0;
+  padding-top: 5px;
+  margin: 0;
+}
+
+section.buttom-nav li {
+  display: inline;
+}
+
+section.buttom-nav li a {
+  color:#919191;
+  text-decoration: none;
+  padding: 10px;
+  transition: all 1s linear;
+}
+
+.buttom-nav li a span {
+  color:#d42d2d
+}
+
+.buttom-nav li a:hover {
+  color: $secondary-color;
+}
+/* section buttom - nav -ENDs*/
+
+/*footer */
+footer {
+  background-color: #242424;
+  color: #656565;
+  width: 100%;
+  min-height: 40px;
+  .p-footer-left {
+    @include p-footer;
+    float: left;
+  }
+  .p-footer-right {
+    @include p-footer;
+    float: right;
+    text-align: right;
+    a {
+      text-decoration: none;
+      color: #d3d3d3;
+    }
+  }
+}
+
+/*footer - ENDs */

@@ -12,23 +12,42 @@
 <body>
 <main>
     <!--Nawigacja -->
-    <nav>
-        <p>Nawigacja</p>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <!-- toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <!--nav links -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#relax">Relaks <span class="sr-only">(current)</span></a></li>
+                    <li><a href="#project">Projekt</a></li>
+                    <li><a href="#help">Pomoc</a></li>
+                    <li><a href="#partners">Partnerzy</a></li>
+                </ul>
+            </div>
+        </div>
     </nav>
     <!-- sekcja 1 grid 2 elementowy: carousel +  list-group -->
-    <section>
+    <section id="relax">
         <p>Sekcja 1 carousel +  list-group</p>
     </section>
     <!-- sekcja 2 Projekt -->
-    <section>
+    <section id="project">
         <p>Sekcja 2 Projekt</p>
     </section>
     <!-- sekcja 3 Pomoc -->
-    <section>
+    <section id="help">
         <p>Sekcja 3 Pomoc</p>
     </section>
     <!-- sekcja 4 Partnerzy -->
-    <section>
+    <section id="partners">
         <p>Sekcja 4 - Partnerzy</p>
     </section>
 </main>

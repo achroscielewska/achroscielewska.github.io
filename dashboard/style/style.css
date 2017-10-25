@@ -1,6 +1,10 @@
 body {
   background-color: #f5f5f5; }
-  body h1 {
-    padding-left: 10px; }
+
+.col-project {
+  text-align: center; }
+  .col-project .logo {
+    max-width: 200px;
+    height: 70px; }
 
 /*# sourceMappingURL=style.css.map */

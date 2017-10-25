@@ -1,5 +1,7 @@
 body {
   background-color: #f5f5f5; }
+  body section {
+    padding-top: 60px; }
 
 .col-project {
   text-align: center; }

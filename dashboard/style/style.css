@@ -4,10 +4,19 @@ body h1 {
   background-color: #337ab7;
   color: #fff; }
 
+.nav-top {
+  background-color: #337ab7; }
+
+.navbar-default .navbar-nav > li > a {
+  color: #fff; }
+
 .col-project {
   text-align: center; }
   .col-project .logo {
     max-width: 200px;
     height: 70px; }
+
+.carousel-inner > .item > a > img, .carousel-inner > .item > img, .img-responsive, .thumbnail a > img, .thumbnail > img {
+  display: inline; }
 
 /*# sourceMappingURL=style.css.map */

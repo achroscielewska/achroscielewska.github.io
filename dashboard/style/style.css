@@ -1,3 +1,4 @@
+/*common*/
 body .section-relax {
   margin-top: 60px; }
 body h2 {
@@ -6,15 +7,24 @@ body h2 {
   color: #fff;
   padding-left: 10px; }
 
+/****menu START****/
+/*blue color for menu */
 .nav-top {
   background-color: #337ab7; }
 
+/*white fonts for menu */
 .navbar-default .navbar-nav > li > a {
   color: #fff; }
 
-.col-project {
+/*additional style for dropdown works for responsive menu*/
+.navbar-nav .open .dropdown-menu {
+  background-color: #fff; }
+
+/****menu END****/
+/****sections START****/
+.content-center {
   text-align: center; }
-  .col-project .logo {
+  .content-center .logo {
     max-width: 200px;
     height: 70px; }
 
@@ -25,7 +35,10 @@ body h2 {
   .tab-content h3, .tab-content p {
     padding-left: 10px; }
 
-.carousel-inner > .item > a > img, .carousel-inner > .item > img, .img-responsive, .thumbnail a > img, .thumbnail > img {
+/*section Partners, display block replaced by inline, to text-align center*/
+.img-responsive, .thumbnail a > img, .thumbnail > img {
   display: inline; }
+
+/****sections END****/
 
 /*# sourceMappingURL=style.css.map */

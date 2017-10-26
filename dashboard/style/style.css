@@ -1,8 +1,10 @@
 body .section-relax {
   margin-top: 60px; }
-body h1 {
+body h2 {
   background-color: #337ab7;
-  color: #fff; }
+  opacity: 0.90;
+  color: #fff;
+  padding-left: 10px; }
 
 .nav-top {
   background-color: #337ab7; }
@@ -15,6 +17,13 @@ body h1 {
   .col-project .logo {
     max-width: 200px;
     height: 70px; }
+
+.tab-content {
+  border: 1px solid #ddd;
+  border-top-color: transparent;
+  border-radius: 5px; }
+  .tab-content h3, .tab-content p {
+    padding-left: 10px; }
 
 .carousel-inner > .item > a > img, .carousel-inner > .item > img, .img-responsive, .thumbnail a > img, .thumbnail > img {
   display: inline; }

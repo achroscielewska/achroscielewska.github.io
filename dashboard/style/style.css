@@ -44,6 +44,11 @@ body h2 {
 .img-responsive, .thumbnail a > img, .thumbnail > img {
   display: inline; }
 
+/**/
+.img-rounded {
+  max-width: 200px;
+  height: 70px; }
+
 /****sections END****/
 
 /*# sourceMappingURL=style.css.map */

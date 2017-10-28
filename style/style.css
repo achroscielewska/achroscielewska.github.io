@@ -71,11 +71,11 @@ header nav li a:hover {
 .arrow {
   position: absolute;
   bottom: 0;
-  left: 49%; }
+  left: 48%; }
   .arrow a.arrow-link {
     text-decoration: none;
     color: #d42d2d;
-    font-size: 32px; }
+    font-size: 64px; }
 
 /* articles - ENDs*/
 /*hero-header */
@@ -108,18 +108,14 @@ header nav li a:hover {
 /* article's short text - ENDs */
 /* article's details */
 .ovarlay-container {
-  width: 5%;
-  height: 10%;
-  /*
-   margin-top: 50%;
-   */ }
+  width: 10%;
+  height: 20%; }
   .ovarlay-container .ovarlay-arrow {
-    font-size: 32px; }
+    font-size: 64px; }
 
 .ovarlay-container-left {
-  margin-left: 96%; }
+  margin-left: 92%; }
 
-/*overlay*/
 /* article's details - wisited divesites */
 .overlay-right {
   position: absolute;
@@ -194,5 +190,17 @@ footer {
       color: #d3d3d3; }
 
 /*footer - ENDs */
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .ovarlay-container {
+    margin-top: 50%; } }
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  .ovarlay-container {
+    margin-top: 50%; } }
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  .ovarlay-container {
+    margin-top: 50%; } }
 
 /*# sourceMappingURL=style.css.map */

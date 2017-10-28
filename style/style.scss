@@ -62,7 +62,12 @@ body {
   p {
     margin: 0;
   }
+  .container-fluid {
+    padding: 0;
+  }
 }
+
+
 
 /*header */
 .navbar {
@@ -89,7 +94,6 @@ header nav li a:hover {
 
 /**** articles ****/
 /* article's images */
-
 .hero-header-img {
   @include article-image;
   background-image: url("../img/helm-677990_1920.jpg");
@@ -111,9 +115,8 @@ header nav li a:hover {
 .the-best-img {
   @include article-image;
   background-image: url("../img/turtle-684348_1920.jpg");
-  min-width: 50%;
-  float: left;
 }
+
 /* red arrow */
 .arrow {
   position: absolute;
@@ -137,22 +140,16 @@ header nav li a:hover {
   }
 }
 
-
 /* articles */
 /*must dive */
 .article-text-center {
   @include article-text-container(25%,25%);
   position: relative;
 }
-/*the best */
-.article-text-right {
-  @include article-text-container(0,50%);
-}
 
 /* article's short text */
 .text {
-  max-height: 50%;
-  padding: 25% 15% 15% 15%;
+  padding: 15%;
   .article-header {
     font-variant: small-caps;
     color: $background-color;
@@ -167,7 +164,9 @@ header nav li a:hover {
 .ovarlay-container {
   width: 5%;
   height: 10%;
-  margin-top: 45%;
+ /*
+  margin-top: 50%;
+  */
   .ovarlay-arrow {
     font-size: $standard-font-size*2;
   }

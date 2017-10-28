@@ -182,16 +182,12 @@ footer {
   min-height: 40px; }
   footer .p-footer-left {
     min-height: 20px;
-    max-width: 40%;
     margin: 10px;
-    font-size: 0.80em;
-    float: left; }
+    font-size: 0.80em; }
   footer .p-footer-right {
     min-height: 20px;
-    max-width: 40%;
     margin: 10px;
     font-size: 0.80em;
-    float: right;
     text-align: right; }
     footer .p-footer-right a {
       text-decoration: none;

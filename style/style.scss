@@ -23,15 +23,6 @@ $secondary-color: #f5f5f5;
   position: relative;
 }
 
-@mixin article-text-container ($margin-right, $margin-left)
-{
-  background-color: $secondary-color;
-  margin-right: $margin-right;
-  margin-left: $margin-left;
-  height: 100vh;
-  z-index: 2;
-}
-
 @mixin overlay
 {
   position: absolute;
@@ -45,7 +36,6 @@ $secondary-color: #f5f5f5;
 @mixin p-footer
 {
   min-height: 20px;
-  max-width: 40%;
   margin: 10px;
   font-size: 0.80em;
 }
@@ -225,11 +215,9 @@ footer {
   min-height: 40px;
   .p-footer-left {
     @include p-footer;
-    float: left;
   }
   .p-footer-right {
     @include p-footer;
-    float: right;
     text-align: right;
     a {
       text-decoration: none;

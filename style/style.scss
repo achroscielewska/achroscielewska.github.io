@@ -99,8 +99,6 @@ header nav li a:hover {
 .visited-divesites-img {
   @include article-image;
   background-image: url("../img/diving-786792_1920.jpg");
-  min-width: 50%;
-  float: right;
 }
 
 /* section must-dive */
@@ -141,10 +139,6 @@ header nav li a:hover {
 
 
 /* articles */
-/* visited divesites */
-.article-text-left {
-  @include article-text-container(50%,0);
-}
 /*must dive */
 .article-text-center {
   @include article-text-container(25%,25%);

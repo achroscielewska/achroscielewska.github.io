@@ -5,10 +5,8 @@ body {
   box-sizing: border-box;
   margin-top: 0; }
   body h1 {
-    font-size: 48px;
     text-align: center; }
   body p {
-    font-size: 24px;
     margin: 0; }
 
 /*header */
@@ -34,6 +32,7 @@ header nav li a:hover {
 .hero-header-img {
   height: 100vh;
   background: no-repeat fixed;
+  background-position: center;
   background-size: cover;
   position: relative;
   background-image: url("../img/helm-677990_1920.jpg"); }
@@ -42,6 +41,7 @@ header nav li a:hover {
 .visited-divesites-img {
   height: 100vh;
   background: no-repeat fixed;
+  background-position: center;
   background-size: cover;
   position: relative;
   background-image: url("../img/diving-786792_1920.jpg");
@@ -52,6 +52,7 @@ header nav li a:hover {
 .must-dive-img {
   height: 100vh;
   background: no-repeat fixed;
+  background-position: center;
   background-size: cover;
   position: relative;
   background-image: url("../img/divers-2329604_1920.jpg"); }
@@ -60,6 +61,7 @@ header nav li a:hover {
 .the-best-img {
   height: 100vh;
   background: no-repeat fixed;
+  background-position: center;
   background-size: cover;
   position: relative;
   background-image: url("../img/turtle-684348_1920.jpg");

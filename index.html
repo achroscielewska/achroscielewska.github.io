@@ -6,8 +6,11 @@
     <meta name="keywords" content="HTML, CSS">
     <meta name="author" content="Agnieszka Chróścielewska">
 
-    <title>My page</title>
+    <title>LetsDive</title>
 
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="style/style.css">
 
 </head>
@@ -15,124 +18,157 @@
 <!--header, menu-->
 <header>
     <!--fixed-menu -->
-    <nav>
-        <ul>
-            <li><a href="#hero-header">Start</a></li>
-            <li><a href="#visited-divesites">Visited divesites</a></li>
-            <li><a href="#must-dive">Must dive</a></li>
-            <li><a href="#the-best">The best form the best</a></li>
-        </ul>
+    <nav class="navbar navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+
+            <!-- Collect the nav links for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li><a href="#hero-header">Start</a></li>
+                    <li><a href="#visited-divesites">Visited divesites</a></li>
+                    <li><a href="#must-dive">Must dive</a></li>
+                    <li><a href="#the-best">The best form the best</a></li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
     </nav>
 </header>
 <!--sections, content test-->
 <main>
     <!--hero header -->
-    <article id="hero-header">
-        <div class="hero-header-img">
-            <div class="hero-header-text">
-                <h1 class="hero-text">Let's Dive</h1>
+    <article class="hero-header" id="hero-header">
+        <div class="container-fluid">
+            <div class="hero-header-img">
+                <div class="hero-header-text">
+                    <h1 class="hero-text"><b>Let's Dive</b></h1>
+                </div>
+                <!-- red arrow -->
+                <div class="arrow">
+                    <a href="#visited-divesites" class="arrow-link">&#9660;</a>
+                </div>
+                <!-- end red arrow-->
             </div>
-            <!-- red arrow -->
-            <div class="arrow">
-                <a href="#visited-divesites" class="arrow-link">&#9660;</a>
-            </div>
-            <!-- end red arrow-->
         </div>
     </article>
     <!--visited divesties -->
     <article id="visited-divesites">
-        <div class="visited-divesites-img">
-            <!--article "visited divesites" details -->
-            <div class="ovarlay-container">
-                <p class="ovarlay-arrow">&#9654;</p>
-                <div class="overlay-right">
-                    <div class="article-details">
-                        <ul>
-                            <li>Lorem ipsum dolor sit amet</li>
-                            <li>Lorem ipsum dolor sit amet</li>
-                            <li>Lorem ipsum dolor sit amet</li>
-                        </ul>
+        <div class="container-fluid">
+            <div class="row">
+                <!-- short text -->
+                <div class="col-sm-6 col-md-6 col-lg-6">
+                    <div class="text">
+                        <h1 class="article-header">Visited divesites</h1>
+                        <p class="article-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer viverra dignissim mauris in bibendum. Phasellus at imperdiet risus. Integer non magna ante. Ut ante erat, lacinia non enim ac, dignissim aliquet mauris.</p>
                     </div>
                 </div>
+                <!--end short text -->
+                <div class="col-sm-6 col-md-6 col-lg-6 visited-divesites-img">
+                    <!--article "visited divesites" details -->
+                    <div class="ovarlay-container">
+                        <p class="ovarlay-arrow">&#9654;</p>
+                        <div class="overlay-right">
+                            <div class="article-details">
+                                <ul>
+                                    <li>Lorem ipsum dolor sit amet</li>
+                                    <li>Lorem ipsum dolor sit amet</li>
+                                    <li>Lorem ipsum dolor sit amet</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!--end article details -->
+                </div>
             </div>
-            <!--end article details -->
-        </div>
-        <div class="article-text-left">
-            <!-- short text -->
-            <div class="text">
-                <h1 class="article-header">Visited divesites</h1>
-                <p class="article-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer viverra dignissim mauris in bibendum. Phasellus at imperdiet risus. Integer non magna ante. Ut ante erat, lacinia non enim ac, dignissim aliquet mauris.</p>
-            </div>
-            <!--end short text -->
         </div>
     </article>
     <!-- must dive -->
     <article id="must-dive">
-        <div class="must-dive-img">
-            <div class="article-text-center">
-                <!--article "must dive details -->
-                <div class="ovarlay-container-center" >
-                    <div class="overlay-center">
-                        <div class="article-details">
-                            <ul>
-                                <li>Lorem ipsum dolor sit amet</li>
-                                <li>Lorem ipsum dolor sit amet</li>
-                                <li>Lorem ipsum dolor sit amet</li>
-                            </ul>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="must-dive-img">
+                    <!-- short text -->
+                    <div class="col-sm-offset-3 col-md-offset-3 col-lg-offset-3 col-sm-6 col-md-6 col-lg-6">
+                        <div class="article-text-center">
+                            <div class="ovarlay-container-center" >
+                                <div class="overlay-center">
+                                    <div class="article-details">
+                                        <ul>
+                                            <li>Lorem ipsum dolor sit amet</li>
+                                            <li>Lorem ipsum dolor sit amet</li>
+                                            <li>Lorem ipsum dolor sit amet</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text">
+                                <h1 class="article-header">Must dive</h1>
+                                <p class="article-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer viverra dignissim mauris in bibendum. Phasellus at imperdiet risus. Integer non magna ante. Ut ante erat, lacinia non enim ac, dignissim aliquet mauris.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <!--end article details -->
-                <!-- short text -->
-                <div class="text">
-                    <h1 class="article-header">Must dive</h1>
-                    <p class="article-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer viverra dignissim mauris in bibendum. Phasellus at imperdiet risus. Integer non magna ante. Ut ante erat, lacinia non enim ac, dignissim aliquet mauris.</p>
-                </div>
-                <!--end short text -->
             </div>
         </div>
     </article>
     <!--the best from the best -->
     <article id="the-best">
-        <div class="the-best-img">
-            <!--article "the best" details -->
-            <div class="ovarlay-container ovarlay-container-left">
-                <p class="ovarlay-arrow">&#9664;</p>
-                <div class="overlay-left">
-                    <div class="article-details">
-                        <ul>
-                            <li>Lorem ipsum dolor sit amet</li>
-                            <li>Lorem ipsum dolor sit amet</li>
-                            <li>Lorem ipsum dolor sit amet</li>
-                        </ul>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-6 col-md-6 col-lg-6 the-best-img">
+                    <!--article "the best" details -->
+                    <div class="ovarlay-container ovarlay-container-left">
+                        <p class="ovarlay-arrow">&#9664;</p>
+                        <div class="overlay-left">
+                            <div class="article-details">
+                                <ul>
+                                    <li>Lorem ipsum dolor sit amet</li>
+                                    <li>Lorem ipsum dolor sit amet</li>
+                                    <li>Lorem ipsum dolor sit amet</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!--end article details -->
+                </div>
+                <!-- short text -->
+                <div class="col-sm-6 col-md-6 col-lg-6">
+                    <div class="text">
+                        <h1 class="article-header">The best form the best</h1>
+                        <p class="article-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer viverra dignissim mauris in bibendum. Phasellus at imperdiet risus. Integer non magna ante. Ut ante erat, lacinia non enim ac, dignissim aliquet mauris.</p>
                     </div>
                 </div>
-            </div>
-            <!--end article details -->
-        </div>
-        <!-- short text -->
-        <div class="article-text-right">
-            <div class="text">
-                <h1 class="article-header">The best form the best</h1>
-                <p class="article-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer viverra dignissim mauris in bibendum. Phasellus at imperdiet risus. Integer non magna ante. Ut ante erat, lacinia non enim ac, dignissim aliquet mauris.</p>
+                <!--end short text -->
             </div>
         </div>
-        <!--end short text -->
     </article>
-    <!--buttom navigation-->
-    <nav class="buttom-nav">
-        <ul>
-            <li><a href="#hero-header"><span>Start</span></a></li>
-            <li><a href="#visited-divesites">Visited divesites</a></li>
-            <li><a href="#must-dive">Must dive</a></li>
-            <li><a href="#the-best">The best form the best</a></li>
-        </ul>
-    </nav>
 </main>
 <!--footer -->
 <footer>
-    <p class="p-footer-left">Posted by: Agnieszka Chróścielewska</p>
-    <p class="p-footer-right">Contact information: <a href="mailto:achroscielewska@gmail.com">achroscielewska@gmail.com</a></p>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-6 col-md-6 col-lg-6">
+                <p class="p-footer-left">Posted by: Agnieszka Chróścielewska</p>
+            </div>
+            <div class="col-sm-6 col-md-6 col-lg-6">
+                <p class="p-footer-right">Contact information: <a href="mailto:achroscielewska@gmail.com">achroscielewska@gmail.com</a></p>
+            </div>
+        </div>
+    </div>
 </footer>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
 </body>
 </html>

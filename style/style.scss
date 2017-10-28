@@ -18,17 +18,9 @@ $secondary-color: #f5f5f5;
 {
   height: 100vh;
   background: no-repeat fixed;
+  background-position: center;
   background-size: cover;
   position: relative;
-}
-
-@mixin article-text-container ($margin-right, $margin-left)
-{
-  background-color: $secondary-color;
-  margin-right: $margin-right;
-  margin-left: $margin-left;
-  height: 100vh;
-  z-index: 2;
 }
 
 @mixin overlay
@@ -44,54 +36,42 @@ $secondary-color: #f5f5f5;
 @mixin p-footer
 {
   min-height: 20px;
-  max-width: 40%;
   margin: 10px;
   font-size: 0.80em;
 }
 
 body {
   color: $background-color;
+  background-color: $secondary-color;
   font-size: $standard-font-size;
   font-family: $standard-font;
   box-sizing: border-box;
   margin-top: 0;
   h1 {
-    font-size: $standard-font-size*3;
     text-align: center;
   }
   p {
-    font-size: $standard-font-size*1.5;
     margin: 0;
+  }
+  .container-fluid {
+    padding: 0;
   }
 }
 
 /*header */
-header {
-  position: sticky;
-  top:0;
-  overflow: hidden;
+.navbar {
   background-color: $background-color;
-  width: 100%;
-  z-index: 4;
-}
-
-nav {
-  max-width: 100%;
-  margin: auto;
   text-align: center;
-  ul {
-    list-style-type: none;
-    padding-left: 0;
-    margin: 10px;
-    li {
-      display: inline;
-      a {
-        color: $secondary-color;
-        text-decoration: none;
-        padding: 10px;
-        transition: all 1s linear;
-      }
-    }
+  border: 0;
+  .navbar-toggle {
+    background-image: url("../img/menu-images.png");
+    background-repeat: no-repeat;
+  }
+  a {
+    color: #f5f5f5;
+  }
+  .navbar-nav ul {
+      margin: 0;
   }
 }
 
@@ -112,8 +92,6 @@ header nav li a:hover {
 .visited-divesites-img {
   @include article-image;
   background-image: url("../img/diving-786792_1920.jpg");
-  min-width: 50%;
-  float: right;
 }
 
 /* section must-dive */
@@ -126,18 +104,17 @@ header nav li a:hover {
 .the-best-img {
   @include article-image;
   background-image: url("../img/turtle-684348_1920.jpg");
-  min-width: 50%;
-  float: left;
 }
+
 /* red arrow */
 .arrow {
   position: absolute;
   bottom: 0;
-  left: 49%;
+  left: 48%;
   a.arrow-link {
     text-decoration: none;
     color: $accent-color;
-    font-size: $standard-font-size*2;
+    font-size: $standard-font-size*4;
   }
 }
 /* articles - ENDs*/
@@ -153,24 +130,15 @@ header nav li a:hover {
 }
 
 /* articles */
-/* visited divesites */
-.article-text-left {
-  @include article-text-container(50%,0);
-}
-/*must dive */
 .article-text-center {
-  @include article-text-container(25%,25%);
   position: relative;
-}
-/*the best */
-.article-text-right {
-  @include article-text-container(0,50%);
 }
 
 /* article's short text */
 .text {
-  max-height: 50%;
-  padding: 25% 15% 15% 15%;
+  padding: 15%;
+  background-color: $secondary-color;
+  height: 100vh;
   .article-header {
     font-variant: small-caps;
     color: $background-color;
@@ -183,19 +151,17 @@ header nav li a:hover {
 
 /* article's details */
 .ovarlay-container {
-  width: 5%;
-  height: 10%;
-  margin-top: 45%;
+  width: 10%;
+  height: 20%;
   .ovarlay-arrow {
-    font-size: $standard-font-size*2;
+    font-size: $standard-font-size*4;
   }
 }
 
 .ovarlay-container-left{
-  margin-left: 96%;
+  margin-left: 92%;
 }
 
-/*overlay*/
 /* article's details - wisited divesites */
 .overlay-right {
   @include overlay;
@@ -234,45 +200,8 @@ header nav li a:hover {
 /* article's details - text */
 .article-details {
   color: $secondary-color;
-  font-size: 20px;
   @include text-center;
 }
-
-/* section buttom - nav */
-.buttom-nav {
-  background-color: #393939;
-  min-height: 40px;
-  width: 100%;
-  margin: auto;
-  text-align: center;
-}
-
-.buttom-nav ul {
-  list-style-type: none;
-  padding-left: 0;
-  padding-top: 5px;
-  margin: 0;
-}
-
-section.buttom-nav li {
-  display: inline;
-}
-
-section.buttom-nav li a {
-  color:#919191;
-  text-decoration: none;
-  padding: 10px;
-  transition: all 1s linear;
-}
-
-.buttom-nav li a span {
-  color:#d42d2d
-}
-
-.buttom-nav li a:hover {
-  color: $secondary-color;
-}
-/* section buttom - nav -ENDs*/
 
 /*footer */
 footer {
@@ -282,11 +211,9 @@ footer {
   min-height: 40px;
   .p-footer-left {
     @include p-footer;
-    float: left;
   }
   .p-footer-right {
     @include p-footer;
-    float: right;
     text-align: right;
     a {
       text-decoration: none;
@@ -294,5 +221,25 @@ footer {
     }
   }
 }
-
 /*footer - ENDs */
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .ovarlay-container {
+    margin-top: 50%;
+  }
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px ) {
+  .ovarlay-container {
+    margin-top: 50%;
+  }
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  .ovarlay-container {
+    margin-top: 50%;
+  }
+}

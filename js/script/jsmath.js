@@ -51,3 +51,15 @@ function mathRandom () {
     document.getElementById("mathRandom").innerHTML = mathRandom;
 }
 mathRandom ();
+
+function mathRandomInteger () {
+    var mathRandomInteger = Math.floor(Math.random() * 10) + 1;
+    document.getElementById("mathRandomInteger").innerHTML = mathRandomInteger;
+}
+mathRandomInteger ();
+
+function mathRandomIntegerMinMax (min, max) {
+    var mathRandomIntegerMinMax = Math.floor(Math.random() * (max - min+1) ) + min;
+    document.getElementById("mathRandomIntegerMinMax").innerHTML = mathRandomIntegerMinMax;
+}
+mathRandomIntegerMinMax (1,3);

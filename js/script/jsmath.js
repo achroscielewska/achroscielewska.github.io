@@ -1,65 +1,91 @@
 function mathRound (number) {
-    var numberRound = Math.round(number);
+    var numberRound;
+
+    // Get the value of the input field with id="numbToRound"
+    number = document.getElementById("numbToRound").value;
+
+    //
+    numberRound = Math.round(number);
     document.getElementById("mathRound").innerHTML = numberRound;
 }
-mathRound (3.3333);
 
 function mathPow (x, y) {
-    var mathPow = Math.pow(x, y);
+    var mathPow;
+    x = document.getElementById("x").value;
+    y = document.getElementById("y").value;
+
+    mathPow = Math.pow(x, y);
     document.getElementById("mathPow").innerHTML = mathPow;
 }
-mathPow (3,3);
 
-function mathSqrt (number) {
-    var mathSqrt = Math.sqrt(number);
+function mathSqrt (numbToSquare) {
+    var mathSqrt;
+    numbToSquare = document.getElementById("numbToSquare").value;
+
+    mathSqrt = Math.sqrt(numbToSquare);
     document.getElementById("mathSqrt").innerHTML = mathSqrt;
 }
-mathSqrt (9);
 
-function mathAbs (number) {
-    var mathAbs = Math.abs(number);
+function mathAbs (numbToSAbs) {
+    var mathAbs;
+    numbToSAbs = document.getElementById("numbToSAbs").value;
+
+    mathAbs = Math.abs(numbToSAbs);
     document.getElementById("mathAbs").innerHTML = mathAbs;
 }
-mathAbs (-9);
 
-function mathCeil (number) {
-    var mathCeil = Math.ceil(number);
+function mathCeil (numbToCeil) {
+    var mathCeil;
+    numbToCeil = document.getElementById("numbToCeil").value;
+
+    mathCeil = Math.ceil(numbToCeil);
     document.getElementById("mathCeil").innerHTML = mathCeil;
 }
-mathCeil (9.3);
 
-function mathFloor (number) {
-    var mathFloor = Math.floor(number);
+function mathFloor (numbToFloor) {
+    var mathFloor;
+    numbToFloor = document.getElementById("numbToFloor").value;
+
+    mathFloor = Math.floor(numbToFloor);
     document.getElementById("mathFloor").innerHTML = mathFloor;
 }
-mathFloor (9.9);
 
 function mathMin (x,y,z) {
-    var mathMin = Math.min(x,y,z);
+    var mathMin;
+    x = document.getElementById("mathMinX").value;
+    y = document.getElementById("mathMinY").value;
+    z = document.getElementById("mathMinZ").value;
+
+    mathMin = Math.min(x,y,z);
     document.getElementById("mathMin").innerHTML = mathMin;
 }
-mathMin (9,7,1);
 
 function mathMax (x,y,z) {
-    var mathMax = Math.max(x,y,z);
+    var mathMax;
+    x = document.getElementById("mathMaxX").value;
+    y = document.getElementById("mathMaxY").value;
+    z = document.getElementById("mathMaxZ").value;
+
+    mathMax = Math.max(x,y,z);
     document.getElementById("mathMax").innerHTML = mathMax;
 }
-mathMax (9,7,1);
+
 
 function mathRandom () {
     var mathRandom = Math.random();
     document.getElementById("mathRandom").innerHTML = mathRandom;
 }
-mathRandom ();
 
 function mathRandomInteger () {
     var mathRandomInteger = Math.floor(Math.random() * 10) + 1;
     document.getElementById("mathRandomInteger").innerHTML = mathRandomInteger;
 }
-mathRandomInteger ();
 
 function mathRandomIntegerMinMax (min, max) {
-    var mathRandomIntegerMinMax = Math.floor(Math.random() * (max - min+1) ) + min;
+    var mathRandomIntegerMinMax;
+    min = document.getElementById("randomMin").value;
+    max = document.getElementById("randomMax").value;
+
+    mathRandomIntegerMinMax = Math.floor(Math.random() * max) + min;
     document.getElementById("mathRandomIntegerMinMax").innerHTML = mathRandomIntegerMinMax;
 }
-mathRandomIntegerMinMax (1,3);

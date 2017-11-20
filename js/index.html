@@ -5,33 +5,105 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>JS</title>
 
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="style/style.css">
 </head>
 <body>
-    <h1>Strings</h1>
-        <h2>String lenght </h2><p id="stringLenght"></p>
-        <h2>String in a String</h2><p id="firstOccurrence"></p><p id="lastOccurrence"></p><p id="firstOccurrenceIndex"></p>
-        <h2>Search String</h2><p id="stringSearch"></p>
-        <h2>Slice String</h2><p id="stringSlice"></p>
-        <h2>Substring String</h2><p id="substringSlice"></p>
-        <h2>Substr String</h2><p id="substrSlice"></p>
-        <h2>Replace String</h2><p id="stringReplace"></p><p id="stringReplaceGlobal"></p><p id="stringReplaceInsensitive"></p>
-        <h2>Converting to Upper and Lower Case</h2><p id="stringUpper"></p><p id="stringLower"></p>
-        <h2>Join String</h2><p id="stringJoin"></p>
-        <h2>Character</h2><p id="characterIndex"></p><p id="characterIndexUnicode"></p>
-        <h2>Converting a String to an Array</h2><p id="stringToArray"></p>
-    <h1>Math</h1>
-        <h2>Math.round</h2><p id="mathRound"></p>
-        <h2>Math.pow</h2><p id="mathPow"></p>
-        <h2>Math.sqrt</h2><p id="mathSqrt"></p>
-        <h2>Math.abs</h2><p id="mathAbs"></p>
-        <h2>Math.ceil</h2><p id="mathCeil"></p>
-        <h2>Math.floor</h2><p id="mathFloor"></p>
-        <h2>Math.min</h2><p id="mathMin"></p>
-        <h2>Math.max</h2><p id="mathMax"></p>
-        <h2>Math.random</h2><p id="mathRandom"></p><p id="mathRandomInteger"></p><p id="mathRandomIntegerMinMax"></p>
+<section id="help">
+    <div class="container-fluid">
+        <h2>Helper</h2>
+        <!--taby w sekcji pomoc -->
+        <ul class="nav nav-tabs">
+            <li class="active"><a data-toggle="tab" href="#strings">Strings</a></li>
+            <li><a data-toggle="tab" href="#math">Math</a></li>
+            <li><a data-toggle="tab" href="#javascript">Javascript</a></li>
+            <li><a data-toggle="tab" href="#react">React</a></li>
+        </ul>
+        <!--zawartość sekcji pomoc -->
+        <div class="tab-content">
+            <div id="strings" class="tab-pane fade in active">
+                <h2>String lenght </h2><p id="stringLenght"></p>
+                <h2>String in a String</h2><p id="firstOccurrence"></p><p id="lastOccurrence"></p><p id="firstOccurrenceIndex"></p>
+                <h2>Search String</h2><p id="stringSearch"></p>
+                <h2>Slice String</h2><p id="stringSlice"></p>
+                <h2>Substring String</h2><p id="substringSlice"></p>
+                <h2>Substr String</h2><p id="substrSlice"></p>
+                <h2>Replace String</h2><p id="stringReplace"></p><p id="stringReplaceGlobal"></p><p id="stringReplaceInsensitive"></p>
+                <h2>Converting to Upper and Lower Case</h2><p id="stringUpper"></p><p id="stringLower"></p>
+                <h2>Join String</h2><p id="stringJoin"></p>
+                <h2>Character</h2><p id="characterIndex"></p><p id="characterIndexUnicode"></p>
+                <h2>Converting a String to an Array</h2><p id="stringToArray"></p>
+            </div>
+            <div id="math" class="tab-pane fade">
+                <h3>number to round <span>(e.g 99.355)</span></h3>
+                    <input id="numbToRound"><button type="button" onclick="mathRound()">Submit</button>
+                    <p>Result: <span id="mathRound"></span></p>
+
+                <h3>x to the power of y</h3>
+                    <input id="x"><input id="y"><button type="button" onclick="mathPow()">Submit</button>
+                    <p>Result: <span id="mathPow"></span></p>
+
+                <h3>the square root of x</h3>
+                    <input id="numbToSquare"><button type="button" onclick="mathSqrt()">Submit</button>
+                    <p>Result: <span id="mathSqrt"></span></p>
+
+                <h3>the absolute (positive) value of x <span>(e.g -5)</span></h3>
+                    <input id="numbToSAbs"><button type="button" onclick="mathAbs()">Submit</button>
+                    <p>Result: <span id="mathAbs"></span></p>
+
+                <h3>the value of x rounded up to its nearest integer</h3>
+                    <input id="numbToCeil"><button type="button" onclick="mathCeil()">Submit</button>
+                    <p>Result: <span id="mathCeil"></span></p>
+
+                <h3>the value of x rounded down to its nearest integer</h3>
+                    <input id="numbToFloor"><button type="button" onclick="mathFloor()">Submit</button>
+                    <p>Result: <span id="mathFloor"></span></p>
+
+                <h3>math min</h3>
+                    <input id="mathMinX"><input id="mathMinY"><input id="mathMinZ"><button type="button" onclick="mathMin()">Submit</button>
+                    <p>Result: <span id="mathMin"></span></p>
+
+                <h3>math max</h3>
+                    <input id="mathMaxX"><input id="mathMaxY"><input id="mathMaxZ"><button type="button" onclick="mathMax()">Submit</button>
+                    <p>Result: <span id="mathMax"></span></p>
+
+                <h3>math random</h3>
+                    <button type="button" onclick="mathRandom()">Submit</button>
+                    <p>Result: <span id="mathRandom"></span></p>
+
+                <h3>math random from 1 to 10</h3>
+                    <button type="button" onclick="mathRandomInteger()">Submit</button>
+                    <p>Result: <span id="mathRandomInteger"></span></p>
+
+                <h3>math random integer from min to max</h3>
+                    <input id="randomMin"><input id="randomMax"><button type="button" onclick="mathRandomIntegerMinMax()">Submit</button>
+                    <p>Result: <span id="mathRandomIntegerMinMax"></span></p>
+
+            </div>
+            <div id="javascript" class="tab-pane fade">
+                <h3>Javascript</h3>
+
+            </div>
+            <div id="react" class="tab-pane fade">
+                <h3>React</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+
+    <script src="script/js.js"></script>
+    <script src="script/jsstring.js"></script>
+    <script src="script/jsmath.js"></script>
 </body>
-<script src="script/js.js"></script>
-<script src="script/jsstring.js"></script>
-<script src="script/jsmath.js"></script>
 </html>

@@ -18,7 +18,7 @@
         <ul class="nav nav-tabs">
             <li class="active"><a data-toggle="tab" href="#strings">Strings</a></li>
             <li><a data-toggle="tab" href="#math">Math</a></li>
-            <li><a data-toggle="tab" href="#javascript">Javascript</a></li>
+            <li><a data-toggle="tab" href="#javascript">JavaScript</a></li>
             <li><a data-toggle="tab" href="#react">React</a></li>
         </ul>
         <!--zawartość sekcji pomoc -->
@@ -75,7 +75,7 @@
 
                 <h3>math random from 1 to 10</h3>
                     <button type="button" onclick="mathRandomInteger()">Submit</button>
-                    <p>Result: <span id="mathRandomInteger"></span></p>
+                    <p>Result: <span id=""></span></p>
 
                 <h3>math random integer from min to max</h3>
                     <input id="randomMin"><input id="randomMax"><button type="button" onclick="mathRandomIntegerMinMax()">Submit</button>
@@ -83,8 +83,14 @@
 
             </div>
             <div id="javascript" class="tab-pane fade">
-                <h3>Javascript</h3>
-
+                <h3>Ex 1</h3>
+                <form>
+                    <label for="evenOrOddInput">Even or Odd</label>
+                    <input id="evenOrOddInput">
+                    <button type="button" onclick="evenOrOdd()">Submit</button>
+                    <p>Result: <span id="evenOrOddResult"></span></p>
+                    <hr>
+                </form>
             </div>
             <div id="react" class="tab-pane fade">
                 <h3>React</h3>
@@ -102,8 +108,9 @@
         integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
         crossorigin="anonymous"></script>
 
-    <script src="script/js.js"></script>
     <script src="script/jsstring.js"></script>
     <script src="script/jsmath.js"></script>
+    <script src="script/js.js"></script>
+
 </body>
 </html>

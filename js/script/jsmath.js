@@ -89,3 +89,4 @@ function mathRandomIntegerMinMax (min, max) {
     mathRandomIntegerMinMax = Math.floor(Math.random() * max) + min;
     document.getElementById("mathRandomIntegerMinMax").innerHTML = mathRandomIntegerMinMax;
 }
+

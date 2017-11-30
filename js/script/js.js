@@ -1,10 +1,15 @@
+/** common **/
+
+function isInteger (input) {
+    if (!(Number.isInteger(input))) {
+        throw new Error(alert('Imput has to be Integer'));
+    }
+}
 /**Ex 1**/
 function evenOrOdd (evenOrOddInput) {
     evenOrOddInput = document.getElementById("evenOrOddInput").value * 1;
 
-    if(!(Number.isInteger(evenOrOddInput))) {
-        throw new Error (alert('Imput has to be Integer'));
-    }
+    isInteger (evenOrOddInput);
 
     return (evenOrOddInput % 2 === 0)
         ? document.getElementById("evenOrOddResult").innerHTML = 'even'
@@ -15,9 +20,7 @@ function evenOrOdd (evenOrOddInput) {
 function previousAndNext (previousAndNextInput) {
     previousAndNextInput = document.getElementById("previousAndNextInput").value * 1;
 
-    if(!(Number.isInteger(previousAndNextInput))) {
-        throw new Error (alert('Imput has to be Integer'));
-    }
+    isInteger (evenOrOddInput);
 
     var previous, next;
     previous = previousAndNextInput - 1;
@@ -26,4 +29,18 @@ function previousAndNext (previousAndNextInput) {
     return document.getElementById("previous").innerHTML = previous,
         document.getElementById("previousAndNextInput").innerHTML = previousAndNextInput,
         document.getElementById("next").innerHTML = next;
+}
+
+/**Ex 3 **/
+function swapVariables (firstSwapInput, secondSwapInput) {
+    firstSwapInput = document.getElementById("firstSwapInput").value;
+    secondSwapInput = document.getElementById("secondSwapInput").value;
+
+    var swap = firstSwapInput;
+    var firstSwapInputResult = secondSwapInput;
+    var secondSwapInputResult = swap;
+
+    return document.getElementById("firstSwapInputResult").innerHTML = firstSwapInputResult,
+        document.getElementById("secondSwapInputResult").innerHTML = secondSwapInputResult;
+
 }

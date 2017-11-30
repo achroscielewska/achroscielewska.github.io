@@ -20,7 +20,7 @@ function evenOrOdd (evenOrOddInput) {
 function previousAndNext (previousAndNextInput) {
     previousAndNextInput = document.getElementById("previousAndNextInput").value * 1;
 
-    isInteger (evenOrOddInput);
+    isInteger (previousAndNextInput);
 
     var previous, next;
     previous = previousAndNextInput - 1;
@@ -42,5 +42,23 @@ function swapVariables (firstSwapInput, secondSwapInput) {
 
     return document.getElementById("firstSwapInputResult").innerHTML = firstSwapInputResult,
         document.getElementById("secondSwapInputResult").innerHTML = secondSwapInputResult;
+
+}
+
+/**Ex 4 **/
+function minOfThreeNumbers (x, y, z) {
+    x = document.getElementById("firstMinOfThree").value * 1;
+    y = document.getElementById("secondMinOfThree").value * 1;
+    z = document.getElementById("thirdMinOfThree").value * 1;
+
+    isInteger (x);
+    isInteger (y);
+    isInteger (z);
+
+    return (x < y && x < z)
+        ? document.getElementById("minOfThreeResult").innerHTML = x
+        : ((y < x && y < z)
+            ? document.getElementById("minOfThreeResult").innerHTML = y
+            : document.getElementById("minOfThreeResult").innerHTML = z);
 
 }

@@ -99,3 +99,61 @@ function areNumbersDescending (a, b, c, d, e) {
 
     return document.getElementById("areNumbersDescendingResult").innerHTML = (a >= b && b >= c && c >= d && d >= e);
 }
+
+/**Ex 7 **/
+function countDifernce (x, y) {
+    return Math.abs(x - y)
+}
+
+function hasOneByOneDigit (x) {
+    x = document.getElementById("hasOneByOneDigitInput").value * 1;
+    isInteger (x);
+
+    if (x < 100 || x > 999) {
+        throw new Error(alert('Imput has to be a number between 100 and 999'));
+    }
+
+    var firsDigit = Math.floor(x / 100);
+    var secondDigit = Math.floor((x - firsDigit * 100) / 10);
+    var thirdDigit = (x - firsDigit * 100 - secondDigit * 10);
+    var diferenceFistAndSecond = countDifernce(firsDigit, secondDigit);
+    var diferenceSecondAndThird = countDifernce(secondDigit, thirdDigit);
+
+
+    return (diferenceFistAndSecond !== 1 && diferenceSecondAndThird !== 1)
+        ? document.getElementById("hasOneByOneDigitResult").innerHTML = false
+        : document.getElementById("hasOneByOneDigitResult").innerHTML = true;
+}
+/**Ex 8 **/
+function isLeapYear (year) {
+    return ((year % 4 === 0) && (year % 100 !== 0) || (year % 400 === 0))
+        ? true
+        : false;
+}
+
+function daysInMonth (month , year) {
+    month = document.getElementById("daysInMonthMonth").value * 1;
+    year = document.getElementById("daysInMonthYear").value * 1;
+
+    isInteger (month);
+    isInteger (year);
+
+    let nrOfDays;
+
+    switch (month) {
+        case 2:
+            if (isLeapYear(year)) {
+                return document.getElementById("daysInMonthResult").innerHTML = 29
+            }
+            else {
+                return document.getElementById("daysInMonthResult").innerHTML = 28;
+            }
+        case 4:
+        case 6:
+        case 9:
+        case 11:
+            return document.getElementById("daysInMonthResult").innerHTML = 30;
+        default:
+            return document.getElementById("daysInMonthResult").innerHTML = 31;
+    }
+}

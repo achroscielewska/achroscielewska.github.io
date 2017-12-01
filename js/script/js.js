@@ -27,7 +27,7 @@ function previousAndNext (previousAndNextInput) {
     next = previousAndNextInput + 1;
 
     return document.getElementById("previous").innerHTML = previous,
-        document.getElementById("previousAndNextInput").innerHTML = previousAndNextInput,
+        document.getElementById("previousAndNextInput").innerHTML = previousAndNextInput;
         document.getElementById("next").innerHTML = next;
 }
 
@@ -40,7 +40,7 @@ function swapVariables (firstSwapInput, secondSwapInput) {
     var firstSwapInputResult = secondSwapInput;
     var secondSwapInputResult = swap;
 
-    return document.getElementById("firstSwapInputResult").innerHTML = firstSwapInputResult,
+    return document.getElementById("firstSwapInputResult").innerHTML = firstSwapInputResult;
         document.getElementById("secondSwapInputResult").innerHTML = secondSwapInputResult;
 
 }
@@ -61,4 +61,23 @@ function minOfThreeNumbers (x, y, z) {
             ? document.getElementById("minOfThreeResult").innerHTML = y
             : document.getElementById("minOfThreeResult").innerHTML = z);
 
+}
+
+/**Ex 5 **/
+function addZero(x) {
+    return (x < 10)
+        ? x = '0' + x
+        : x;
+}
+
+function secondsToHHMMSS (seconds) {
+    seconds = document.getElementById("secondsToHHMMSStInput").value * 1;
+    isInteger (seconds);
+
+    var HH = Math.floor(seconds / 3600);
+    var MM = Math.floor((seconds - (HH * 3600)) / 60);
+    var SS = seconds - (HH * 3600 + MM * 60);
+    var time = addZero(HH) + ':' + addZero(MM) + ':' + addZero(SS);
+
+    return document.getElementById("time").innerHTML = time;
 }

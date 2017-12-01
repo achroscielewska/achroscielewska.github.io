@@ -22,12 +22,11 @@ function previousAndNext (previousAndNextInput) {
 
     isInteger (previousAndNextInput);
 
-    var previous, next;
+    let previous, next;
     previous = previousAndNextInput - 1;
     next = previousAndNextInput + 1;
 
     return document.getElementById("previous").innerHTML = previous,
-        document.getElementById("previousAndNextInput").innerHTML = previousAndNextInput;
         document.getElementById("next").innerHTML = next;
 }
 
@@ -36,11 +35,11 @@ function swapVariables (firstSwapInput, secondSwapInput) {
     firstSwapInput = document.getElementById("firstSwapInput").value;
     secondSwapInput = document.getElementById("secondSwapInput").value;
 
-    var swap = firstSwapInput;
-    var firstSwapInputResult = secondSwapInput;
-    var secondSwapInputResult = swap;
+    let swap = firstSwapInput;
+    let firstSwapInputResult = secondSwapInput;
+    let secondSwapInputResult = swap;
 
-    return document.getElementById("firstSwapInputResult").innerHTML = firstSwapInputResult;
+    return document.getElementById("firstSwapInputResult").innerHTML = firstSwapInputResult,
         document.getElementById("secondSwapInputResult").innerHTML = secondSwapInputResult;
 
 }
@@ -74,10 +73,10 @@ function secondsToHHMMSS (seconds) {
     seconds = document.getElementById("secondsToHHMMSStInput").value * 1;
     isInteger (seconds);
 
-    var HH = Math.floor(seconds / 3600);
-    var MM = Math.floor((seconds - (HH * 3600)) / 60);
-    var SS = seconds - (HH * 3600 + MM * 60);
-    var time = addZero(HH) + ':' + addZero(MM) + ':' + addZero(SS);
+    let HH = Math.floor(seconds / 3600);
+    let MM = Math.floor((seconds - (HH * 3600)) / 60);
+    let SS = seconds - (HH * 3600 + MM * 60);
+    let time = addZero(HH) + ':' + addZero(MM) + ':' + addZero(SS);
 
     return document.getElementById("time").innerHTML = time;
 }
@@ -113,11 +112,11 @@ function hasOneByOneDigit (x) {
         throw new Error(alert('Imput has to be a number between 100 and 999'));
     }
 
-    var firsDigit = Math.floor(x / 100);
-    var secondDigit = Math.floor((x - firsDigit * 100) / 10);
-    var thirdDigit = (x - firsDigit * 100 - secondDigit * 10);
-    var diferenceFistAndSecond = countDifernce(firsDigit, secondDigit);
-    var diferenceSecondAndThird = countDifernce(secondDigit, thirdDigit);
+    let firsDigit = Math.floor(x / 100);
+    let secondDigit = Math.floor((x - firsDigit * 100) / 10);
+    let thirdDigit = (x - firsDigit * 100 - secondDigit * 10);
+    let diferenceFistAndSecond = countDifernce(firsDigit, secondDigit);
+    let diferenceSecondAndThird = countDifernce(secondDigit, thirdDigit);
 
 
     return (diferenceFistAndSecond !== 1 && diferenceSecondAndThird !== 1)
@@ -138,8 +137,6 @@ function daysInMonth (month , year) {
     isInteger (month);
     isInteger (year);
 
-    let nrOfDays;
-
     switch (month) {
         case 2:
             if (isLeapYear(year)) {
@@ -155,5 +152,19 @@ function daysInMonth (month , year) {
             return document.getElementById("daysInMonthResult").innerHTML = 30;
         default:
             return document.getElementById("daysInMonthResult").innerHTML = 31;
+    }
+}
+
+/**Ex 9 **/
+function splitName(nameToSplit) {
+    nameToSplit = document.getElementById("splitNameInput").value;
+
+    let space = nameToSplit.indexOf(' ');
+    let firstName = nameToSplit.substr(0, space);
+    let lastName = nameToSplit.substr(space + 1);
+
+    return person = {
+        firstName: document.getElementById("splitNameFirstName").innerHTML = firstName,
+        lastName:  document.getElementById("splitNameSecondName").innerHTML = lastName,
     }
 }

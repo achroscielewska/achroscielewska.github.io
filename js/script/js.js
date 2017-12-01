@@ -81,3 +81,21 @@ function secondsToHHMMSS (seconds) {
 
     return document.getElementById("time").innerHTML = time;
 }
+
+/**Ex 6 **/
+function areNumbersDescending (a, b, c, d, e) {
+    a = document.getElementById("areNumbersDescendingFirst").value * 1;
+    b = document.getElementById("areNumbersDescendingSecond").value * 1;
+    c = document.getElementById("areNumbersDescendingThird").value * 1;
+    d = document.getElementById("areNumbersDescendingFourth").value * 1;
+    e = document.getElementById("areNumbersDescendingFifth").value * 1;
+
+    isInteger (a);
+    isInteger (b);
+    isInteger (c);
+    isInteger (d);
+    isInteger (e);
+
+
+    return document.getElementById("areNumbersDescendingResult").innerHTML = (a >= b && b >= c && c >= d && d >= e);
+}

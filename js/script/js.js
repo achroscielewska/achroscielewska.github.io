@@ -41,7 +41,6 @@ function swapVariables (firstSwapInput, secondSwapInput) {
 
     return document.getElementById("firstSwapInputResult").innerHTML = firstSwapInputResult,
         document.getElementById("secondSwapInputResult").innerHTML = secondSwapInputResult;
-
 }
 
 /**Ex 4 **/
@@ -59,7 +58,6 @@ function minOfThreeNumbers (x, y, z) {
         : ((y < x && y < z)
             ? document.getElementById("minOfThreeResult").innerHTML = y
             : document.getElementById("minOfThreeResult").innerHTML = z);
-
 }
 
 /**Ex 5 **/

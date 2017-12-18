@@ -75,13 +75,14 @@ nav a:hover {
   .card--1 {
     background: url("../img/drums-2599508_1920.jpg") no-repeat center;
     @include cover-card;
-
   }
   .card--2 {
     background: url("../img/tee-2472360_640.jpg") center;
     @include cover-card;
-
-
+  }
+  .card--3 {
+    background: url("../img/image1.JPG") center;
+    @include cover-card;
   }
   .card:hover {
     animation: img-background 15s forwards;

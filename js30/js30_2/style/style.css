@@ -1,3 +1,14 @@
+* {
+  padding: 0;
+  margin: 0; }
 
+html, body {
+  height: 100%; }
+
+body {
+  background-image: url("../img/tee-2472360_1920.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center; }
 
 /*# sourceMappingURL=style.css.map */

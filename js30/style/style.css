@@ -58,6 +58,11 @@ nav a:hover {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center; }
+  .portfolio .card--3 {
+    background: url("../img/image1.JPG") center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center; }
   .portfolio .card:hover {
     animation: img-background 15s forwards; }
   .portfolio a {

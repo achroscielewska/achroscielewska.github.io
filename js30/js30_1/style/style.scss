@@ -23,4 +23,9 @@ body {
       font-size: 2rem;
     }
   }
+  .playing {
+    transform: scale(1.1);
+    border-color: #ff0000;
+    box-shadow: 0 0 1rem #ff0000;
+  }
 }

@@ -20,5 +20,9 @@ body {
     text-shadow: 0 0 5px black; }
     body .key kbd {
       font-size: 2rem; }
+  body .playing {
+    transform: scale(1.1);
+    border-color: #ff0000;
+    box-shadow: 0 0 1rem #ff0000; }
 
 /*# sourceMappingURL=style.css.map */

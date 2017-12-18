@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>JS</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+<section id="help">
+    <div class="container-fluid">
+        <h2>Helper</h2>
+        <!--taby w sekcji pomoc -->
+        <ul class="nav nav-tabs">
+            <li class="active"><a data-toggle="tab" href="#javascript">JavaScript</a></li>
+            <li><a data-toggle="tab" href="#react">React</a></li>
+        </ul>
+        <!--zawartość sekcji pomoc -->
+        <div class="tab-content">
+            <div id="javascript" class="tab-pane fade in active">
+                <h3>Ex 1</h3>
+                <form>
+                    <label for="evenOrOddInput">Check if Even or Odd</label>
+                    <input id="evenOrOddInput">
+                    <button type="button" onclick="evenOrOdd()">Submit</button>
+                    <p>Result: <span id="evenOrOddResult"></span></p>
+                    <hr>
+                </form>
+                <h3>Ex 2</h3>
+                <form>
+                    <label for="previousAndNextInput">Give me Previous And Next</label>
+                    <input id="previousAndNextInput">
+                    <button type="button" onclick="previousAndNext()">Submit</button>
+                    <p>Result: previous: <span id="previous"></span>&ensp;next: <span id="next"></span></p>
+                    <hr>
+                </form>
+                <h3>Ex 3</h3>
+                <form>
+                    <label for="firstSwapInput">First input to swap</label>
+                    <input id="firstSwapInput">
+                    <label for="secondSwapInput">Second input to swap</label>
+                    <input id="secondSwapInput">
+
+                    <button type="button" onclick="swapVariables()">Submit</button>
+                    <p>Result: first: <span id="firstSwapInputResult"></span>&ensp;second: <span id="secondSwapInputResult"></span></p>
+                    <hr>
+                </form>
+                <h3>Ex 4</h3>
+                <form>
+                    <label for="firstMinOfThree">First input</label>
+                    <input id="firstMinOfThree">
+                    <label for="secondMinOfThree">Second input</label>
+                    <input id="secondMinOfThree">
+                    <label for="thirdMinOfThree">Third input</label>
+                    <input id="thirdMinOfThree">
+
+                    <button type="button" onclick="minOfThreeNumbers ()">Submit</button>
+                    <p>Result: Min of three numbers: <span id="minOfThreeResult"></span></p>
+                    <hr>
+                </form>
+                <h3>Ex 5</h3>
+                <form>
+                    <label for="secondsToHHMMSStInput">Seconds</label>
+                    <input id="secondsToHHMMSStInput">
+                    <button type="button" onclick="secondsToHHMMSS ()">Submit</button>
+                    <p>Result:<span id="time"></span></p>
+                    <hr>
+                </form>
+                <h3>Ex 6 are numbers descending</h3>
+                <form>
+                    <label for="areNumbersDescendingFirst">First</label>
+                    <input id="areNumbersDescendingFirst">
+                    <label for="areNumbersDescendingSecond">Second</label>
+                    <input id="areNumbersDescendingSecond">
+                    <label for="areNumbersDescendingThird">Third</label>
+                    <input id="areNumbersDescendingThird">
+                    <label for="areNumbersDescendingFourth">Fourth</label>
+                    <input id="areNumbersDescendingFourth">
+                    <label for="areNumbersDescendingFifth">Fifth</label>
+                    <input id="areNumbersDescendingFifth">
+                    <button type="button" onclick="areNumbersDescending ()">Submit</button>
+                    <p>Result:<span id="areNumbersDescendingResult"></span></p>
+                    <hr>
+                </form>
+                <h3>Ex 7</h3>
+                <form>
+                    <label for="hasOneByOneDigitInput">Has one by one digit</label>
+                    <input id="hasOneByOneDigitInput">
+                    <button type="button" onclick="hasOneByOneDigit ()">Submit</button>
+                    <p>Result:<span id="hasOneByOneDigitResult"></span></p>
+                    <hr>
+                </form>
+                <h3>Ex 8</h3>
+                <form>
+                    <label for="daysInMonthMonth">Month</label>
+                    <input id="daysInMonthMonth">
+                    <label for="daysInMonthYear">Year</label>
+                    <input id="daysInMonthYear">
+                    <button type="button" onclick="daysInMonth ()">Submit</button>
+                    <p>Result: days in month&ensp;<span id="daysInMonthResult"></span></p>
+                    <hr>
+                </form>
+                <h3>Ex 9</h3>
+                <form>
+                    <label for="splitNameInput">First and second name</label>
+                    <input id="splitNameInput">
+
+                    <button type="button" onclick="splitName()">Submit</button>
+                    <p>Result: first name: <span id="splitNameFirstName"></span>&ensp;second name: <span id="splitNameSecondName"></span></p>
+                    <hr>
+                </form>
+            </div>
+            <div id="react" class="tab-pane fade">
+                <h3>React</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+
+    <script src="script/js.js"></script>
+
+</body>
+</html>

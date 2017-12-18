@@ -81,8 +81,11 @@ nav a:hover {
     @include cover-card;
   }
   .card--3 {
-    background: url("../img/image1.JPG") center;
-    @include cover-card;
+     background: url("../img/image1.JPG") center;
+     @include cover-card;
+   }
+  .card--4 {
+    background-color: #0098ad;
   }
   .card:hover {
     animation: img-background 15s forwards;

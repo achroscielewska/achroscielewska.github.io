@@ -10,6 +10,12 @@ $standard-padding: 4px;
   font-size: $standard-size*0.80;
 }
 
+@mixin cover-card {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
 body {
   background-color: #ffffff;
   color: $primary-color;
@@ -68,11 +74,14 @@ nav a:hover {
   }
   .card--1 {
     background: url("../img/drums-2599508_1920.jpg") no-repeat center;
-    background-size: 100%;
+    @include cover-card;
+
   }
   .card--2 {
-    background: url("../img/SINGAPUR_IMG_6180.JPG") no-repeat center;
-    background-size: 100%;
+    background: url("../img/tee-2472360_640.jpg") center;
+    @include cover-card;
+
+
   }
   .card:hover {
     animation: img-background 15s forwards;

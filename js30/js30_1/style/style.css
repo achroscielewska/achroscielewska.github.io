@@ -1,5 +1,7 @@
 body {
-  background-image: url("../img/drums-2599508_1920.jpg"); }
+  background-image: url("../img/drums-2599508_1920.jpg");
+  background-repeat: no-repeat;
+  background-size: cover; }
   body .keys {
     display: flex;
     flex-direction: row;

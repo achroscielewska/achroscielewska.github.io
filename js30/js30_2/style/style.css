@@ -7,8 +7,7 @@ html, body {
 
 body {
   background-image: url("../img/tee-2472360_1920.jpg");
-  background-size: cover;
-  background-position: center;
+  background-size: 100% 100%;
   display: flex;
   align-items: center; }
 

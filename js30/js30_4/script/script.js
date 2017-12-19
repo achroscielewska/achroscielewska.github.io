@@ -58,6 +58,6 @@ const transportation = data.reduce((obj, item) => {
     }
     obj[item]++;
     return obj;
-}, {});
+}, {});1
 
 console.log(transportation);

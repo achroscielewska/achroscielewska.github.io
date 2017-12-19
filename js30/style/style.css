@@ -65,6 +65,11 @@ nav a:hover {
     background-position: center; }
   .portfolio .card--4 {
     background-color: #0098ad; }
+  .portfolio .card--5 {
+    background: url("../img/IMG_6180.JPG") center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center; }
   .portfolio .card:hover {
     animation: img-background 15s forwards; }
   .portfolio a {

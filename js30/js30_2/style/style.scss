@@ -1,6 +1,5 @@
 @mixin cover-card {
-  background-size: cover;
-  background-position: center;
+  background-size: 100% 100%;
 }
 
 *{

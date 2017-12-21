@@ -47,6 +47,7 @@ const newComments = [
 
 console.table(newComments);
 
+// https://developer.mozilla.org/pl/docs/Web/JavaScript/Referencje/Operatory/Spread_operator
 var parts = ['shoulders', 'knees'];
 var lyrics = ['head', ...parts, 'and', 'toes'];
 

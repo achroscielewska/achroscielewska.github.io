@@ -1,6 +1,12 @@
 import React from "react";
 import {Panel, Button, Col, Label} from "react-bootstrap";
+
+import { Link } from "react-router-dom";
+import {LinkContainer} from "react-router-bootstrap"
+
+
 import img from "../img/champagne-146885_640.png"
+
 
 const ItemCard = (props) => {
     console.log(props.tags);
@@ -28,7 +34,12 @@ const ItemCard = (props) => {
 
                     </div>
                     <div>
-                        <Button >Details</Button>
+                        <Button >
+                            <Link to={"/details"}>
+                                Details
+                            </Link>
+
+                        </Button>
                     </div>
                 </div>
             </div>

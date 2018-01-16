@@ -6,6 +6,7 @@ body {
 }
 
 .card {
+  margin: 5px auto;
   height: 400px;
   display: flex;
   flex-direction: row;
@@ -32,6 +33,7 @@ body {
   display:flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap
 }
 
 .description-detalis {
@@ -43,7 +45,7 @@ body {
   position: absolute;
   width: 50%;
   height: 80%;
-  top: 10%;
+  top: 5%;
   left: 50%;
   transform: translate(-50%, -50%);
 }

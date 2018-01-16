@@ -11,7 +11,9 @@ const Home = () => (
             <h2>Home</h2>
             <hr />
 
-            {dataset.map(item => (
+            {dataset
+                .filter(item =>item.isActive == true)
+                .map(item => (
                 <ItemCard
                     key={item.id}
                     title={item.title}

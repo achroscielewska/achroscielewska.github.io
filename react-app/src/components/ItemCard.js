@@ -15,9 +15,12 @@ const ItemCard = (props) => {
                     <div></div>
                     <div></div>
                     <div></div>
+                    <div></div>
                     <div className='description-detalis'>
                         <b> {props.title} </b>
+
                     </div>
+                        <p> {props.date.substr(0, 10)} </p>
                     <div>
                         {props.tags.map(tag => (
                             <Label>{tag}</Label>
@@ -25,7 +28,7 @@ const ItemCard = (props) => {
 
                     </div>
                     <div>
-                        <Button >Szczegóły</Button>
+                        <Button >Details</Button>
                     </div>
                 </div>
             </div>

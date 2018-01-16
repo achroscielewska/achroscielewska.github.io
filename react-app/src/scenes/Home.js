@@ -12,7 +12,7 @@ const Home = () => (
             <hr />
 
             {dataset
-                .filter(item =>item.isActive == true)
+                .filter(item =>item.isActive === true)
                 .map(item => (
                 <ItemCard
                     key={item.id}

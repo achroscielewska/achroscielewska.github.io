@@ -1,15 +1,13 @@
 import React from "react";
-import {Panel, Button, Col, Label} from "react-bootstrap";
+import {Button, Col, Label} from "react-bootstrap";
 
 import { Link } from "react-router-dom";
-import {LinkContainer} from "react-router-bootstrap"
-
 
 import img from "../img/champagne-146885_640.png"
 
 
 const ItemCard = (props) => {
-    console.log(props.tags);
+
     return (
         <Col xs={12} sm={6} md={3}>
             <div className='card'>
@@ -28,13 +26,12 @@ const ItemCard = (props) => {
                     </div>
                         <p> {props.date.substr(0, 10)} </p>
                     <div>
-                        {props.tags.map(tag => (
-                            <Label>{tag}</Label>
+                        {props.tags.map((tag,index) => (
+                            <Label key={index}>{tag}</Label>
                         ))}
-
                     </div>
                     <div>
-                        <Button >
+                        <Button className="detailsBtn">
                             <Link to={"/details"}>
                                 Details
                             </Link>
@@ -45,7 +42,6 @@ const ItemCard = (props) => {
             </div>
         </Col>
     )
-    console.log('this.props')
 };
 
 export default ItemCard;

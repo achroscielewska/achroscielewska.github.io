@@ -21,7 +21,7 @@ body {
   display: flex;
   flex-direction: column;
   border-radius: 20px;
-  border: 1px solid green;
+  border: 1px solid #008800;
   background-color: white;
 }
 
@@ -59,4 +59,13 @@ img{
 
 .label  {
   margin: 2px;
+}
+
+.detailsBtn {
+  width: 150px;
+  background-color: #ffffff;
+  border: 1px solid #008800;
+  border-radius: 10px;
+  opacity: 0.74;
+  text-align: center;
 }

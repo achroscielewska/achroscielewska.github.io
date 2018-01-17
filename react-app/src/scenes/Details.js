@@ -3,6 +3,7 @@ import {Row, Col } from "react-bootstrap";
 
 import { Link } from "react-router-dom";
 
+import DetailsContent from "../components/DetailsContent";
 
 const Details = () => (
     <Row className="show-grid">
@@ -14,12 +15,9 @@ const Details = () => (
 
                 <span> details</span>
             </h2>
-
             <hr />
 
-            <p>
-                Details
-            </p>
+            <DetailsContent title={'abc'}/>
 
         </Col>
     </Row>

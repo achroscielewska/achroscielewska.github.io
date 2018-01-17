@@ -8,18 +8,25 @@ import img from "../img/champagne-146885_640.png"
 
 const ItemCard = (props) => {
 
+    const handleClick = () => {
+        const selectedItem = props.selectCart({
+                title: props.title,
+                description :props.description
+            });
+    }
+
     return (
         <Col xs={12} sm={6} md={3}>
-            <div className='itemCard'>
+            <div className='item-card'>
 
-                <div className='itemCardImage'>
+                <div className='item-card-image'>
                     <img src={img} />
                 </div>
-                <div className='itemCardDescrip'>
+                <div className='item-card-descrip'>
                     <div></div>
                     <div></div>
 
-                    <div className='itemCardDetalis'>
+                    <div className='item-card-detalis'>
                         <p>
                             <b>{props.title}</b><br/>
                             {props.date.substr(0, 10)}
@@ -31,12 +38,7 @@ const ItemCard = (props) => {
                         ))}
                     </div>
                     <div>
-                        <Button className="itemCardBtn">
-                            <Link to={"/home/details"}>
-                                Details
-                            </Link>
-
-                        </Button>
+                        <Button className="item-card-btn" onClick={handleClick}>Details</Button>
                     </div>
                 </div>
             </div>

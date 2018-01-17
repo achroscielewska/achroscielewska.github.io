@@ -10,29 +10,29 @@ const ItemCard = (props) => {
 
     return (
         <Col xs={12} sm={6} md={3}>
-            <div className='card'>
+            <div className='itemCard'>
 
-                <div className='description'>
-                    <div className='image-contaner'>
-                        <img className='image'  src={img} />
-                    </div>
+                <div className='itemCardImage'>
+                    <img src={img} />
+                </div>
+                <div className='itemCardDescrip'>
                     <div></div>
                     <div></div>
-                    <div></div>
-                    <div></div>
-                    <div className='description-detalis'>
-                        <b> {props.title} </b>
 
+                    <div className='itemCardDetalis'>
+                        <p>
+                            <b>{props.title}</b><br/>
+                            {props.date.substr(0, 10)}
+                        </p>
                     </div>
-                        <p> {props.date.substr(0, 10)} </p>
                     <div>
                         {props.tags.map((tag,index) => (
                             <Label key={index}>{tag}</Label>
                         ))}
                     </div>
                     <div>
-                        <Button className="detailsBtn">
-                            <Link to={"/details"}>
+                        <Button className="itemCardBtn">
+                            <Link to={"/home/details"}>
                                 Details
                             </Link>
 

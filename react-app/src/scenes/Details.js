@@ -12,7 +12,7 @@ const Details = () => (
                     Home
                 </Link>
 
-                <span>&rarr; details</span>
+                <span> details</span>
             </h2>
 
             <hr />

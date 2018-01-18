@@ -7,14 +7,15 @@ import dataset from "../dataset"
 
 class Home extends Component {
     state = {
-        cartItems: []
+        cartItems: {}
     };
 
-    selectCart = (id) => {
+    selectCart = (selectedItem) => {
         this.setState({
-            cartItems: id
-        }, () => {
-            console.log(this.state.cartItems.title)
+            cartItems: selectedItem
+        },
+            () => {
+            console.log(this.state.cartItems)
         });
     }
 
@@ -23,6 +24,7 @@ class Home extends Component {
             <Row className="show-grid">
                 <Col xs={12} >
                     <h2>Home</h2>
+
                     <hr />
 
                     {dataset
@@ -37,6 +39,7 @@ class Home extends Component {
                                 tags={item.tags}
                                 isActive={item.isActive}
                                 selectCart={this.selectCart}
+                                selectedCartItem={this.state.cartItems}
                             />
                         ))}
                 </Col>

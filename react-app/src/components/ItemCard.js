@@ -1,7 +1,7 @@
 import React from "react";
 import {Button, Col, Label} from "react-bootstrap";
 
-import { Link } from "react-router-dom";
+import {LinkContainer} from "react-router-bootstrap"
 
 import img from "../img/champagne-146885_640.png"
 
@@ -10,9 +10,9 @@ const ItemCard = (props) => {
 
     const handleClick = () => {
         const selectedItem = props.selectCart({
-                title: props.title,
-                description :props.description
-            });
+            title: props.title,
+            description :props.description
+        });
     }
 
     return (
@@ -31,6 +31,7 @@ const ItemCard = (props) => {
                             <b>{props.title}</b><br/>
                             {props.date.substr(0, 10)}
                         </p>
+
                     </div>
                     <div>
                         {props.tags.map((tag,index) => (
@@ -38,7 +39,9 @@ const ItemCard = (props) => {
                         ))}
                     </div>
                     <div>
-                        <Button className="item-card-btn" onClick={handleClick}>Details</Button>
+                        <LinkContainer exact to={`/details/`}>
+                            <Button className="item-card-btn" onClick={handleClick}>Details</Button>
+                        </LinkContainer>
                     </div>
                 </div>
             </div>

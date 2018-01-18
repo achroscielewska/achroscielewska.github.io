@@ -1,11 +1,12 @@
-import React from "react";
+import React, {Component} from "react";
 import {Row, Col } from "react-bootstrap";
 
 import { Link } from "react-router-dom";
 
 import DetailsContent from "../components/DetailsContent";
 
-const Details = () => (
+
+const Details = (selectCart) => (
     <Row className="show-grid">
         <Col xs={12} >
             <h2>
@@ -16,6 +17,8 @@ const Details = () => (
                 <span> details</span>
             </h2>
             <hr />
+
+            {/*{cartItem.title}*/}
 
             <DetailsContent title={'abc'}/>
 

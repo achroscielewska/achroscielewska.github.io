@@ -11,12 +11,9 @@ const Details = () => (
         <Col xs={12} >
             <h2>
                 <Link to={"/"}>
-                    Home
+                    x
                 </Link>
-
-                <span> details</span>
             </h2>
-            <hr />
 
             {/*{cartItem.title}*/}
 

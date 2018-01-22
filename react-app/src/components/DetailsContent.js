@@ -1,23 +1,27 @@
 import React from "react";
-import {Button, Col, Label} from "react-bootstrap";
+import {Button, Col, Label, Row} from "react-bootstrap";
+import Img from "../img/champagne-146885_640_1.png"
 
 
 const DetailsContent = () => {
 
     return (
-        <Col xs={12} sm={6} md={3}>
-            <div className='details-container'>
-                <div>
-                    IMG
+        <Row>
+            <Col xs={12} sm={12} md={12}>
+                <div className='details-container'>
+                    <img className='details-img' src={Img}>
+
+                    </img>
+                    <div className='details'>
+                        header detalis
+                    </div>
+                    <div className='details-content'>
+                        content detalis
+                    </div>
                 </div>
-                <div>
-                    header detalis
-                </div>
-                <div>
-                    content detalis
-                </div>
-            </div>
-        </Col>
+            </Col>
+        </Row>
+
     )
 };
 

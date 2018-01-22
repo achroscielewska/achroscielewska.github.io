@@ -10,9 +10,9 @@ class Home extends Component {
         cartItems: {}
     };
 
-    selectCart = (selectedItem) => {
+    selectCart = (id) => {
         this.setState({
-            cartItems: selectedItem
+            cartItems: id
         },
             () => {
             console.log(this.state.cartItems)
@@ -32,6 +32,7 @@ class Home extends Component {
                         .map(item => (
                             <ItemCard
                                 key={item.id}
+                                id={item.id}
                                 title={item.title}
                                 description={item.description}
                                 img={item.img}
@@ -39,7 +40,6 @@ class Home extends Component {
                                 tags={item.tags}
                                 isActive={item.isActive}
                                 selectCart={this.selectCart}
-                                selectedCartItem={this.state.cartItems}
                             />
                         ))}
                 </Col>

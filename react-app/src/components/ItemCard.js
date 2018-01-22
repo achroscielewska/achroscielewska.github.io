@@ -39,7 +39,7 @@ const ItemCard = (props) => {
                         ))}
                     </div>
                     <div>
-                        <LinkContainer exact to={`/details/`}>
+                        <LinkContainer exact to={`/${props.title}`}>
                             <Button className="item-card-btn" onClick={handleClick}>Details</Button>
                         </LinkContainer>
                     </div>

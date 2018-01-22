@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import DetailsContent from "../components/DetailsContent";
 
 
-const Details = (selectCart) => (
+const Details = () => (
     <Row className="show-grid">
         <Col xs={12} >
             <h2>

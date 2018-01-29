@@ -1,21 +1,23 @@
-import React from 'react'
-import { Grid } from "react-bootstrap";
+import React from 'react';
+import reducer from "./reducers";
+import {createStore} from 'redux';
+import {Provider} from 'react-redux';
 
-import Header from "./components/Header";
+import { Grid } from 'react-bootstrap';
+
+import Header from './components/Header';
 import Footer from './components/Footer';
 
-import {BrowserRouter, Route, Switch} from "react-router-dom"
+import {BrowserRouter, Route, Switch} from 'react-router-dom';
 
-import Home from "./scenes/Home";
-import Details from "./scenes/Details";
+import Home from './scenes/Home';
+import {Details} from './scenes/Details';
 
-class App  extends  React.Component {
-    state = {
-        cartItems: []
-    }
+const store = createStore(reducer);
 
-    render() {
-        return (
+const App = () => {
+    return (
+        <Provider store={store}>
             <BrowserRouter>
                 <Grid>
                     <Header/>
@@ -29,8 +31,8 @@ class App  extends  React.Component {
                     <Footer/>
                 </Grid>
             </BrowserRouter>
-        )
-    }
-}
+        </Provider>
+    )
+};
 
 export default App;

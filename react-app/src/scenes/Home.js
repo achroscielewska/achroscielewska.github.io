@@ -1,23 +1,11 @@
-import React, {Component} from "react";
+import React,{Component} from 'react';
 import {Row, Col } from "react-bootstrap";
 
-import ItemCard from "../components/ItemCard";
+import {ItemCard} from "../components/ItemCard";
 
 import dataset from "../dataset"
 
 class Home extends Component {
-    state = {
-        cartItems: {}
-    };
-
-    selectCart = (id) => {
-        this.setState({
-            cartItems: id
-        },
-            () => {
-            console.log(this.state.cartItems)
-        });
-    }
 
     render() {
         return (
@@ -44,8 +32,7 @@ class Home extends Component {
                         ))}
                 </Col>
             </Row>
-            )
-
+        )
     }
 }
 

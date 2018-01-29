@@ -1,4 +1,6 @@
 import React from "react";
+import {connect} from 'react-redux';
+
 import {Button, Col, Label} from "react-bootstrap";
 
 import {LinkContainer} from "react-router-bootstrap"
@@ -8,12 +10,11 @@ import img from "../img/champagne-146885_640.png"
 
 const ItemCard = (props) => {
 
-    const handleClick = () => {
-        const selectedItem = props.selectCart({
-            title: props.title,
-            description :props.description
-        });
-    }
+    const selectItem = () => {
+        props.selectItem(props.id, props.title, props.description, props.img );
+
+    };
+
 
     return (
         <Col xs={12} sm={6} md={3}>
@@ -40,7 +41,7 @@ const ItemCard = (props) => {
                     </div>
                     <div>
                         <LinkContainer exact to={`/${props.title}`}>
-                            <Button className="item-card-btn" onClick={handleClick}>Details</Button>
+                            <Button className="item-card-btn" onClick={selectItem}cd>Details</Button>
                         </LinkContainer>
                     </div>
                 </div>
@@ -49,4 +50,24 @@ const ItemCard = (props) => {
     )
 };
 
-export default ItemCard;
+const mapStateToProps = (state) => {
+    return {
+        details: state.details
+    }
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        selectItem: (id, title,description,img) => dispatch({
+            type: "SELECT_ITEM",
+            id,
+            title,
+            description,
+            img
+        })
+    }
+}
+
+const connectedCounter = connect(mapStateToProps, mapDispatchToProps)(ItemCard);
+
+export {connectedCounter as ItemCard};

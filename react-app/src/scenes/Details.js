@@ -4,13 +4,9 @@ import { connect } from 'react-redux';
 import {Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
-import Img from "../img/champagne-146885_640_1.png"
-
-
 const Details = (props) => {
     const {id, title, description, img} = props;
 
-    console.log({id, title, description, img})
 
     return (
     <Row className="show-grid">
@@ -24,7 +20,7 @@ const Details = (props) => {
             <Row>
                 <Col xs={12} sm={12} md={12}>
                     <div className='details-container'>
-                        <img className='details-img' src={Img}>
+                        <img className='details-img' src={`${img}/100/200?image=${Math.floor((Math.random() * 70) + 1)}`}>
 
                         </img>
                         <div className='details'>

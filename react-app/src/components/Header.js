@@ -6,7 +6,7 @@ import {LinkContainer} from "react-router-bootstrap"
 const Header = () => (
     <Navbar collapseOnSelect>
         <Navbar.Header>
-            <Navbar.Brand>Wine Shop</Navbar.Brand>
+            <Navbar.Brand>Minim Shop</Navbar.Brand>
             <Navbar.Toggle />
         </Navbar.Header>
 

@@ -20,7 +20,7 @@ const Details = (props) => {
             <Row>
                 <Col xs={12} sm={12} md={12}>
                     <div className='details-container'>
-                        <img className='details-img' src={`${img}/100/200?image=${Math.floor((Math.random() * 70) + 1)}`}>
+                        <img className='details-img' src={`${img}/300/600?image=${Math.floor((Math.random() * 70) + 1)}`}>
 
                         </img>
                         <div className='details'>

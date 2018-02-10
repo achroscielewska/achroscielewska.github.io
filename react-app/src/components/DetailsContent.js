@@ -1,6 +1,5 @@
 import React from "react";
 import {Button, Col, Label, Row} from "react-bootstrap";
-import Img from "../img/champagne-146885_640_1.png"
 
 
 const DetailsContent = () => {

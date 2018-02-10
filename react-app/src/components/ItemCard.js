@@ -13,7 +13,7 @@ const ItemCard = (props) => {
 
     };
 
-    const {img, title, date, tags} = props;
+    const {id, img, title, date, tags} = props;
 
 
     return (
@@ -40,8 +40,8 @@ const ItemCard = (props) => {
                         ))}
                     </div>
                     <div>
-                        <LinkContainer exact to={`/${title}`}>
-                            <Button className="item-card-btn" onClick={selectItem}cd>Details</Button>
+                        <LinkContainer exact to={`/${id}`}>
+                            <Button className="item-card-btn" onClick={selectItem}>Details</Button>
                         </LinkContainer>
                     </div>
                 </div>

@@ -1,16 +1,24 @@
-import React, { Component } from 'react';
-import './App.css';
+import React from 'react';
+import {createStore} from 'redux';
+import {Provider} from 'react-redux';
 
-class App extends Component {
-  render() {
+import reducer from "./reducers";
+
+import ToDo from './scenes/ToDo'
+
+
+const store = createStore(reducer);
+
+const App = () => {
     return (
-      <div>
-        <p>
-            TODO List
-        </p>
-      </div>
-    );
-  }
-}
+        <Provider store={store}>
+          <div>
+
+            <ToDo />
+
+          </div>
+        </Provider>
+    )
+};
 
 export default App;

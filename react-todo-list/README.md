@@ -15,6 +15,9 @@ https://fonts.google.com
 
 - wybieram czcionkę, kopiuje link
 - wklejam link do pliku index.html w folderze public nad <title>
-- przy okazcji zmieniam <title>
+- przy okazcji zmieniam "title"
+- i dostawiam czcionkę w index.css
 
-i dostawiam czcionkę w index.css
+-- URUCHAMIAM PROJEKT --
+
+- $ npm start

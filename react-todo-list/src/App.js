@@ -7,17 +7,16 @@ import reducer from "./reducers";
 import ToDo from './scenes/ToDo'
 
 
-const store = createStore(reducer);
+// const store = createStore(reducer);
 
 const App = () => {
     return (
-        <Provider store={store}>
           <div>
 
             <ToDo />
 
           </div>
-        </Provider>
+
     )
 };
 

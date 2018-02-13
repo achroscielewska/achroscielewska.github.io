@@ -1,9 +1,9 @@
 
 import {combineReducers} from "redux";
 
-import toDo from "./toDoItems"
+import {toDoReducer} from "./toDoReducer"
 
 
 export default combineReducers({
-
+    toDoItems: toDoReducer
 });

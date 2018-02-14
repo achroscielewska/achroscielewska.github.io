@@ -22,7 +22,7 @@ class ToDo extends Component  {
                 body: JSON.stringify({
                     user: user,
                     name: todoName,
-                    todo: toDoList
+                    todo: toDoList.map(index => index)
                 }),
                 headers: new Headers({ 'Content-Type': 'application/json' })
             };
@@ -73,7 +73,7 @@ const getData = () => {
         fetch(`http://api.isa-jfdzw1.vipserv.org/todo?user=${user}&name=${todoName}`)
             .then(rsp => rsp.json())
             .then(data => {
-                dispatch({ type: "SUCCESS", items: data.todo[0] });
+                dispatch({ type: "SUCCESS", items: data.todo});
             })
             .catch(err => {
                 dispatch({ type: "ERROR" });

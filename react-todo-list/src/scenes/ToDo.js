@@ -7,18 +7,41 @@ import ToDoList from '../components/ToDoList/ToDoList'
 
 class ToDo extends Component  {
 
+
     componentDidMount() {
         this.props.getItemsFromApi();
     }
 
     render () {
 
+        const createOrUpdateTodo = () => {
+            const toDoList = this.props.items
+
+            const options = {
+                method: 'POST',
+                body: JSON.stringify({
+                    user: user,
+                    name: todoName,
+                    todo: toDoList
+                }),
+                headers: new Headers({ 'Content-Type': 'application/json' })
+            };
+
+            fetch('http://api.isa-jfdzw1.vipserv.org/todo', options)
+                .then(response => response.json())
+                .then(json => {
+                    console.log(json);
+                    getData();
+                });
+
+        }
+
         return (
 
             <div>
                 <h1>To do list</h1>
                 <NewToDo/>
-
+                <button onClick={createOrUpdateTodo}>SAVE TASK LIST</button>
                 <ToDoList
                     doDoList = {this.props.items}
                 />
@@ -50,7 +73,7 @@ const getData = () => {
         fetch(`http://api.isa-jfdzw1.vipserv.org/todo?user=${user}&name=${todoName}`)
             .then(rsp => rsp.json())
             .then(data => {
-                dispatch({ type: "SUCCESS", items: data.todo });
+                dispatch({ type: "SUCCESS", items: data.todo[0] });
             })
             .catch(err => {
                 dispatch({ type: "ERROR" });
@@ -59,26 +82,6 @@ const getData = () => {
 };
 
 
-const createOrUpdateTodo = () => {
-
-    const options = {
-        method: 'POST',
-        body: JSON.stringify({
-            user: user,
-            name: todoName,
-            todo: this.props.items
-        }),
-        headers: new Headers({ 'Content-Type': 'application/json' })
-    };
-
-    fetch('http://api.isa-jfdzw1.vipserv.org/todo', options)
-        .then(response => response.json())
-        .then(json => {
-            console.log(json);
-            getData();
-        });
-
-}
 
 
 const connectedToDo = connect(mapStateToProps , mapDispatchToProps)(ToDo);

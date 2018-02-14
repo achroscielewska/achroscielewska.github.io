@@ -8,6 +8,7 @@ const toDoReducer = (state = initState, action) => {
 
     const newToDo = {
         title: action.title,
+        tags: ['praca', 'kurs']
     }
 
     console.log(state)

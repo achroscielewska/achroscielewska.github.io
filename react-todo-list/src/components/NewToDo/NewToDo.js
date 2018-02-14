@@ -16,7 +16,7 @@ const NewToDo = (props) => {
         <div className="NewToDo">
             <label>Add new item</label><br/>
             <input type="text" ref={title => newItemTitle = title} defaultValue="title"/><br/>
-            <button onClick={handleClickAdd}>DODAJ</button>
+            <button onClick={handleClickAdd}>ADD</button>
         </div>
     )
 }

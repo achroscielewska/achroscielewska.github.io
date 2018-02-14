@@ -1,51 +1,41 @@
 import React from 'react';
+import {connect} from 'react-redux';
+
+import './NewToDo.css'
 
 const NewToDo = (props) => {
 
-    let newItemTitle = null;
+    let newItemTitle = '';
 
-    const getTodo = (user, todoName) => {
-        fetch(`http://api.isa-jfdzw1.vipserv.org/todo?user=${user}&name=${todoName}`)
-            .then(response => response.json())
-            .then(json => console.log(json));
-    }
+    const handleClickAdd = () => {
+        props.addItem(newItemTitle.value);
+    };
 
-    const createOrUpdateTodo = () => {
-        const user = "agnieszka";
-        const todoName = 'bardzo ważne zadania';
-        const todo = [{
-            title: newItemTitle.value,
-            tags: ['praca', 'kurs']
-        }];
-
-        const options = {
-            method: 'POST',
-            body: JSON.stringify({
-                user: user,
-                name: todoName,
-                todo: todo
-                }),
-            headers: new Headers({ 'Content-Type': 'application/json' })
-            };
-
-        fetch('http://api.isa-jfdzw1.vipserv.org/todo', options)
-            .then(response => response.json())
-            .then(json => {
-                console.log(json);
-                getTodo(user, todoName);
-            });
-
-        }
 
     return (
-        <div>
-            <label>Add new to do</label><br/>
+        <div className="NewToDo">
+            <label>Add new item</label><br/>
             <input type="text" ref={title => newItemTitle = title} defaultValue="title"/><br/>
-
-            <button onClick={createOrUpdateTodo}>ADD</button>
+            <button onClick={handleClickAdd}>DODAJ</button>
         </div>
     )
 }
 
+const mapStateToProps = (state) => {
+    return {
+        todoList: state.toDo
+    }
+};
 
-export default NewToDo;
+const mapDispatchToProps = (dispatch) => {
+    return {
+        addItem: (title) => dispatch({
+            type: "ADD_TO_DO",
+            title,
+        }),
+    }
+}
+
+const connectedCounter = connect(mapStateToProps, mapDispatchToProps)(NewToDo);
+
+export {connectedCounter as NewToDo};

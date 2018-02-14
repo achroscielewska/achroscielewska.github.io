@@ -6,9 +6,18 @@ const initState = {
 
 const toDoReducer = (state = initState, action) => {
 
+    const newToDo = {
+        title: action.title,
+    }
+
     console.log(state)
 
     switch (action.type) {
+        case 'ADD_TO_DO':
+            return {
+                ...state,
+                items: [...state.items, newToDo]
+            }
         case "PENDING":
             return {...state, pending: true};
         case "ERROR":

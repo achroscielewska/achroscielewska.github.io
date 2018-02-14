@@ -6,7 +6,7 @@ import {Provider} from 'react-redux';
 
 import reducer from "./reducers";
 
-import ToDo from './scenes/ToDo'
+import {ToDo} from './scenes/ToDo'
 
 
 const store = createStore(

@@ -7,7 +7,7 @@ const Task = (props) => {
     return (
 
         <div className="Task">
-            Zadanie: {props.title} <br/>
+            <b>Task:</b> {props.title} <br/>
 
             <button>FINISH</button>
 

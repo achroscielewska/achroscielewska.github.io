@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
+import './toDo.css'
+
 import {NewToDo} from '../components/NewToDo/NewToDo'
 import ToDoList from '../components/ToDoList/ToDoList'
 
@@ -37,7 +39,7 @@ class ToDo extends Component  {
             <div>
                 <h1>To do list</h1>
                 <NewToDo/>
-                <button onClick={createOrUpdateTodo}>SAVE TASK LIST</button>
+                <button className="saveButton" onClick={createOrUpdateTodo}>SAVE LIST</button>
                 <ToDoList
                     doDoList = {this.props.items}
                 />

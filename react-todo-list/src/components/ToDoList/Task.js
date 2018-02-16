@@ -10,6 +10,7 @@ const Task = (props) => {
             <b>Task:</b> {props.title} <br/>
 
             <button>FINISH</button>
+            <button>DELETE</button>
 
         </div>
     )

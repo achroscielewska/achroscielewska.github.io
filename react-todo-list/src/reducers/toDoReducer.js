@@ -8,10 +8,12 @@ const toDoReducer = (state = initState, action) => {
 
     const newToDo = {
         title: action.title,
-        tags: ['praca', 'kurs']
+        tags: [
+            {priority: action.priority},
+            {finished: false}
+            ]
     }
 
-    console.log(state)
 
     switch (action.type) {
         case 'ADD_TO_DO':

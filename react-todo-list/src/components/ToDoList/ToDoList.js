@@ -8,7 +8,7 @@ const ToDoList = (props) => {
             <ol>
                 {props.doDoList.map((item,id) => (
                     <Task key={id}
-                          id={id}
+                          id={item.id}
                           title= {item.title}
                           priority={item.priority}
                           finised={item.finised}

@@ -8,6 +8,7 @@ const Task = (props) => {
 
     const handleClickTaskDone = () => {
         props.finised(props.id);
+        console.log(props.id)
 
     }
     return (

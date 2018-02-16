@@ -6,10 +6,12 @@ const initState = {
 
 const toDoReducer = (state = initState, action) => {
 
+    const {id, title, priority } = action;
+
     const newToDo = {
         id: Date(),
-        title: action.title,
-        priority: action.priority,
+        title: title,
+        priority: priority,
         finised: false
 
     }
@@ -25,15 +27,15 @@ const toDoReducer = (state = initState, action) => {
             const updatedStateItems = [...state.items]
             console.log(updatedStateItems)
 
-            // const newItemIndex = updatedStateItems.findIndex(item => item.id === id);
-            //
-            // const newItem = {...updatedStateItems[newItemIndex]};
-            //
-            // newItem.finised = !newItem.finised
-            //
-            // updatedStateItems[newItemIndex] = newItem;
-            //
-            // return updatedState;
+            const newItemIndex = updatedStateItems.findIndex(item => item.id === id);
+
+            const newItem = {...updatedStateItems[newItemIndex]};
+
+            newItem.finised = !newItem.finised
+
+            updatedStateItems[newItemIndex] = newItem;
+
+            return updatedState;
 
         case "PENDING":
             return {...state, pending: true};

@@ -1,6 +1,14 @@
-.NewToDo {
+.newToDo {
     width: 50%;
     margin: 16px auto;
     padding: 16px;
     text-align: center;
+}
+
+.textImput {
+    width: 80%;
+    height: 30px;
+    margin: 15px 20px 5px 20px;
+    padding: 3px 2px;
+    font-family: 'Titillium Web', sans-serif;
 }

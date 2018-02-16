@@ -11,11 +11,10 @@ const NewToDo = (props) => {
         props.addItem(newItemTitle.value);
     };
 
-
     return (
-        <div className="NewToDo">
-            <label>Add new item</label><br/>
-            <input type="text" ref={title => newItemTitle = title} defaultValue="title"/><br/>
+        <div className="newToDo">
+            <label>Add new task</label><br/>
+            <input className="textImput" type="text" ref={title => newItemTitle = title} defaultValue="task title"/><br/>
             <button onClick={handleClickAdd}>ADD</button>
         </div>
     )

@@ -1,12 +1,10 @@
 import React, {Component} from 'react';
-
 import {connect} from 'react-redux';
 
 import {NewToDo} from '../components/NewToDo/NewToDo'
 import ToDoList from '../components/ToDoList/ToDoList'
 
 class ToDo extends Component  {
-
 
     componentDidMount() {
         this.props.getItemsFromApi();
@@ -33,11 +31,9 @@ class ToDo extends Component  {
                     console.log(json);
                     getData();
                 });
-
         }
 
         return (
-
             <div>
                 <h1>To do list</h1>
                 <NewToDo/>
@@ -45,7 +41,6 @@ class ToDo extends Component  {
                 <ToDoList
                     doDoList = {this.props.items}
                 />
-
             </div>
         )
     }
@@ -80,9 +75,6 @@ const getData = () => {
             });
     };
 };
-
-
-
 
 const connectedToDo = connect(mapStateToProps , mapDispatchToProps)(ToDo);
 

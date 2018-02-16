@@ -10,6 +10,7 @@ const ToDoList = (props) => {
                     <Task key={id}
                           id={id}
                           title= {item.title}
+                          priority={item.priority}
                     />
                 ))}
             </ol>

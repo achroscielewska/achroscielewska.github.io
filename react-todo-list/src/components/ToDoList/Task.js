@@ -6,11 +6,13 @@ const Task = (props) => {
 
     return (
 
-        <div className="Task">
-            <b>Task:</b> {props.title} <br/>
 
-            <button>FINISH</button>
-            <button>DELETE</button>
+        <div className="Task">
+            <p><b>Task:</b> {props.title}</p>
+            <p><b>Priority:</b> {props.priority}</p>
+
+            <button className="taskButton">FINISH</button>
+            <button className="taskButton">DELETE</button>
 
         </div>
     )

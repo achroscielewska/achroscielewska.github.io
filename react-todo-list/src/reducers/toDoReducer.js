@@ -8,11 +8,11 @@ const toDoReducer = (state = initState, action) => {
 
     const newToDo = {
         title: action.title,
-        tags: [
-            {priority: action.priority},
-            {finished: false}
-            ]
+        priority: action.priority
+
     }
+
+    console.log(newToDo)
 
 
     switch (action.type) {

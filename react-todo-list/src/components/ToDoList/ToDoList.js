@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Task from './Task';
+import {Task} from './Task';
 
 const ToDoList = (props) => {
 
@@ -11,6 +11,7 @@ const ToDoList = (props) => {
                           id={id}
                           title= {item.title}
                           priority={item.priority}
+                          finised={item.finised}
                     />
                 ))}
             </ol>

@@ -7,13 +7,12 @@ const initState = {
 const toDoReducer = (state = initState, action) => {
 
     const newToDo = {
+        id: Date(),
         title: action.title,
-        priority: action.priority
+        priority: action.priority,
+        finised: false
 
     }
-
-    console.log(newToDo)
-
 
     switch (action.type) {
         case 'ADD_TO_DO':
@@ -21,6 +20,21 @@ const toDoReducer = (state = initState, action) => {
                 ...state,
                 items: [...state.items, newToDo]
             }
+        case 'FINISHED':
+            const updatedState = {...state}
+            const updatedStateItems = [...state.items]
+            console.log(updatedStateItems)
+
+            // const newItemIndex = updatedStateItems.findIndex(item => item.id === id);
+            //
+            // const newItem = {...updatedStateItems[newItemIndex]};
+            //
+            // newItem.finised = !newItem.finised
+            //
+            // updatedStateItems[newItemIndex] = newItem;
+            //
+            // return updatedState;
+
         case "PENDING":
             return {...state, pending: true};
         case "ERROR":

@@ -4,6 +4,8 @@ import {Task} from './Task';
 
 const ToDoList = (props) => {
 
+        console.log(props)
+
         return (
             <ol>
                 {props.doDoList.map((item,id) => (
@@ -11,10 +13,12 @@ const ToDoList = (props) => {
                           id={item.id}
                           title= {item.title}
                           priority={item.priority}
-                          finised={item.finised}
+                          isFinished={item.isFinished}
                     />
                 ))}
             </ol>
+
+
         );
 }
 

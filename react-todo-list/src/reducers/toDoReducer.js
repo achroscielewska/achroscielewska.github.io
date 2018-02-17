@@ -45,14 +45,12 @@ const toDoReducer = (state = initState, action) => {
 
             const itemToRemoveIndex = updatedStateItemsRemove.findIndex(item => item.id === id);
 
-            console.log(updatedStateItemsRemove)
-
-            const itemRemove = [
+            const itemToRemove = [
                 ...updatedStateItemsRemove.slice(0, itemToRemoveIndex),
                 ...updatedStateItemsRemove.slice(itemToRemoveIndex + 1)
             ];
 
-            updatedStateRemove.items = itemRemove;
+            updatedStateRemove.items = itemToRemove;
 
             return updatedStateRemove;
 
@@ -66,7 +64,6 @@ const toDoReducer = (state = initState, action) => {
         default:
             return state;
     }
-
 };
 
 export {toDoReducer};

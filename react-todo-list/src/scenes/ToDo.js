@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
-import './toDo.css'
+import './toDo.css';
 
-import {NewToDo} from '../components/NewToDo/NewToDo'
-import ToDoList from '../components/ToDoList/ToDoList'
+import {NewToDo} from '../components/NewToDo/NewToDo';
+import ToDoList from '../components/ToDoList/ToDoList';
 
 class ToDo extends Component  {
 
@@ -15,7 +15,7 @@ class ToDo extends Component  {
     render () {
 
         const createOrUpdateTodo = () => {
-            const toDoList = this.props.items
+            const toDoList = this.props.items;
 
             const options = {
                 method: 'POST',
@@ -33,9 +33,10 @@ class ToDo extends Component  {
                     console.log(json);
                     getData();
                 });
-        }
+        };
 
         return (
+
             <div>
                 <h1>To do list</h1>
                 <NewToDo/>
@@ -44,9 +45,10 @@ class ToDo extends Component  {
                     doDoList = {this.props.items}
                 />
             </div>
+
         )
     }
-};
+}
 
 const mapStateToProps = (state) => {
     return {

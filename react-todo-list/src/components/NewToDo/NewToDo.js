@@ -14,6 +14,7 @@ const NewToDo = (props) => {
 
 
     return (
+
         <div className="newToDo">
             <label>Add new task:</label><br/>
             <input className="textImput" type="text" ref={title => newItemTitle = title} defaultValue="task title"/><br/>
@@ -25,8 +26,9 @@ const NewToDo = (props) => {
             </select><br/>
             <button className="addButton" onClick={handleClickAdd}>ADD</button>
         </div>
+
     )
-}
+};
 
 const mapStateToProps = (state) => {
     return {
@@ -43,7 +45,7 @@ const mapDispatchToProps = (dispatch) => {
 
         }),
     }
-}
+};
 
 const connectedCounter = connect(mapStateToProps, mapDispatchToProps)(NewToDo);
 

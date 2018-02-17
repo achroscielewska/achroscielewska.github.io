@@ -4,8 +4,6 @@ import {Task} from './Task';
 
 const ToDoList = (props) => {
 
-        console.log(props)
-
         return (
             <ol>
                 {props.doDoList.map((item,id) => (
@@ -20,7 +18,7 @@ const ToDoList = (props) => {
 
 
         );
-}
+};
 
 
 export default ToDoList;

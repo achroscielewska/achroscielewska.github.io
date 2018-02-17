@@ -9,9 +9,14 @@ const Task = (props) => {
     const handleClickTaskDone = () => {
         props.finished(props.id);
 
-    }
-    return (
+    };
 
+    const handleClickDeleteTask = () => {
+        props.remove(props.id);
+
+    };
+
+    return (
 
         <div className="Task">
             <p><b>Task:</b> {props.title}</p>
@@ -19,7 +24,7 @@ const Task = (props) => {
             <p>Finished: <u>{props.isFinished ? "yes":"no"}</u></p>
 
             <button className="taskButton" onClick={handleClickTaskDone}>{props.isFinished ? "REOPEN":"FINISH"}</button>
-            <button className="taskButton">DELETE</button>
+            <button className="taskButton" onClick={handleClickDeleteTask}>DELETE</button>
 
         </div>
     )
@@ -32,9 +37,13 @@ const mapDispatchToProps = (dispatch) => {
             type: "FINISHED",
             id,
         }),
+        remove: (id) => dispatch({
+            type: "REMOVE",
+            id,
+        }),
 
     }
-}
+};
 
 
 const connectedCounter = connect(null, mapDispatchToProps)(Task);

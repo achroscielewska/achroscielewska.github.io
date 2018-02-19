@@ -18,15 +18,16 @@ const Task = (props) => {
 
     return (
 
-        <div className="Task">
+        <ol className="Task">
             <p><b>Task:</b> {props.title}</p>
             <p><b>Priority:</b> {props.priority}</p>
-            <p>Finished: <u>{props.isFinished ? "yes":"no"}</u></p>
+            <p>Finished: <u>{props.isFinished ? "yes" : "no"}</u></p>
 
-            <button className="taskButton" onClick={handleClickTaskDone}>{props.isFinished ? "REOPEN":"FINISH"}</button>
+            <button className="taskButton"
+                    onClick={handleClickTaskDone}>{props.isFinished ? "REOPEN" : "FINISH"}</button>
             <button className="taskButton" onClick={handleClickDeleteTask}>DELETE</button>
 
-        </div>
+        </ol>
     )
 };
 

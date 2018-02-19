@@ -6,7 +6,7 @@ const initState = {
 
 const toDoReducer = (state = initState, action) => {
 
-    const addNewTask =() => {
+    const addNewTask = () => {
         const {title, priority} = action;
 
         const newToDo = {
@@ -59,7 +59,7 @@ const toDoReducer = (state = initState, action) => {
 
     switch (action.type) {
         case 'ADD_TO_DO':
-           return addNewTask();
+            return addNewTask();
         case 'FINISHED':
             return finishTask();
         case 'REMOVE':

@@ -18,11 +18,11 @@ const store = createStore(
 const App = () => {
     return (
         <Provider store={store}>
-          <div>
+            <div>
 
-            <ToDo />
+                <ToDo/>
 
-          </div>
+            </div>
         </Provider>
 
     )

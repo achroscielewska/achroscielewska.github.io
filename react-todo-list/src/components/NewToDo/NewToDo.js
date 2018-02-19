@@ -5,8 +5,8 @@ import './NewToDo.css'
 
 const NewToDo = (props) => {
 
-    let newItemTitle = '';
-    let newItemPriority = '';
+    let newItemTitle = "";
+    let newItemPriority = "";
 
     const handleClickAdd = () => {
         props.addItem(newItemTitle.value, newItemPriority.value);
@@ -17,7 +17,8 @@ const NewToDo = (props) => {
 
         <div className="newToDo">
             <label>Add new task:</label><br/>
-            <input className="textImput" type="text" ref={title => newItemTitle = title} defaultValue="task title"/><br/>
+            <input className="textImput" type="text" ref={title => newItemTitle = title}
+                   defaultValue="task title"/><br/>
             <label>Priority:</label><br/>
             <select className="select" ref={priority => newItemPriority = priority} defaultValue="task priority">
                 <option value="asap">asap</option>
@@ -38,7 +39,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        addItem: (title,priority) => dispatch({
+        addItem: (title, priority) => dispatch({
             type: "ADD_TO_DO",
             title,
             priority

@@ -6,7 +6,7 @@ import './toDo.css';
 import {NewToDo} from '../components/NewToDo/NewToDo';
 import ToDoList from '../components/ToDoList/ToDoList';
 
-class ToDo extends Component  {
+class ToDo extends Component {
 
     componentDidMount() {
         this.props.getItemsFromApi(this.getData);
@@ -14,15 +14,15 @@ class ToDo extends Component  {
 
     getData() {
         return dispatch => {
-            dispatch({ type: "PENDING" });
+            dispatch({type: "PENDING"});
 
             fetch(`http://api.isa-jfdzw1.vipserv.org/todo?user=agnieszka&name=bardzo ważne zadania`)
                 .then(rsp => rsp.json())
                 .then(data => {
-                    dispatch({ type: "SUCCESS", items: data.todo});
+                    dispatch({type: "SUCCESS", items: data.todo});
                 })
                 .catch(err => {
-                    dispatch({ type: "ERROR" });
+                    dispatch({type: "ERROR"});
                 });
         };
     };
@@ -35,7 +35,7 @@ class ToDo extends Component  {
                 name: 'bardzo ważne zadania',
                 todo: toDoList.map(index => index)
             }),
-            headers: new Headers({ 'Content-Type': 'application/json' })
+            headers: new Headers({'Content-Type': 'application/json'})
         };
 
         fetch('http://api.isa-jfdzw1.vipserv.org/todo', options)
@@ -46,7 +46,7 @@ class ToDo extends Component  {
             });
     };
 
-    render () {
+    render() {
         return (
 
             <div>
@@ -59,7 +59,7 @@ class ToDo extends Component  {
                 </button>
 
                 <ToDoList
-                    doDoList = {this.props.items}
+                    doDoList={this.props.items}
                 />
             </div>
         )
@@ -78,6 +78,6 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-const connectedToDo = connect(mapStateToProps , mapDispatchToProps)(ToDo);
+const connectedToDo = connect(mapStateToProps, mapDispatchToProps)(ToDo);
 
 export {connectedToDo as ToDo};

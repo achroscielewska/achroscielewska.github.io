@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+
+      <button class="btn" (click)="onToggleDetails()">
+        Display Detalis
+      </button>
+      <p *ngIf="showSecret">Secret Password</p>
+
+      <p
+        *ngFor="let logItem of log; let id = index"
+        [ngStyle]="{backgroundColor: id >=4 ? 'blue': 'transparent'}"
+        [ngClass]="{'white-text': id >=4}"
+      >{{ logItem }}</p>
+
+    </div>
+  </div>
+</div>

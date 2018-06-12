@@ -6,13 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  newTask:string
-  tasksList: Array<string> = [];
-  tasksDone: Array<string> = [];
 
-  addTask(){
-    this.tasksList.push(this.newTask)
-    this.newTask = ''
+  tasksList: Array<string> = [];
+  tasksFinished: Array<string> = [];
+
+  addTask(task: string){
+    this.tasksList.push(task)
   }
 
   removeTask(task:string) {
@@ -20,7 +19,7 @@ export class AppComponent {
   }
 
   finishTask(task:string) {
-    this.tasksDone.push(task)
+    this.tasksFinished.push(task)
     this.removeTask(task)
   }
 }

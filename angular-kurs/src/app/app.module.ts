@@ -6,6 +6,7 @@ import { AppComponent } from "./app.component";
 import { AddTaskComponent } from './add-task/add-task.component';
 import { ToDoTaskComponent } from './to-do-task/to-do-task.component';
 import { FinishedTaskComponent } from './finished-task/finished-task.component';
+import { TasksService } from './services/task.service';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,7 @@ import { FinishedTaskComponent } from './finished-task/finished-task.component';
     BrowserModule,
     FormsModule
   ],
-  providers: [],
+  providers: [TasksService],
   bootstrap: [
     AppComponent
   ]

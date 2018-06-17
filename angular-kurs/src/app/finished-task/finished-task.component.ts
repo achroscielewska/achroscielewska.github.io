@@ -12,8 +12,8 @@ export class FinishedTaskComponent implements OnInit {
   tasksFinished: Array<Task> = []
 
   constructor(private tasksService: TasksService) {
-    this.tasksService.getTasksFinishedObs().subscribe((tasks: Array<Task>) =>
-    this.tasksFinished = tasks
+    this.tasksService.getTasksListObs().subscribe((tasks: Array<Task>) =>
+    this.tasksFinished = tasks.filter(t => t.isDone === true)
   )}
 
   ngOnInit() {

@@ -1,3 +1,4 @@
+import { HttpService } from './http.service';
 import { Injectable } from "@angular/core";
 import { BehaviorSubject, Observable } from "rxjs";
 import { Task } from "../models/task";
@@ -5,56 +6,67 @@ import { Task } from "../models/task";
 @Injectable()
 export class TasksService {
 
-  private tasksList: Array<Task> = [];
-  private tasksFinished: Array<Task> = [];
-
   private taskListObs = new BehaviorSubject<Array<Task>>([])
-  private taskFinishedObs = new BehaviorSubject<Array<Task>>([])
 
 
-  constructor() {
-    this.tasksList = [
+  constructor(private httpService: HttpService) {
+    const tasksList = [
       {
         name: 'Pranie',
-        created: new Date()
+        created: new Date().toLocaleString(),
+        isDone: false
       },
       {
         name: 'Sprzątanie',
-        created: new Date()
+        created: new Date().toLocaleString(),
+        isDone: false
       },
       {
         name: 'Zakupy',
-        created: new Date()
+        created: new Date().toLocaleString(),
+        isDone: false
       },
       {
         name: 'Podlewanie kwiatów',
-        created: new Date()
+        created: new Date().toLocaleString(),
+        isDone: false
+      },
+      {
+        name: 'Zadanie wykonane',
+        created: new Date().toLocaleString(),
+        end: new Date().toLocaleDateString(),
+        isDone: true
       }
      ]
-    this.taskListObs.next(this.tasksList)
+    this.taskListObs.next(tasksList) //assigne tasksList
   }
 
   addTask(task: Task){
-    this.tasksList.push(task)
-    this.taskListObs.next(this.tasksList)
+
+    const tasksList = this.taskListObs.getValue(); //get tasksList
+    tasksList.push(task);
+
+    this.taskListObs.next(tasksList)
   }
 
   removeTask(task:Task) {
-    this.tasksList = this.tasksList.filter(e => e !==task);
-    this.taskListObs.next(this.tasksList)
+    const tasksList = this.taskListObs.getValue().filter(e => e !==task);;
+    this.taskListObs.next(tasksList)
   }
 
   finishTask(task:Task) {
-    this.tasksFinished.push(task)
-    this.removeTask(task)
-    this.taskFinishedObs.next(this.tasksFinished)
+    task.end = new Date().toLocaleString();
+    task.isDone = true;
+
+    const tasksList = this.taskListObs.getValue();
+    this.taskListObs.next(tasksList)
+
+    // this.tasksFinished.push(task)
+    // this.removeTask(task)
+    // this.taskFinishedObs.next(this.tasksFinished)
   }
 
   getTasksListObs(): Observable<Array<Task>> {
     return this.taskListObs.asObservable()
-  }
-
-  getTasksFinishedObs(): Observable<Array<Task>> {
-    return this.taskFinishedObs.asObservable()
   }
 }

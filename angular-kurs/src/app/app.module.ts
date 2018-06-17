@@ -1,3 +1,5 @@
+import { HttpClientModule } from '@angular/common/http';
+import { HttpService } from './services/http.service';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
@@ -25,9 +27,14 @@ import { SortNamePipe } from './shared/sort-name.pipe';
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
+
   ],
-  providers: [TasksService],
+  providers: [
+    TasksService,
+    HttpService
+  ],
   bootstrap: [
     AppComponent
   ]

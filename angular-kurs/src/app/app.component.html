@@ -1,17 +1,10 @@
 
-<div>
-  <div class="container">
-    <app-add-task></app-add-task>
-  </div>
-  <div class="container">
-    <div>
-      <app-to-do-task></app-to-do-task>
-    </div>
-
-    <div>
-      <app-finished-task></app-finished-task>
-    </div>
-
-  </div>
-  <button type="button" class="btn btn-success"  (click)="save()">Zapisz</button>
-</div>
+<ul class="nav nav-pills justify-content-center ">
+  <li class="nav-item">
+    <a class="nav-link" routerLink="todoTask" routerLinkActive="active" >Zadania</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" routerLink="finishedTask" routerLinkActive="active" >Wykonane</a>
+  </li>
+</ul>
+<router-outlet></router-outlet>

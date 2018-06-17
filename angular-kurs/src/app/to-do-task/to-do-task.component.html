@@ -1,4 +1,6 @@
-  <ng-container *ngIf="tasksList.length > 0; else noTask">
+<div class="container">
+ <app-add-task></app-add-task>
+ <ng-container *ngIf="tasksList.length > 0; else noTask">
     <p [ngStyle]= "{color: getColor()}">Zadnia do wykonania: {{tasksList.length}} </p>
     <ul>
       <li
@@ -14,3 +16,8 @@
   <ng-template #noTask>
     <p>Brak zadań</p>
   </ng-template>
+
+  <div>
+    <button type="button" class="btn btn-success"  (click)="save()">Zapisz</button>
+  </div>
+</div>

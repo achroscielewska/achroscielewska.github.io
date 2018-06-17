@@ -13,6 +13,7 @@ import { CheckedDirective } from './shared/checked.directive';
 import { DateDirective } from './shared/date.directive';
 import { TransformTaskPipe } from './shared/transform-task.pipe';
 import { SortNamePipe } from './shared/sort-name.pipe';
+import { AppRoutingModule } from './app.routing.module';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { SortNamePipe } from './shared/sort-name.pipe';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AppRoutingModule
 
   ],
   providers: [

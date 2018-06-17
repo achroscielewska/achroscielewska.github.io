@@ -10,35 +10,10 @@ export class TasksService {
 
 
   constructor(private httpService: HttpService) {
-    const tasksList = [
-      {
-        name: 'Pranie',
-        created: new Date().toLocaleString(),
-        isDone: false
-      },
-      {
-        name: 'Sprzątanie',
-        created: new Date().toLocaleString(),
-        isDone: false
-      },
-      {
-        name: 'Zakupy',
-        created: new Date().toLocaleString(),
-        isDone: false
-      },
-      {
-        name: 'Podlewanie kwiatów',
-        created: new Date().toLocaleString(),
-        isDone: false
-      },
-      {
-        name: 'Zadanie wykonane',
-        created: new Date().toLocaleString(),
-        end: new Date().toLocaleDateString(),
-        isDone: true
-      }
-     ]
-    this.taskListObs.next(tasksList) //assigne tasksList
+    this.httpService.getTasks()
+    .subscribe(tasks => {
+      this.taskListObs.next(tasks);
+    })
   }
 
   addTask(task: Task){
@@ -61,12 +36,13 @@ export class TasksService {
     const tasksList = this.taskListObs.getValue();
     this.taskListObs.next(tasksList)
 
-    // this.tasksFinished.push(task)
-    // this.removeTask(task)
-    // this.taskFinishedObs.next(this.tasksFinished)
   }
 
   getTasksListObs(): Observable<Array<Task>> {
     return this.taskListObs.asObservable()
+  }
+
+  saveTasksInDb() {
+    this.httpService.saveTasks(this.taskListObs.getValue())
   }
 }

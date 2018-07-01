@@ -1,6 +1,8 @@
+import { AuthService } from './../auth/auth.service';
 import { TasksService } from './../services/task.service';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Task } from '../models/task';
+import { FormGroup, FormArray, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-add-task',
@@ -8,20 +10,45 @@ import { Task } from '../models/task';
   styleUrls: ['./add-task.component.css']
 })
 export class AddTaskComponent implements OnInit {
-  newTask: string;
 
-  constructor(private tasksService: TasksService) {
+  addForm: FormGroup;
+
+  constructor(private tasksService: TasksService, private authService: AuthService) {
 
   }
 
   ngOnInit() {
+    this.addForm = this.initForm()
+
+  }
+
+  initForm() {
+    return new FormGroup({
+      taskName: new FormArray([new FormControl(null, Validators.required)])
+    })
   }
 
   addTask() {
-    const task: Task = { name: this.newTask, created: new Date().toLocaleString(), isDone: false }
-    this.tasksService.addTask(task);
-    this.newTask = '';
+    const taskList = this.createTaskList()
+    this.tasksService.addTask(taskList);
+
+    //reset form
+    this.addForm = this.initForm();
   }
 
+  createTaskList(): Array<Task> {
+    const tasksList = new Array<Task>();
 
+    const tasksArr = <[string]>this.addForm.get('taskName').value;
+    tasksArr.forEach(taskName => {
+     const task =  { name: taskName, userId: this.authService.user.uid, created: new Date().toLocaleString(), isDone: false }
+     tasksList.push(task)
+    })
+    return tasksList
+  }
+
+  addField() {
+    const arr = <FormArray>this.addForm.get('taskName');
+    arr.push(new FormControl(null, Validators.required))
+  }
 }

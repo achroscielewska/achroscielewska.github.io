@@ -1,6 +1,7 @@
+import { AngularFireAuth } from 'angularfire2/auth';
 import { HttpService } from './http.service';
 import { Injectable } from "@angular/core";
-import { BehaviorSubject, Observable } from "rxjs";
+import { BehaviorSubject, Observable, concat } from "rxjs";
 import { Task } from "../models/task";
 
 @Injectable()
@@ -9,18 +10,26 @@ export class TasksService {
   private taskListObs = new BehaviorSubject<Array<Task>>([])
 
 
-  constructor(private httpService: HttpService) {
+  constructor(private httpService: HttpService, public angularFire: AngularFireAuth) {
+    angularFire.authState.subscribe(user => {
+      if (user) {
+        this.init();
+      } else {
+        this.taskListObs.next([]);
+      }
+    })
+  }
+
+  init() {
     this.httpService.getTasks()
     .subscribe(tasks => {
       this.taskListObs.next(tasks);
     })
   }
 
-  addTask(task: Task){
+  addTask(task: Array<Task>){
 
-    const tasksList = this.taskListObs.getValue(); //get tasksList
-    tasksList.push(task);
-
+    const tasksList = this.taskListObs.getValue().concat(task); //get tasksList
     this.taskListObs.next(tasksList)
   }
 

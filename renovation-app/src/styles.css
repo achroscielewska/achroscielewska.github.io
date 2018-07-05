@@ -1,3 +1,20 @@
 body {
-  background-color: #424B5C
+  background-color: #424B5C;
 }
+
+.container {
+  width: 90%;
+  max-width: 1400px;
+}
+
+.primary-color {
+  background-color: #424B5C;
+  color: #424B5C;
+}
+
+.secondary-color {
+  background-color: #424B5C;
+  color: #424B5C;
+}
+
+

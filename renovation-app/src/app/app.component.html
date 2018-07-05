@@ -1,3 +1,11 @@
+<div class="container">
+  <div class="row">
+    <button *ngIf= "authService.user" (click)="logout()">Wyloguj</button>
+  </div>
+
+  <router-outlet></router-outlet>
+
+</div>
 
 
-<router-outlet></router-outlet>
+

@@ -1,11 +1,19 @@
-<div class="container">
-  <div class="row">
-    <button *ngIf= "authService.user" (click)="logout()">Wyloguj</button>
+<nav>
+  <div class="nav-wrapper">
+    <a href="#!" class="brand-logo">
+      <i class="material-icons">home</i>Logo</a>
+    <ul class="right hide-on-med-and-down">
+      <li>
+        <a *ngIf="authService.user" (click)="logout()">
+          <i class="material-icons">exit_to_app</i>
+        </a>
+      </li>
+    </ul>
   </div>
+</nav>
+
+<div class="container">
 
   <router-outlet></router-outlet>
 
 </div>
-
-
-

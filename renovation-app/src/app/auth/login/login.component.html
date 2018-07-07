@@ -1,28 +1,27 @@
 <div class="container">
   <div class="row">
-    <div class="col s6 offset-s3">
+    <div class="col s6 offset-s3 app-login">
 
       <form (ngSubmit)="login(formData)" #formData='ngForm'>
 
-        <div>
+
           <div class="input-field">
-          <input ngModel type="email" name="email" id="email" required>
-          <label for="email">E-mail</label>
+            <input ngModel type="email" name="email" id="email" required>
+            <label for="email">E-mail</label>
           </div>
 
           <div class="input-field">
-          <input ngModel type="password" name="password" id="password" required>
-          <label for="password">Hasło</label>
+            <input ngModel type="password" name="password" id="password" required>
+            <label for="password">Hasło</label>
           </div>
 
-
-          <div class="login-register-gr">
+          <div class="app-login-register-gr">
             <button class="waves-effect waves-light btn login" type="submit" [disabled]="formData.invalid">Zaloguj</button>
             <button class="waves-effect waves-light btn" type="button" [disabled]="formData.invalid" (click)="singup(formData)">Zarejestruj</button>
           </div>
-        </div>
-      </form>
 
+
+      </form>
 
     </div>
   </div>

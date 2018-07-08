@@ -14,9 +14,13 @@ import { AuthService } from '../../auth/auth.service';
 export class EditRoomsComponent implements OnInit {
 
   addRoomForm: FormGroup;
+  roomsList: Array<Room> = [];
 
 
-  constructor(private roomsService: RoomsService, private authService: AuthService) { }
+  constructor(private roomsService: RoomsService, private authService: AuthService) {
+    this.roomsService.getRoomsListObs().subscribe((rooms: Array<Room>) =>
+    this.roomsList = rooms
+  }
 
   ngOnInit() {
     this.addRoomForm = this.initForm()

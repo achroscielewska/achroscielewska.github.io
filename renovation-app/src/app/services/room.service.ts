@@ -35,9 +35,9 @@ export class RoomsService {
 
   }
 
-  removeTask(task:Room) {
-    const tasksList = this.roomListObs.getValue().filter(e => e !==task);;
-    this.roomListObs.next(tasksList)
+  removeRoom(room:Room) {
+    const roomsList = this.roomListObs.getValue().filter(e => e !==room);;
+    this.roomListObs.next(roomsList)
   }
 
 

@@ -44,4 +44,8 @@ export class EditRoomsComponent implements OnInit {
 
   }
 
+  removeRoom(room: Room) {
+    this.roomsService.removeRoom(room);
+  }
+
 }

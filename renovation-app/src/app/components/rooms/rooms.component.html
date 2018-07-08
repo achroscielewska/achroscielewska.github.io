@@ -1,11 +1,20 @@
+<div class="row">
+  <div class="app-add-btn">
+     <a routerLink="../editRooms" routerLinkActive="active">
+        <button class="waves-effect waves-light btn route-button" type="button" >Zarządzaj pomieszczeniami</button>
+     </a>
+  </div>
+
+</div>
+
   <div class="row">
-    <div class="box">
+    <div class="box"  *ngFor="let room of roomsList">
       <svg width="100%" height="100%">
         <line class="top" x1="0" y1="0" x2="900" y2="0" />
         <line class="left" x1="0" y1="460" x2="0" y2="-920" />
         <line class="bottom" x1="300" y1="400" x2="-600" y2="400" />
         <line class="right" x1="250" y1="0" x2="250" y2="1380" />
       </svg>
-      <h3>Salon</h3>
+      <h3>{{room.name}}</h3>
     </div>
   </div>

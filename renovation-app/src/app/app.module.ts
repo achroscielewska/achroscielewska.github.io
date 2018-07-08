@@ -1,5 +1,5 @@
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -14,6 +14,9 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AuthService } from './auth/auth.service';
 import { AuthGuardService } from './auth/auth-guard.service';
+import { HttpService } from './services/http.service';
+import { RoomsService } from './services/room.service';
+import { EditRoomsComponent } from './components/edit-rooms/edit-rooms.component';
 
 
 var config = {
@@ -21,7 +24,7 @@ var config = {
   authDomain: 'renovationapp-b64d5.firebaseapp.com',
   databaseURL: 'https://renovationapp-b64d5.firebaseio.com',
   projectId: 'renovationapp-b64d5',
-  storageBucket: '',
+  storageBucket: "renovationapp-b64d5.appspot.com",
   messagingSenderId: '1036208432490'
 };
 
@@ -29,18 +32,25 @@ var config = {
   declarations: [
     AppComponent,
     LoginComponent,
-    RoomsComponent
+    RoomsComponent,
+    EditRoomsComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     AppRoutingModule,
     AngularFireAuthModule,
     AngularFireModule.initializeApp(config)
 
   ],
-  providers: [AuthService, AuthGuardService],
+  providers: [
+    AuthService,
+    AuthGuardService,
+    HttpService,
+    RoomsService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

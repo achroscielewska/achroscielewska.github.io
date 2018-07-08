@@ -1,0 +1,28 @@
+<div class="app-add-btn">
+    <a routerLink="../rooms" routerLinkActive="active">
+       <button class="waves-effect waves-light btn route-button" type="button" >Wróć</button>
+    </a>
+ </div>
+<div class="edit-content">
+  <div class="row">
+    <h4>Zarządzaj pomieszczeniami</h4>
+  <div class = "row">
+    <form [formGroup]="addRoomForm" (ngSubmit)=addRoom()>
+
+        <div class="input-field col s2">
+          <input type="text" id="newRoomCode" formControlName="newRoomCode" >
+          <label for="newRoomCode">Kod pomieszczenia</label>
+        </div>
+
+        <div class="input-field col s4">
+          <input type="text" id="newRoomName" formControlName="newRoomName" >
+          <label for="newRoomName">Nazwa pomieszczenia</label>
+        </div>
+
+        <button class="waves-effect waves-light btn" type="submit" >Dodaj</button>
+
+    </form>
+    </div>
+
+  </div>
+</div>

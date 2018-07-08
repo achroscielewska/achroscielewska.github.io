@@ -1,5 +1,5 @@
 import { Room } from './../../models/room';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { NgForm, FormGroup, FormControl, Validators } from '@angular/forms';
 import { RoomsService } from '../../services/room.service';
 import { AuthService } from '../../auth/auth.service';
@@ -18,8 +18,8 @@ export class EditRoomsComponent implements OnInit {
 
 
   constructor(private roomsService: RoomsService, private authService: AuthService) {
-    this.roomsService.getRoomsListObs().subscribe((rooms: Array<Room>) =>
-    this.roomsList = rooms
+    this.roomsService.getRoomsListObs().subscribe((rooms: Array<Room>) => {
+    this.roomsList = rooms }
   }
 
   ngOnInit() {
@@ -36,9 +36,11 @@ export class EditRoomsComponent implements OnInit {
   addRoom() {
     const value = this.addRoomForm.value
 
-    const newRoom: Room = { userId: this.authService.user.uid, code: value.newRoomCode, name: value.newRoomName};
+    const newRoom: Room = { userId: this.authService.user.uid, code: value.newRoomCode, name: value.newRoomName, editMode: false};
 
     this.roomsService.addRoom(newRoom)
+
+    console.log(newRoom)
 
     this.addRoomForm = this.initForm();
 
@@ -46,6 +48,21 @@ export class EditRoomsComponent implements OnInit {
 
   removeRoom(room: Room) {
     this.roomsService.removeRoom(room);
+  }
+
+  initEditForm(room: Room) {
+    return new FormGroup({
+      roomCode: new FormControl(room.code, Validators.required),
+      roomName: new FormControl(room.name, Validators.required)
+    })
+  }
+
+  editRoomMode(room: Room) {
+    return room.editMode = true;
+  }
+
+  leaveRoomEditMode(room: Room) {
+    return room.editMode = false;
   }
 
 }

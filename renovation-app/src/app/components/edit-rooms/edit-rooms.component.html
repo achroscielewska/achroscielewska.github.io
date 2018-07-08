@@ -1,6 +1,6 @@
 <div class="app-add-btn">
   <a routerLink="../rooms" routerLinkActive="active">
-    <button class="waves-effect waves-light btn route-button" type="button">Wróć</button>
+    <button class="waves-effect waves-light btn route-button" type="button"> <i class="medium material-icons">arrow_back</i></button>
   </a>
 </div>
 <div class="edit-content">
@@ -34,20 +34,49 @@
     <div class="row">
       <div class="col s7">
         <ul class="collapsible popout">
-          <li class="" *ngFor="let room of roomsList">
+          <li class="" *ngFor="let room of roomsList, let i=index" [ngClass]="{'active': room.editMode}">
             <div class="collapsible-header">
 
               <div class="col s9"> {{room.name}} ({{room.code}})</div>
 
               <div class="col s3 app-gr-btn">
-                <button class="waves-effect waves-light btn app-edit-btn" type="button"><i class="material-icons">create</i></button>
-                <button class="waves-effect waves-light btn app-delete-btn" type="button" (click)="removeRoom(room)"><i class="material-icons">delete_forever</i></button>
+                <button
+                  class="waves-effect waves-light btn app-edit-btn"
+                  [ngClass]="{'app-notActive': room.editMode}"
+                  type="button"
+                  (click)="editRoomMode(room)"
+                  ><i class="material-icons">create</i></button>
+                <button
+                  class="waves-effect waves-light btn app-delete-btn"
+                  [ngClass]="{'app-notActive': room.editMode}"
+                  type="button"
+                  (click)="removeRoom(room)"
+                  ><i class="material-icons">delete_forever</i></button>
 
               </div>
             </div>
 
-            <div class="collapsible-body ">
-              <span>Lorem ipsum dolor sit amet.</span>
+            <div class="collapsible-body" [ngClass]="{'app-active-box': room.editMode}">
+               <div>
+               <form #editFormData='ngForm' (ngSubmit)=leaveRoomEditMode(room)>
+
+                    <div class="input-field col s4">
+                      <input [(ngModel)]="room.code" type="text" id="roomCode" name="roomCode">
+                      <label for="roomCode" class="active">Kod pomieszczenia</label>
+                    </div>
+
+                    <div class="input-field col s6">
+                      <input [(ngModel)]="room.name" type="text" id="roomName" name="roomName">
+                      <label for="roomName" class="active">Nazwa pomieszczenia</label>
+                    </div>
+
+                    <button class="waves-effect waves-light btn app-delete-btn" type="submit" [disabled]="editFormData.invalid">
+                      <i class="medium material-icons ">close</i>
+                    </button>
+
+                  </form>
+                  <p></p>
+                </div>
             </div>
 
           </li>

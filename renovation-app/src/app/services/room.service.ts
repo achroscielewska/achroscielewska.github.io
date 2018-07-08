@@ -1,13 +1,14 @@
 import { AngularFireAuth } from 'angularfire2/auth';
 import { HttpService } from './http.service';
 import { Injectable } from "@angular/core";
-import { BehaviorSubject, Observable, concat } from "rxjs";
+import { BehaviorSubject, Observable, concat, Subject } from "rxjs";
 import { Room } from "../models/room";
 
 @Injectable()
 export class RoomsService {
 
-  private roomListObs = new BehaviorSubject<Array<Room>>([])
+  roomListObs = new BehaviorSubject<Array<Room>>([]);
+  startEditing = new Subject<number>()
 
 
   constructor(private httpService: HttpService, public angularFire: AngularFireAuth) {
@@ -29,10 +30,14 @@ export class RoomsService {
     })
   }
 
+  getRoomsListObs(): Observable<Array<Room>> {
+    return this.roomListObs.asObservable()
+  }
+
   addRoom(room: Room){
-
-    this.roomListObs.getValue().push(room); //update
-
+    const roomsList = this.roomListObs.getValue()
+    roomsList.push(room); //update
+    this.roomListObs.next(roomsList)
   }
 
   removeRoom(room:Room) {
@@ -40,10 +45,6 @@ export class RoomsService {
     this.roomListObs.next(roomsList)
   }
 
-
-  getRoomsListObs(): Observable<Array<Room>> {
-    return this.roomListObs.asObservable()
-  }
 
   saveRoomsInDb() {
     this.httpService.saveRooms(this.roomListObs.getValue())

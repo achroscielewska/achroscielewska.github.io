@@ -5,6 +5,7 @@ export interface Room {
   userId: string;
   code: string;
   name: string;
+  editMode?: boolean;
 }
 
 

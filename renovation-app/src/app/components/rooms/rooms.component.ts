@@ -21,4 +21,10 @@ export class RoomsComponent implements OnInit {
     console.log(this.roomsList)
   }
 
+
+  save() {
+    this.roomsService.saveRoomsInDb()
+
+  }
+
 }

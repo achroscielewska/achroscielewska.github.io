@@ -18,7 +18,7 @@ const appRoutes: Routes = [
     canActivate: [AuthGuardService]
   },
   {
-    path: "rooms/:id",
+    path: "rooms/:id/details",
     component: RoomDetailsComponent,
     canActivate: [AuthGuardService]
   },

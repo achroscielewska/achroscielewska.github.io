@@ -1,3 +1,4 @@
+import { AddTaskComponent } from './components/rooms/room-details/add-task/add-task.component';
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 import { LoginComponent } from "./auth/login/login.component";
@@ -20,6 +21,11 @@ const appRoutes: Routes = [
   {
     path: "rooms/:id/details",
     component: RoomDetailsComponent,
+    canActivate: [AuthGuardService]
+  },
+  {
+    path: "rooms/:id/details/addTask",
+    component: AddTaskComponent,
     canActivate: [AuthGuardService]
   },
   {

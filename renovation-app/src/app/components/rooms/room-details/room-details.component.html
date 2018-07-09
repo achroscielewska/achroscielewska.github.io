@@ -1,5 +1,5 @@
 <div class="app-add-btn">
-    <a routerLink="../../rooms" routerLinkActive="active">
+    <a routerLink="../../../rooms" routerLinkActive="active">
       <button class="waves-effect waves-light btn route-button" type="button"> <i class="medium material-icons">arrow_back</i></button>
     </a>
   </div>
@@ -12,7 +12,7 @@
     <div class="row">
 
         <div class="col app-gr-btn">
-            <button class="waves-effect waves-light btn" type="button">
+            <button class="waves-effect waves-light btn" [routerLink]="['/rooms', id, 'details','addTask']" routerLinkActive="active" type="button">
                 <i class="medium material-icons">build</i>
             </button>
 

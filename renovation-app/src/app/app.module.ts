@@ -15,8 +15,10 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AuthService } from './auth/auth.service';
 import { AuthGuardService } from './auth/auth-guard.service';
 import { HttpService } from './services/http.service';
+
 import { RoomsService } from './services/room.service';
 import { EditRoomsComponent } from './components/edit-rooms/edit-rooms.component';
+import { RoomDetailsComponent } from './components/rooms/room-details/room-details.component';
 
 
 var config = {
@@ -33,7 +35,8 @@ var config = {
     AppComponent,
     LoginComponent,
     RoomsComponent,
-    EditRoomsComponent
+    EditRoomsComponent,
+    RoomDetailsComponent
   ],
   imports: [
     BrowserModule,

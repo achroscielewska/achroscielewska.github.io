@@ -19,8 +19,6 @@ export class RoomsService {
         this.roomListObs.next([]);
       }
     })
-
-
   }
 
   init() {
@@ -45,6 +43,11 @@ export class RoomsService {
     this.roomListObs.next(roomsList)
   }
 
+  getRoom(index: number) {
+    const roomsList = this.roomListObs.getValue()
+
+    return roomsList[index]
+  }
 
   saveRoomsInDb() {
     this.httpService.saveRooms(this.roomListObs.getValue())

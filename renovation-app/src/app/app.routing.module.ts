@@ -4,6 +4,7 @@ import { LoginComponent } from "./auth/login/login.component";
 import { RoomsComponent } from "./components/rooms/rooms.component";
 import { AuthGuardService } from "./auth/auth-guard.service";
 import { EditRoomsComponent } from "./components/edit-rooms/edit-rooms.component";
+import { RoomDetailsComponent } from "./components/rooms/room-details/room-details.component";
 
 const appRoutes: Routes = [
   {
@@ -14,6 +15,11 @@ const appRoutes: Routes = [
   {
     path: "rooms",
     component: RoomsComponent,
+    canActivate: [AuthGuardService]
+  },
+  {
+    path: "rooms/:id",
+    component: RoomDetailsComponent,
     canActivate: [AuthGuardService]
   },
   {

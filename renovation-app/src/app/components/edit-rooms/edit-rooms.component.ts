@@ -19,7 +19,7 @@ export class EditRoomsComponent implements OnInit {
 
   constructor(private roomsService: RoomsService, private authService: AuthService) {
     this.roomsService.getRoomsListObs().subscribe((rooms: Array<Room>) => {
-    this.roomsList = rooms }
+    this.roomsList = rooms })
   }
 
   ngOnInit() {
@@ -36,11 +36,9 @@ export class EditRoomsComponent implements OnInit {
   addRoom() {
     const value = this.addRoomForm.value
 
-    const newRoom: Room = { userId: this.authService.user.uid, code: value.newRoomCode, name: value.newRoomName, editMode: false};
+    const newRoom = new Room (this.authService.user.uid, value.newRoomCode, value.newRoomName, false);
 
     this.roomsService.addRoom(newRoom)
-
-    console.log(newRoom)
 
     this.addRoomForm = this.initForm();
 

@@ -36,7 +36,7 @@ export class EditRoomsComponent implements OnInit {
   addRoom() {
     const value = this.addRoomForm.value
 
-    const newRoom = new Room (this.authService.user.uid, value.newRoomCode, value.newRoomName, false);
+    const newRoom = new Room (this.authService.user.uid, value.newRoomCode, value.newRoomName, false, []);
 
     this.roomsService.addRoom(newRoom)
 
@@ -46,13 +46,6 @@ export class EditRoomsComponent implements OnInit {
 
   removeRoom(room: Room) {
     this.roomsService.removeRoom(room);
-  }
-
-  initEditForm(room: Room) {
-    return new FormGroup({
-      roomCode: new FormControl(room.code, Validators.required),
-      roomName: new FormControl(room.name, Validators.required)
-    })
   }
 
   editRoomMode(room: Room) {

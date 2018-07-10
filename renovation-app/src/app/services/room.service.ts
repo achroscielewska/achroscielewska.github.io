@@ -1,3 +1,4 @@
+import { ToDo } from './../models/toDo';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { HttpService } from './http.service';
 import { Injectable } from "@angular/core";
@@ -48,6 +49,16 @@ export class RoomsService {
 
     return roomsList[index]
   }
+
+  addToDoToRoom(index: number, toDo: ToDo) {
+    const roomsList = this.roomListObs.getValue()
+
+    roomsList[index].toDo.push(toDo)
+
+    this.roomListObs.next(roomsList)
+
+  }
+
 
   saveRoomsInDb() {
     this.httpService.saveRooms(this.roomListObs.getValue())

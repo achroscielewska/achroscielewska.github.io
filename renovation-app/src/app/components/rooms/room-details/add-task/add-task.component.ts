@@ -1,17 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { RoomsService } from '../../../../services/room.service';
 import { ActivatedRoute, Router, Params } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ToDo } from '../../../../models/toDo';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-add-task',
   templateUrl: './add-task.component.html',
   styleUrls: ['./add-task.component.sass']
 })
-export class AddTaskComponent implements OnInit {
+export class AddTaskComponent implements OnInit, OnDestroy  {
 
   id: number;
+  subscription: Subscription;
   addToDoForm: FormGroup;
 
   constructor(
@@ -21,26 +23,26 @@ export class AddTaskComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.route.params.subscribe((params: Params) => {
-      this.id = +params["id"];
+    this.subscription = this.route.params.subscribe((params: Params) => {
+      this.id = +params['id'];
     });
-    this.addToDoForm = this.initForm()
+    this.addToDoForm = this.initForm();
   }
 
   initForm() {
     return new FormGroup({
       newToDoName: new FormControl(null, Validators.required),
-      newToDoFinished: new FormControl(null, Validators.required),
+      newToDoFinished: new FormControl(false, Validators.required),
       newToDoPlanedExecutionDate: new FormControl(null, Validators.required),
       newToDoContractor: new FormControl(null, Validators.required),
       newToDoPlanedCost: new FormControl(null, Validators.required),
       newToDoCost: new FormControl(null, Validators.required),
-      newToDoShopping: new FormControl(null, Validators.required),
-    })
+      newToDoShopping: new FormControl(false, Validators.required),
+    });
   }
 
   addToDo() {
-    const value = this.addToDoForm.value
+    const value = this.addToDoForm.value;
 
     const newToDo = new ToDo(
       value.newToDoName,
@@ -49,10 +51,11 @@ export class AddTaskComponent implements OnInit {
       value.newToDoContractor,
       value.newToDoPlanedCost,
       value.newToDoCost,
-      value.newToDoShopping)
+      value.newToDoShopping);
 
-      this.roomsService.addToDoToRoom(this.id, newToDo)
-
+      this.roomsService.addToDoToRoom(this.id, newToDo);
   }
-
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+  }
 }

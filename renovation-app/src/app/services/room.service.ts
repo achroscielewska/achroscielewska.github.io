@@ -39,7 +39,7 @@ export class RoomsService {
   }
 
   removeRoom(room:Room) {
-    const roomsList = this.roomListObs.getValue().filter(e => e !==room);;
+    const roomsList = this.roomListObs.getValue().filter(e => e !==room);
     this.roomListObs.next(roomsList)
   }
 
@@ -69,9 +69,17 @@ export class RoomsService {
   }
 
   getToDoList(index: number) {
-    const roomsList = this.roomListObs.getValue()
+    const room = this.getRoom(index)
 
-    return roomsList[index].toDo
+    return room.toDo
+  }
+
+  removeToDo(roomIndex: number, toDo: ToDo){
+    console.log("removeToDo")
+
+    const room = this.getRoom(roomIndex)
+
+    room.toDo.filter(e => e !== toDo);
 
   }
 

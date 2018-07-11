@@ -38,6 +38,6 @@ export class RoomDetailsComponent implements OnInit {
   }
 
   removeToDo(toDo: ToDo) {
-
+    this.roomsService.removeToDo(this.id, toDo);
   }
 }

@@ -9,8 +9,7 @@ import { Room } from "../models/room";
 export class RoomsService {
 
   roomListObs = new BehaviorSubject<Array<Room>>([]);
-  startEditing = new Subject<number>()
-
+  toDoListObs = new BehaviorSubject<Array<ToDo>>([])
 
   constructor(private httpService: HttpService, public angularFire: AngularFireAuth) {
     angularFire.authState.subscribe(user => {
@@ -52,24 +51,27 @@ export class RoomsService {
 
   addToDoToRoom(index: number, toDo: ToDo) {
     const roomsList = this.roomListObs.getValue()
-
     roomsList[index].toDo.push(toDo)
-
     this.roomListObs.next(roomsList)
   }
 
-  getIndexAddedToDo(index: number,) {
+  getIndexAddedToDo(index: number) {
     const roomsList = this.roomListObs.getValue()
-
     const newToDoIndex = roomsList[index].toDo.length - 1
 
     return newToDoIndex
   }
 
   getToDo(roomIndex: number, toDoIndex: number) {
-    const roomId = this.getRoom(roomIndex)
+    const room = this.getRoom(roomIndex)
 
-    return roomId.toDo[toDoIndex]
+    return room.toDo[toDoIndex]
+  }
+
+  getToDoList(index: number) {
+    const roomsList = this.roomListObs.getValue()
+
+    return roomsList[index].toDo
 
   }
 

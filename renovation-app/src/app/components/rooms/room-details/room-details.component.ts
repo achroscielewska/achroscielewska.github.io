@@ -1,5 +1,6 @@
+import { ToDo } from './../../../models/toDo';
 import { RoomsService } from "./../../../services/room.service";
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Input } from "@angular/core";
 import { Room } from "../../../models/room";
 import { ActivatedRoute, Router, Params } from "@angular/router";
 
@@ -9,6 +10,10 @@ import { ActivatedRoute, Router, Params } from "@angular/router";
   styleUrls: ["./room-details.component.sass"]
 })
 export class RoomDetailsComponent implements OnInit {
+
+  @Input()
+  toDoList: Array<ToDo> = [];
+
   room: Room;
   id: number;
 
@@ -16,7 +21,8 @@ export class RoomDetailsComponent implements OnInit {
     private roomsService: RoomsService,
     private route: ActivatedRoute,
     private router: Router
-  ) {}
+  )
+  { }
 
   ngOnInit() {
     this.route.params.subscribe((params: Params) => {
@@ -24,6 +30,14 @@ export class RoomDetailsComponent implements OnInit {
 
       this.room = this.roomsService.getRoom(this.id);
     });
+
+    this.toDoList = this.roomsService.getToDoList(this.id)
+
+    console.log(this.toDoList )
+
+  }
+
+  removeToDo(toDo: ToDo) {
 
   }
 }

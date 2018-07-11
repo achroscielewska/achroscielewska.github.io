@@ -6,6 +6,7 @@ import { RoomsComponent } from "./components/rooms/rooms.component";
 import { AuthGuardService } from "./auth/auth-guard.service";
 import { EditRoomsComponent } from "./components/edit-rooms/edit-rooms.component";
 import { RoomDetailsComponent } from "./components/rooms/room-details/room-details.component";
+import { EditTaskComponent } from './components/rooms/room-details/edit-task/edit-task.component';
 
 const appRoutes: Routes = [
   {
@@ -26,6 +27,11 @@ const appRoutes: Routes = [
   {
     path: "rooms/:id/details/addTask",
     component: AddTaskComponent,
+    canActivate: [AuthGuardService]
+  },
+  {
+    path: "rooms/:id/details/:id/editTask",
+    component: EditTaskComponent,
     canActivate: [AuthGuardService]
   },
   {

@@ -54,7 +54,12 @@ export class AddTaskComponent implements OnInit, OnDestroy  {
       value.newToDoShopping);
 
       this.roomsService.addToDoToRoom(this.id, newToDo);
+      const index = this.roomsService.getIndexAddedToDo(this.id)
+
+      console.log(index)
+      this.router.navigate(['../', index,'editTask'], {relativeTo: this.route})
   }
+
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }

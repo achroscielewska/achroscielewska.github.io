@@ -20,6 +20,7 @@ import { RoomsService } from './services/room.service';
 import { EditRoomsComponent } from './components/edit-rooms/edit-rooms.component';
 import { RoomDetailsComponent } from './components/rooms/room-details/room-details.component';
 import { AddTaskComponent } from './components/rooms/room-details/add-task/add-task.component';
+import { EditTaskComponent } from './components/rooms/room-details/edit-task/edit-task.component';
 
 
 var config = {
@@ -38,7 +39,8 @@ var config = {
     RoomsComponent,
     EditRoomsComponent,
     RoomDetailsComponent,
-    AddTaskComponent
+    AddTaskComponent,
+    EditTaskComponent
   ],
   imports: [
     BrowserModule,

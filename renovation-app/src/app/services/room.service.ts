@@ -56,7 +56,14 @@ export class RoomsService {
     roomsList[index].toDo.push(toDo)
 
     this.roomListObs.next(roomsList)
+  }
 
+  getIndexAddedToDo(index: number,) {
+    const roomsList = this.roomListObs.getValue()
+
+    const newToDoIndex = roomsList[index].toDo.length - 1
+
+    return newToDoIndex
   }
 
 

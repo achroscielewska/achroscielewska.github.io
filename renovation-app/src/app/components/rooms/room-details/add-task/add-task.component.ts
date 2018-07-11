@@ -56,7 +56,6 @@ export class AddTaskComponent implements OnInit, OnDestroy  {
       this.roomsService.addToDoToRoom(this.id, newToDo);
       const index = this.roomsService.getIndexAddedToDo(this.id)
 
-      console.log(index)
       this.router.navigate(['../', index,'editTask'], {relativeTo: this.route})
   }
 

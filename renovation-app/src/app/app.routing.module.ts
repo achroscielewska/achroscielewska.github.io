@@ -30,7 +30,7 @@ const appRoutes: Routes = [
     canActivate: [AuthGuardService]
   },
   {
-    path: "rooms/:id/details/:id/editTask",
+    path: "rooms/:id/details/:taskId/editTask",
     component: EditTaskComponent,
     canActivate: [AuthGuardService]
   },

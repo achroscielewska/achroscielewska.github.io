@@ -66,6 +66,13 @@ export class RoomsService {
     return newToDoIndex
   }
 
+  getToDo(roomIndex: number, toDoIndex: number) {
+    const roomId = this.getRoom(roomIndex)
+
+    return roomId.toDo[toDoIndex]
+
+  }
+
 
   saveRoomsInDb() {
     this.httpService.saveRooms(this.roomListObs.getValue())

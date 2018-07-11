@@ -75,11 +75,11 @@ export class RoomsService {
   }
 
   removeToDo(roomIndex: number, toDo: ToDo){
-    console.log("removeToDo")
-
     const room = this.getRoom(roomIndex)
 
-    room.toDo.filter(e => e !== toDo);
+    const updatedToDoList = room.toDo.filter(e => e !== toDo);
+
+    room.toDo = updatedToDoList
 
   }
 

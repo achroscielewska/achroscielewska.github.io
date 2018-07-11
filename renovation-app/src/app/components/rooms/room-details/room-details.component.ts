@@ -22,7 +22,7 @@ export class RoomDetailsComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router
   )
-  { }
+  {}
 
   ngOnInit() {
     this.route.params.subscribe((params: Params) => {
@@ -39,5 +39,7 @@ export class RoomDetailsComponent implements OnInit {
 
   removeToDo(toDo: ToDo) {
     this.roomsService.removeToDo(this.id, toDo);
+
+    this.toDoList = this.roomsService.getToDoList(this.id)
   }
 }

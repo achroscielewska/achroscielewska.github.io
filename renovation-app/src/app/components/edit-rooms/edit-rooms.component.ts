@@ -19,26 +19,26 @@ export class EditRoomsComponent implements OnInit {
 
   constructor(private roomsService: RoomsService, private authService: AuthService) {
     this.roomsService.getRoomsListObs().subscribe((rooms: Array<Room>) => {
-    this.roomsList = rooms })
+    this.roomsList = rooms; });
   }
 
   ngOnInit() {
-    this.addRoomForm = this.initForm()
+    this.addRoomForm = this.initForm();
   }
 
   initForm() {
     return new FormGroup({
       newRoomCode: new FormControl(null, Validators.required),
       newRoomName: new FormControl(null, Validators.required)
-    })
+    });
   }
 
   addRoom() {
-    const value = this.addRoomForm.value
+    const value = this.addRoomForm.value;
 
     const newRoom = new Room (this.authService.user.uid, value.newRoomCode, value.newRoomName, false, []);
 
-    this.roomsService.addRoom(newRoom)
+    this.roomsService.addRoom(newRoom);
 
     this.addRoomForm = this.initForm();
 

@@ -23,12 +23,12 @@ import { AddTaskComponent } from './components/rooms/room-details/add-task/add-t
 import { EditTaskComponent } from './components/rooms/room-details/edit-task/edit-task.component';
 
 
-var config = {
+const config = {
   apiKey: 'AIzaSyAOxdiP41ah20lU3NFX9tEOV6bljsXICE0',
   authDomain: 'renovationapp-b64d5.firebaseapp.com',
   databaseURL: 'https://renovationapp-b64d5.firebaseio.com',
   projectId: 'renovationapp-b64d5',
-  storageBucket: "renovationapp-b64d5.appspot.com",
+  storageBucket: 'renovationapp-b64d5.appspot.com',
   messagingSenderId: '1036208432490'
 };
 

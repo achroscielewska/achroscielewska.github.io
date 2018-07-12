@@ -14,7 +14,7 @@ export class EditTaskComponent implements OnInit, OnDestroy {
   id: number;
   taskId: number;
   subscription: Subscription;
-  toDo: ToDo
+  toDo: ToDo;
 
   constructor(
     private roomsService: RoomsService,
@@ -25,12 +25,12 @@ export class EditTaskComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.subscription = this.route.params.subscribe((params: Params) => {
       this.id = +params['id'];
-      this.taskId = +params['taskId']
+      this.taskId = +params['taskId'];
     });
 
-    this.toDo = this.roomsService.getToDo(this.id, this.taskId)
+    this.toDo = this.roomsService.getToDo(this.id, this.taskId);
 
-    console.log(this.toDo)
+    console.log(this.toDo);
   }
 
   ngOnDestroy() {

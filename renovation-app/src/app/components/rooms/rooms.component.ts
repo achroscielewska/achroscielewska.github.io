@@ -15,15 +15,15 @@ export class RoomsComponent implements OnInit {
   constructor(private roomsService: RoomsService) {
     this.roomsService.getRoomsListObs().subscribe((rooms: Array<Room>) =>
     this.roomsList = rooms
-    )};
+    ); }
 
   ngOnInit() {
-    console.log(this.roomsList)
+    console.log(this.roomsList);
   }
 
 
   save() {
-    this.roomsService.saveRoomsInDb()
+    this.roomsService.saveRoomsInDb();
 
   }
 

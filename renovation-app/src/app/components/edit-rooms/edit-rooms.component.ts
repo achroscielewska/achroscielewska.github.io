@@ -35,13 +35,11 @@ export class EditRoomsComponent implements OnInit {
 
   addRoom() {
     const value = this.addRoomForm.value;
-
-    const newRoom = new Room (this.authService.user.uid, value.newRoomCode, value.newRoomName, false, []);
+    const newRoom = new Room (this.authService.user.uid, value.newRoomCode, value.newRoomName, false, [], []);
 
     this.roomsService.addRoom(newRoom);
 
     this.addRoomForm = this.initForm();
-
   }
 
   removeRoom(room: Room) {

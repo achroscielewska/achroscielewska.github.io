@@ -1,8 +1,10 @@
+import { Inspiration } from './../../../../models/inspiration';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { RoomsService } from '../../../../services/room.service';
 import { ActivatedRoute, Router, Params } from '@angular/router';
 import { ToDo } from '../../../../models/toDo';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-edit-task',
@@ -15,6 +17,9 @@ export class EditTaskComponent implements OnInit, OnDestroy {
   taskId: number;
   subscription: Subscription;
   toDo: ToDo;
+  inspirations: Inspiration[];
+
+  addInspirationForm: FormGroup;
 
   constructor(
     private roomsService: RoomsService,
@@ -29,12 +34,37 @@ export class EditTaskComponent implements OnInit, OnDestroy {
     });
 
     this.toDo = this.roomsService.getToDo(this.id, this.taskId);
+    this.inspirations = this.roomsService.getInspirationList(this.id)
 
     console.log(this.toDo);
+    console.log(this.inspirations)
+
+    this.addInspirationForm = this.initInspirationForm();
   }
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }
 
+  initInspirationForm() {
+    return new FormGroup({
+      newInspirationLink: new FormControl(null, Validators.required),
+      newInspirationIsSelected: new FormControl(false, Validators.required)
+    })
+  }
+
+  addInspiration() {
+    const value = this.addInspirationForm.value;
+    const newInspiration = new Inspiration (this.roomsService.guid(), value.newInspirationLink, value.newInspirationIsSelected);
+
+    this.roomsService.addInspirationToRoom(this.id, newInspiration);
+
+    this.addInspirationForm = this.initInspirationForm();
+
+    console.log(newInspiration)
+  }
+
+  selectInspiration(inspiration: Inspiration) {
+    console.log(inspiration)
+  }
 }

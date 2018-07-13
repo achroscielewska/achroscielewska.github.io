@@ -1,15 +1,17 @@
-import { ToDo } from './../models/toDo';
+import { Inspiration } from './../models/inspiration';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { HttpService } from './http.service';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, concat, Subject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
+
 import { Room } from '../models/room';
+import { ToDo } from './../models/toDo';
 
 @Injectable()
 export class RoomsService {
 
   roomListObs = new BehaviorSubject<Array<Room>>([]);
-  toDoListObs = new BehaviorSubject<Array<ToDo>>([]);
+
 
   constructor(private httpService: HttpService, public angularFire: AngularFireAuth) {
     angularFire.authState.subscribe(user => {
@@ -51,13 +53,13 @@ export class RoomsService {
 
   addToDoToRoom(index: number, toDo: ToDo) {
     const roomsList = this.roomListObs.getValue();
-    roomsList[index].toDo.push(toDo);
+    roomsList[index].toDos.push(toDo);
     this.roomListObs.next(roomsList);
   }
 
   getIndexAddedToDo(index: number) {
     const roomsList = this.roomListObs.getValue();
-    const newToDoIndex = roomsList[index].toDo.length - 1;
+    const newToDoIndex = roomsList[index].toDos.length - 1;
 
     return newToDoIndex;
   }
@@ -65,25 +67,50 @@ export class RoomsService {
   getToDo(roomIndex: number, toDoIndex: number) {
     const room = this.getRoom(roomIndex);
 
-    return room.toDo[toDoIndex];
+    return room.toDos[toDoIndex];
   }
 
   getToDoList(index: number) {
     const room = this.getRoom(index);
+    console.log(room)
 
-    return room.toDo;
+    return room.toDos;
   }
 
   removeToDo(roomIndex: number, toDo: ToDo) {
     const room = this.getRoom(roomIndex);
+    const updatedToDoList = room.toDos.filter(e => e !== toDo);
 
-    const updatedToDoList = room.toDo.filter(e => e !== toDo);
-
-    room.toDo = updatedToDoList;
+    room.toDos = updatedToDoList;
   }
 
+  addInspirationToRoom(index: number, inspiration: Inspiration) {
+    const roomsList = this.roomListObs.getValue();
+    roomsList[index].inspirations.push(inspiration);
+
+    this.roomListObs.next(roomsList);
+  }
+
+  getInspirationList(index: number) {
+    const room = this.getRoom(index);
+
+    return room.inspirations;
+  }
+
+  removeInspiration(roomIndex: number, inspiration: Inspiration) {
+    const room = this.getRoom(roomIndex);
+    const updatedInspirationList = room.inspirations.filter(e => e !== inspiration);
+
+    room.inspirations = updatedInspirationList;
+  }
 
   saveRoomsInDb() {
     this.httpService.saveRooms(this.roomListObs.getValue());
+  }
+
+  guid() {
+    let uniqueId = Math.random().toString(36).substring(2)
+      + (new Date()).getTime().toString(36);
+    return uniqueId;
   }
 }

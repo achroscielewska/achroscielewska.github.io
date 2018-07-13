@@ -59,7 +59,67 @@
               </label>
             </div>
           </div>
-        </form>
+      </form>
 
   </div>
+
+  <!-- inspirations-->
+  <div class="row">
+    <h5>Lista inspiracji</h5>
+  </div>
+
+  <div class="row">
+    <form [formGroup]="addInspirationForm" (ngSubmit)=addInspiration()>
+
+      <div class="input-field col s4">
+        <input type="text" id="newInspirationLink" formControlName="newInspirationLink">
+        <label for="newInspirationLink">Link do inspiracji</label>
+      </div>
+
+      <div class="input-field col s2">
+        <label for="newInspirationIsSelected">
+          <input type="checkbox" id="newInspirationIsSelected" formControlName="newInspirationIsSelected" />
+          <span>Czy wybrane</span>
+        </label>
+      </div>
+
+      <button class="waves-effect waves-light btn" type="submit" [disabled]="addInspirationForm.invalid">
+        <i class="medium material-icons">add</i>
+      </button>
+    </form>
+  </div>
+
+  <div class="row">
+      <div class="col s7">
+        <ul class="collapsible popout">
+          <li class="" *ngFor="let inspiration of inspirations, let i=index">
+            <div class="collapsible-header">
+
+              <div class="col s10" style="display: flex; flex-direction: row">
+                <div style="margin-right: 10px">{{inspiration.inspirationLink}}</div>
+
+                <label for="isSelected">
+                  <input [(ngModel)]="inspiration.isSelected" type="checkbox" id="isSelected" name="isSelected" (click)="selectInspiration(inspiration)"/>
+                  <span>{{inspirations[i].isSelected}}</span>
+                </label>
+
+              </div>
+
+              <div class="col s2 app-gr-btn">
+                <button
+                  class="waves-effect waves-light btn app-delete-btn"
+                  type="button"
+
+                ><i class="material-icons">delete_forever</i></button>
+
+
+              </div>
+            </div>
+
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
 </div>

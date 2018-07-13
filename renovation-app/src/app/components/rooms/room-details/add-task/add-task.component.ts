@@ -19,7 +19,7 @@ export class AddTaskComponent implements OnInit, OnDestroy  {
   constructor(
     private roomsService: RoomsService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
   ) { }
 
   ngOnInit() {
@@ -45,6 +45,7 @@ export class AddTaskComponent implements OnInit, OnDestroy  {
     const value = this.addToDoForm.value;
 
     const newToDo = new ToDo(
+      this.roomsService.guid(),
       value.newToDoName,
       value.newToDoFinished,
       value.newToDoPlanedExecutionDate,
@@ -58,6 +59,8 @@ export class AddTaskComponent implements OnInit, OnDestroy  {
 
       this.router.navigate(['../', index, 'editTask'], {relativeTo: this.route});
   }
+
+
 
   ngOnDestroy() {
     this.subscription.unsubscribe();

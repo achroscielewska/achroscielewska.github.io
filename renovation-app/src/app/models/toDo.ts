@@ -1,3 +1,5 @@
+import { Inspiration } from "./inspiration";
+
 export class ToDo {
   public id: string;
   public name: string;
@@ -7,6 +9,7 @@ export class ToDo {
   public planedCost: number;
   public cost: number;
   public shopping: boolean;
+  public inspirations?: Inspiration[];
 
 
   constructor (
@@ -17,7 +20,8 @@ export class ToDo {
     contractor: string,
     planedCost: number,
     cost: number,
-    shopping: boolean ) {
+    shopping: boolean,
+    inspirations?: Inspiration[] ) {
       this.id = id;
       this.name = name;
       this.finished = finished;
@@ -26,5 +30,6 @@ export class ToDo {
       this.planedCost = planedCost;
       this.cost = cost;
       this.shopping = shopping;
-  }
+      this.inspirations = inspirations
+    }
 }

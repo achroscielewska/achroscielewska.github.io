@@ -9,22 +9,19 @@ export class Room {
   public code: string;
   public name: string;
   public editMode?: boolean;
-  public toDos?: ToDo[];
-  public inspirations?: Inspiration[];
+  public toDos?: ToDo[]
 
   constructor(
     userId: string,
     code: string,
     name: string,
     editMode?: boolean,
-    toDos?: ToDo[],
-    inspirations?: Inspiration[] ) {
+    toDos?: ToDo[] ) {
       this.userId = userId;
       this.code = code;
       this.name = name;
       this.editMode = editMode;
-      this.toDos = toDos;
-      this.inspirations = inspirations
+      this.toDos = toDos
     }
 }
 

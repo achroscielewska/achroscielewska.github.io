@@ -52,7 +52,8 @@ export class AddTaskComponent implements OnInit, OnDestroy  {
       value.newToDoContractor,
       value.newToDoPlanedCost,
       value.newToDoCost,
-      value.newToDoShopping);
+      value.newToDoShopping,
+      []);
 
       this.roomsService.addToDoToRoom(this.id, newToDo);
       const index = this.roomsService.getIndexAddedToDo(this.id);

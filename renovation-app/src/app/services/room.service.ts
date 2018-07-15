@@ -84,24 +84,23 @@ export class RoomsService {
     room.toDos = updatedToDoList;
   }
 
-  addInspirationToRoom(index: number, inspiration: Inspiration) {
-    const roomsList = this.roomListObs.getValue();
-    roomsList[index].inspirations.push(inspiration);
+  addInspirationToToDo(roomIndex: number, toDoIndex: number, inspiration: Inspiration) {
+    const toDo = this.getToDo(roomIndex, toDoIndex);
 
-    this.roomListObs.next(roomsList);
+    return toDo.inspirations.push(inspiration);
   }
 
-  getInspirationList(index: number) {
-    const room = this.getRoom(index);
+  getInspirationList(roomIndex: number, toDoIndex: number) {
+    const toDo = this.getToDo(roomIndex, toDoIndex);
 
-    return room.inspirations;
+    return toDo.inspirations;
   }
 
-  removeInspiration(roomIndex: number, inspiration: Inspiration) {
-    const room = this.getRoom(roomIndex);
-    const updatedInspirationList = room.inspirations.filter(e => e !== inspiration);
+  removeInspiration(roomIndex: number, toDoIndex: number, inspiration: Inspiration) {
+    const toDo = this.getToDo(roomIndex, toDoIndex);
+    const updatedInspirationList = toDo.inspirations.filter(e => e !== inspiration);
 
-    room.inspirations = updatedInspirationList;
+    toDo.inspirations = updatedInspirationList;
   }
 
   saveRoomsInDb() {

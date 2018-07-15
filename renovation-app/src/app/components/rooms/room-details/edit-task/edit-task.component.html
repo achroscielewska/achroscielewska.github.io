@@ -12,54 +12,54 @@
 
   <!--edit task-->
   <div class="row">
-      <form #editFormData='ngForm'>
+    <form #editFormData='ngForm'>
 
-          <div class="row">
-            <div class="input-field col s4">
-              <input [(ngModel)]="toDo.name" type="text" id="toDoName" name="toDoName" >
-              <label for="toDoName" class="active">Zadnie</label>
-            </div>
+      <div class="row app-edit-form">
+        <div class="input-field col s4">
+          <input [(ngModel)]="toDo.name" type="text" id="toDoName" name="toDoName">
+          <label for="toDoName" class="active">Zadnie</label>
+        </div>
 
-            <div class="input-field col s4">
-              <label for="toDoFinished">
-                <input [(ngModel)]="toDo.finished" type="checkbox" id="toDoFinished" name="toDoFinished"/>
-                <span>Czy skończone</span>
-              </label>
-            </div>
-          </div>
+        <div class="input-field col s4">
+          <label for="toDoFinished">
+            <input [(ngModel)]="toDo.finished" type="checkbox" id="toDoFinished" name="toDoFinished" />
+            <span>Czy skończone</span>
+          </label>
+        </div>
+      </div>
 
 
-          <div class="row">
-            <div class="input-field col s4">
-              <input [(ngModel)]="toDo.planedExecutionDate" type="text" class="datepicker" id="toDoPlanedExecutionDate" name="toDoPlanedExecutionDate">
-              <label for="toDoPlanedExecutionDate" class="active">Planowana data wykonania</label>
-            </div>
-            <div class="input-field col s4">
-              <input [(ngModel)]="toDo.contractor" type="text" id="toDoContractor" name="toDoContractor">
-              <label for="toDoContractor" class="active">Wykonawca</label>
-            </div>
-          </div>
+      <div class="row app-edit-form">
+        <div class="input-field col s4">
+          <input [(ngModel)]="toDo.planedExecutionDate" type="text" class="datepicker" id="toDoPlanedExecutionDate" name="toDoPlanedExecutionDate">
+          <label for="toDoPlanedExecutionDate" class="active">Planowana data wykonania</label>
+        </div>
+        <div class="input-field col s4">
+          <input [(ngModel)]="toDo.contractor" type="text" id="toDoContractor" name="toDoContractor">
+          <label for="toDoContractor" class="active">Wykonawca</label>
+        </div>
+      </div>
 
-          <div class="row">
-            <div class="input-field col s4">
-              <input [(ngModel)]="toDo.planedCost" type="number" id="toDoPlanedCost" name="toDoPlanedCost">
-              <label for="toDoPlanedCost" class="active">Planowany koszt</label>
-            </div>
-            <div class="input-field col s4">
-              <input [(ngModel)]="toDo.cost" type="number" id="newToDoCost" name="newToDoCost">
-              <label for="toDoCost" class="active">Koszt</label>
-            </div>
-          </div>
+      <div class="row app-edit-form">
+        <div class="input-field col s4">
+          <input [(ngModel)]="toDo.planedCost" type="number" id="toDoPlanedCost" name="toDoPlanedCost">
+          <label for="toDoPlanedCost" class="active">Planowany koszt</label>
+        </div>
+        <div class="input-field col s4">
+          <input [(ngModel)]="toDo.cost" type="number" id="newToDoCost" name="newToDoCost">
+          <label for="toDoCost" class="active">Koszt</label>
+        </div>
+      </div>
 
-          <div class="row">
-            <div class="col s4">
-              <label for="toDoShopping">
-                <input [(ngModel)]="toDo.shopping" type="checkbox" id="toDoShopping" name="toDoShopping"/>
-                <span>Zakupy</span>
-              </label>
-            </div>
-          </div>
-      </form>
+      <div class="row">
+        <div class="col s4">
+          <label for="toDoShopping">
+            <input [(ngModel)]="toDo.shopping" type="checkbox" id="toDoShopping" name="toDoShopping" />
+            <span>Zakupy</span>
+          </label>
+        </div>
+      </div>
+    </form>
 
   </div>
 
@@ -90,36 +90,69 @@
   </div>
 
   <div class="row">
-      <div class="col s7">
-        <ul class="collapsible popout">
-          <li class="" *ngFor="let inspiration of inspirations, let i=index">
-            <div class="collapsible-header">
+    <div class="col s9">
+      <ul class="collapsible popout">
+        <li class="" *ngFor="let inspiration of inspirations">
+          <div class="collapsible-header">
 
-              <div class="col s10" style="display: flex; flex-direction: row">
-                <div style="margin-right: 10px">{{inspiration.inspirationLink}}</div>
-
-                <label for="isSelected">
-                  <input [(ngModel)]="inspiration.isSelected" type="checkbox" id="isSelected" name="isSelected" (click)="selectInspiration(inspiration)"/>
-                  <span>{{inspirations[i].isSelected}}</span>
-                </label>
-
+            <div class="col s9 app-box-container" >
+              <div>
+                <i class="material-icons">insert_link</i>
+              </div>
+              <div class="app-link-style">
+                <a href="http://{{inspiration.inspirationLink}}" target="_blank">{{inspiration.inspirationLink}}</a>
               </div>
 
-              <div class="col s2 app-gr-btn">
-                <button
-                  class="waves-effect waves-light btn app-delete-btn"
-                  type="button"
-
-                ><i class="material-icons">delete_forever</i></button>
-
-
+              <div *ngIf="inspiration.isSelected">
+                <i class="material-icons">done</i>
               </div>
             </div>
 
-          </li>
-        </ul>
-      </div>
+            <div class="col s3 app-gr-btn">
+              <button
+                class="waves-effect waves-light btn app-edit-btn"
+                [ngClass]="{'app-notActive': inspiration.editMode}"
+                type="button"
+                (click)=editInspirtaionMode(inspiration)
+                ><i class="material-icons">create</i></button>
+              <button
+                class="waves-effect waves-light btn app-delete-btn"
+                [ngClass]="{'app-notActive': inspiration.editMode}"
+                type="button"
+                (click)=removeInspiration(inspiration)
+                ><i class="material-icons">delete_forever</i></button>
 
+            </div>
+          </div>
+          <div class="collapsible-body" [ngClass]="{'app-active-box': inspiration.editMode}">
+            <div>
+            <form #editFormData='ngForm' (ngSubmit)=leaveInspirationEditMode(inspiration)>
+
+                 <div class="input-field col s7">
+                   <input [(ngModel)]="inspiration.inspirationLink" type="text" id="inspirationLink" name="inspirationLink">
+                   <label for="inspirationLink" class="active">Link do inspiracji</label>
+                 </div>
+
+                 <div class="input-field col s4">
+                  <label for="isSelected">
+                    <input [(ngModel)]="inspiration.isSelected"  type="checkbox" id="isSelected" name="isSelected" />
+                    <span>Czy wybrane</span>
+                  </label>
+                </div>
+
+                 <button class="waves-effect waves-light btn app-delete-btn" type="submit" [disabled]="editFormData.invalid">
+                   <i class="medium material-icons ">close</i>
+                 </button>
+
+               </form>
+               <p></p>
+             </div>
+         </div>
+
+        </li>
+      </ul>
     </div>
+
+  </div>
 
 </div>

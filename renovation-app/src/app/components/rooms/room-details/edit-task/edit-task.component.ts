@@ -34,7 +34,7 @@ export class EditTaskComponent implements OnInit, OnDestroy {
     });
 
     this.toDo = this.roomsService.getToDo(this.id, this.taskId);
-    this.inspirations = this.roomsService.getInspirationList(this.id)
+    this.inspirations = this.roomsService.getInspirationList(this.id, this.taskId)
 
     console.log(this.toDo);
     console.log(this.inspirations)
@@ -57,14 +57,26 @@ export class EditTaskComponent implements OnInit, OnDestroy {
     const value = this.addInspirationForm.value;
     const newInspiration = new Inspiration (this.roomsService.guid(), value.newInspirationLink, value.newInspirationIsSelected);
 
-    this.roomsService.addInspirationToRoom(this.id, newInspiration);
+    this.roomsService.addInspirationToToDo(this.id, this.taskId, newInspiration);
 
     this.addInspirationForm = this.initInspirationForm();
 
     console.log(newInspiration)
   }
 
-  selectInspiration(inspiration: Inspiration) {
-    console.log(inspiration)
+  removeInspiration(inspiration: Inspiration) {
+    this.roomsService.removeInspiration(this.id, this.taskId, inspiration)
+
+    this.inspirations = this.roomsService.getInspirationList(this.id, this.taskId)
   }
+
+  editInspirtaionMode(inspiration: Inspiration) {
+    console.log('editMode')
+    return inspiration.editMode = true;
+  }
+
+  leaveInspirationEditMode(inspiration: Inspiration) {
+    return inspiration.editMode = false;
+  }
+
 }

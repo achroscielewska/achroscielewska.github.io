@@ -40,10 +40,10 @@
           <li class="" *ngFor="let toDo of toDoList, let i=index">
             <div class="collapsible-header">
               <div class="col s2"> {{toDo.name}} </div>
-              <div class="col s2"> {{toDo.finished}} </div>
+              <div class="col s2"> <i class="material-icons" *ngIf="toDo.finished">done</i></div>
               <div class="col s2"> {{toDo.planedExecutionDate}} </div>
               <div class="col s2"> {{toDo.contractor}} </div>
-              <div class="col s2"> {{toDo.shopping}} </div>
+              <div class="col s2"> <i class="material-icons" *ngIf="toDo.shopping">done</i></div>
               <div class="col s2 app-gr-btn">
                   <button
                     class="waves-effect waves-light btn app-edit-btn"

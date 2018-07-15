@@ -7,6 +7,7 @@ import { AuthGuardService } from "./auth/auth-guard.service";
 import { EditRoomsComponent } from "./components/edit-rooms/edit-rooms.component";
 import { RoomDetailsComponent } from "./components/rooms/room-details/room-details.component";
 import { EditTaskComponent } from './components/rooms/room-details/edit-task/edit-task.component';
+import { ContractorsComponent } from './components/contractors/contractors.component';
 
 const appRoutes: Routes = [
   {
@@ -37,6 +38,11 @@ const appRoutes: Routes = [
   {
     path: "editRooms",
     component: EditRoomsComponent,
+    canActivate: [AuthGuardService]
+  },
+  {
+    path: "contractors",
+    component: ContractorsComponent,
     canActivate: [AuthGuardService]
   },
   {

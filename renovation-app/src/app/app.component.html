@@ -3,6 +3,22 @@
     <a href="#!" class="brand-logo">
       <i class="material-icons">home</i>Logo</a>
     <ul class="right hide-on-med-and-down">
+        <li>
+            <button
+            *ngIf="authService.user"
+            class="waves-effect waves-light btn route-button"
+            type="button"
+            [routerLink]="['rooms']" routerLinkActive="active"
+            >Pokoje</button>
+        </li>
+      <li>
+          <button
+          *ngIf="authService.user"
+          class="waves-effect waves-light btn route-button"
+          type="button"
+          [routerLink]="['contractors']" routerLinkActive="active"
+          >Wykonawcy</button>
+      </li>
       <li>
         <a *ngIf="authService.user" (click)="logout()">
           <i class="material-icons">exit_to_app</i>

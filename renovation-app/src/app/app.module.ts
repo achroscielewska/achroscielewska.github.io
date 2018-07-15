@@ -21,6 +21,7 @@ import { EditRoomsComponent } from './components/edit-rooms/edit-rooms.component
 import { RoomDetailsComponent } from './components/rooms/room-details/room-details.component';
 import { AddTaskComponent } from './components/rooms/room-details/add-task/add-task.component';
 import { EditTaskComponent } from './components/rooms/room-details/edit-task/edit-task.component';
+import { ContractorsComponent } from './components/contractors/contractors.component';
 
 
 const config = {
@@ -40,7 +41,8 @@ const config = {
     EditRoomsComponent,
     RoomDetailsComponent,
     AddTaskComponent,
-    EditTaskComponent
+    EditTaskComponent,
+    ContractorsComponent
   ],
   imports: [
     BrowserModule,

@@ -3,6 +3,7 @@ import { RoomsService } from '../../../../services/room.service';
 import { ActivatedRoute, Router, Params } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ToDo } from '../../../../models/toDo';
+import { GuidHelper } from '../../../../helpers/guid.helper';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -45,7 +46,7 @@ export class AddTaskComponent implements OnInit, OnDestroy  {
     const value = this.addToDoForm.value;
 
     const newToDo = new ToDo(
-      this.roomsService.guid(),
+      GuidHelper.guid(),
       value.newToDoName,
       value.newToDoFinished,
       value.newToDoPlanedExecutionDate,
@@ -60,8 +61,6 @@ export class AddTaskComponent implements OnInit, OnDestroy  {
 
       this.router.navigate(['../', index, 'editTask'], {relativeTo: this.route});
   }
-
-
 
   ngOnDestroy() {
     this.subscription.unsubscribe();

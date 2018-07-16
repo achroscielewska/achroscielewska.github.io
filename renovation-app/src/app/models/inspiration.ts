@@ -11,7 +11,7 @@ export class Inspiration {
     editMode?: boolean ) {
       this.id = id;
       this.inspirationLink = inspirationLink;
-      this.isSelected = isSelected
-      this.editMode = editMode
+      this.isSelected = isSelected;
+      this.editMode = editMode;
   }
 }

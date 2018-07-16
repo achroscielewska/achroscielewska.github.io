@@ -4,6 +4,7 @@ import { Subscription } from 'rxjs';
 import { RoomsService } from '../../../../services/room.service';
 import { ActivatedRoute, Router, Params } from '@angular/router';
 import { ToDo } from '../../../../models/toDo';
+import { GuidHelper } from '../../../../helpers/guid.helper';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
@@ -55,7 +56,7 @@ export class EditTaskComponent implements OnInit, OnDestroy {
 
   addInspiration() {
     const value = this.addInspirationForm.value;
-    const newInspiration = new Inspiration (this.roomsService.guid(), value.newInspirationLink, value.newInspirationIsSelected);
+    const newInspiration = new Inspiration (GuidHelper.guid(), value.newInspirationLink, value.newInspirationIsSelected);
 
     this.roomsService.addInspirationToToDo(this.id, this.taskId, newInspiration);
 
@@ -77,6 +78,10 @@ export class EditTaskComponent implements OnInit, OnDestroy {
 
   leaveInspirationEditMode(inspiration: Inspiration) {
     return inspiration.editMode = false;
+  }
+
+  customTrackBy(index: number, obj: any): any {
+    return index;
   }
 
 }

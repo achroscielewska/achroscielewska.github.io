@@ -1,4 +1,4 @@
-import { Inspiration } from "./inspiration";
+import { Inspiration } from './inspiration';
 
 export class ToDo {
   public id: string;
@@ -30,6 +30,6 @@ export class ToDo {
       this.planedCost = planedCost;
       this.cost = cost;
       this.shopping = shopping;
-      this.inspirations = inspirations
+      this.inspirations = inspirations;
     }
 }

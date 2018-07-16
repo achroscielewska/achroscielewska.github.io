@@ -4,6 +4,7 @@ import { HttpService } from './http.service';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 
+
 import { Room } from '../models/room';
 import { ToDo } from './../models/toDo';
 
@@ -72,7 +73,7 @@ export class RoomsService {
 
   getToDoList(index: number) {
     const room = this.getRoom(index);
-    console.log(room)
+    console.log(room);
 
     return room.toDos;
   }
@@ -107,9 +108,4 @@ export class RoomsService {
     this.httpService.saveRooms(this.roomListObs.getValue());
   }
 
-  guid() {
-    let uniqueId = Math.random().toString(36).substring(2)
-      + (new Date()).getTime().toString(36);
-    return uniqueId;
-  }
 }

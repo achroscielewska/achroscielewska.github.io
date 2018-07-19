@@ -22,6 +22,8 @@ import { RoomDetailsComponent } from './components/rooms/room-details/room-detai
 import { AddTaskComponent } from './components/rooms/room-details/add-task/add-task.component';
 import { EditTaskComponent } from './components/rooms/room-details/edit-task/edit-task.component';
 import { ContractorsComponent } from './components/contractors/contractors.component';
+import { AddContractorComponent } from './components/contractors/add-contractor/add-contractor.component';
+import { ContractorService } from './services/contractors.service';
 
 
 const config = {
@@ -42,7 +44,8 @@ const config = {
     RoomDetailsComponent,
     AddTaskComponent,
     EditTaskComponent,
-    ContractorsComponent
+    ContractorsComponent,
+    AddContractorComponent
   ],
   imports: [
     BrowserModule,
@@ -58,7 +61,8 @@ const config = {
     AuthService,
     AuthGuardService,
     HttpService,
-    RoomsService
+    RoomsService,
+    ContractorService
   ],
   bootstrap: [AppComponent]
 })

@@ -1,0 +1,26 @@
+<div class="app-add-btn">
+  <a routerLink="/contractors" routerLinkActive="active">
+    <button class="waves-effect waves-light btn route-button" type="button">
+      <i class="medium material-icons">arrow_back</i>
+    </button>
+  </a>
+</div>
+<div class="edit-content">
+  <div class="row">
+    <h4>Dodaj wykonawce</h4>
+  </div>
+  <div class="row">
+    <form [formGroup]="addContractorForm" (ngSubmit)=addContractor()>
+
+      <div class="input-field col s4">
+        <input type="text" id="newContractorName" formControlName="newContractorName">
+        <label for="newContractorName">Nazwa wykonawcy</label>
+      </div>
+
+      <button class="waves-effect waves-light btn" type="submit" [disabled]="addContractorForm.invalid">
+        <i class="medium material-icons">add</i>
+      </button>
+
+    </form>
+  </div>
+</div>

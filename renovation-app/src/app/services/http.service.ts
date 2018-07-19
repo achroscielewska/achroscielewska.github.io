@@ -1,3 +1,4 @@
+import { Contractor } from './../models/contractor';
 import { AuthService } from './../auth/auth.service';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
@@ -9,7 +10,8 @@ import { Observable } from 'rxjs';
 })
 export class HttpService {
 
-  readonly URL_DB = 'https://api.mlab.com/api/1/databases/kurs_db/collections/rooms';
+  readonly URL_DB_ROOOMS = 'https://api.mlab.com/api/1/databases/kurs_db/collections/rooms';
+  readonly URL_DB_CONTRACTORS = 'https://api.mlab.com/api/1/databases/kurs_db/collections/contractors';
 
   constructor(private http: HttpClient, private authService: AuthService) {
     this.getRooms()
@@ -27,11 +29,22 @@ export class HttpService {
   }
 
   getRooms(): Observable<Array<Room>> {
-    return this.http.get<Array<Room>>(this.URL_DB, { params: this.getParams() })
+    return this.http.get<Array<Room>>(this.URL_DB_ROOOMS, { params: this.getParams() })
   }
 
   saveRooms(listRooms: Array<Room>) {
-    this.http.put(this.URL_DB, listRooms, { params: this.getParams() })
+    this.http.put(this.URL_DB_ROOOMS, listRooms, { params: this.getParams() })
+    .subscribe(list => {
+      console.log(list)}
+    )
+  }
+
+  getContractors(): Observable<Array<Contractor>> {
+    return this.http.get<Array<Contractor>>(this.URL_DB_CONTRACTORS, { params: this.getParams() })
+  }
+
+  saveContractors(listContractors: Array<Contractor>) {
+    this.http.put(this.URL_DB_CONTRACTORS, listContractors, { params: this.getParams() })
     .subscribe(list => {
       console.log(list)}
     )

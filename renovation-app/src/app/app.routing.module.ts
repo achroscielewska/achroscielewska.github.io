@@ -8,6 +8,7 @@ import { EditRoomsComponent } from './components/edit-rooms/edit-rooms.component
 import { RoomDetailsComponent } from './components/rooms/room-details/room-details.component';
 import { EditTaskComponent } from './components/rooms/room-details/edit-task/edit-task.component';
 import { ContractorsComponent } from './components/contractors/contractors.component';
+import { AddContractorComponent } from './components/contractors/add-contractor/add-contractor.component';
 
 const appRoutes: Routes = [
   {
@@ -43,6 +44,11 @@ const appRoutes: Routes = [
   {
     path: 'contractors',
     component: ContractorsComponent,
+    canActivate: [AuthGuardService]
+  },
+  {
+    path: 'contractors/addContractor',
+    component: AddContractorComponent,
     canActivate: [AuthGuardService]
   },
   {

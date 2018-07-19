@@ -7,6 +7,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 
 import { Room } from '../models/room';
 import { ToDo } from './../models/toDo';
+import { ContractorService } from './contractors.service';
 
 @Injectable()
 export class RoomsService {
@@ -14,7 +15,7 @@ export class RoomsService {
   roomListObs = new BehaviorSubject<Array<Room>>([]);
 
 
-  constructor(private httpService: HttpService, public angularFire: AngularFireAuth) {
+  constructor(private httpService: HttpService, public angularFire: AngularFireAuth, private contractorsService: ContractorService) {
     angularFire.authState.subscribe(user => {
       if (user) {
         this.init();
@@ -106,6 +107,11 @@ export class RoomsService {
 
   saveRoomsInDb() {
     this.httpService.saveRooms(this.roomListObs.getValue());
+  }
+
+  saveInDb() {
+    this.saveRoomsInDb();
+    this.contractorsService.saveContractorsInDb()
   }
 
 }

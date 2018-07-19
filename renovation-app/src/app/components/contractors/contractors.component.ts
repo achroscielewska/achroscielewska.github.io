@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Contractor } from './../../models/contractor';
+import { Component, OnInit, Input } from '@angular/core';
+import { ContractorService } from '../../services/contractors.service';
 
 @Component({
   selector: 'app-contractors',
@@ -7,9 +9,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContractorsComponent implements OnInit {
 
-  constructor() { }
+  @Input()
+  contractorsList:Array<Contractor> = [];
+
+  constructor(private contractorsService: ContractorService) {
+    this.contractorsService.getContractorsListObs().subscribe((contractors: Array<Contractor>) =>
+    this.contractorsList = contractors
+    );
+   }
 
   ngOnInit() {
+  }
+
+  removeContractor(contractor: Contractor) {
+    this.contractorsService.removeContractor(contractor)
+
+  }
+
+  saveInDb() {
+    this.contractorsService.saveInDb()
   }
 
 }

@@ -22,8 +22,8 @@ export class RoomsComponent implements OnInit {
   }
 
 
-  save() {
-    this.roomsService.saveRoomsInDb();
+  saveInDb() {
+    this.roomsService.saveInDb();
   }
 
 }

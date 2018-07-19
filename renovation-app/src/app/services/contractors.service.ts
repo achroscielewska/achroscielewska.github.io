@@ -3,6 +3,7 @@ import { HttpService } from './http.service';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Contractor } from '../models/contractor';
+import { RoomsService } from './room.service';
 
 
 @Injectable()
@@ -45,5 +46,12 @@ export class ContractorService {
 
   saveContractorsInDb() {
     this.httpService.saveContractors(this.contractorListObs.getValue());
+
   }
+
+  saveInDb() {
+    this.saveContractorsInDb();
+    // this.roomsService.saveRoomsInDb();
+  }
+
 }

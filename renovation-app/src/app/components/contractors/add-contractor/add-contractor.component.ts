@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Contractor } from '../../../models/contractor';
 import { AuthService } from '../../../auth/auth.service';
 import { ContractorService } from '../../../services/contractors.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-contractor',
@@ -12,7 +13,12 @@ import { ContractorService } from '../../../services/contractors.service';
 export class AddContractorComponent implements OnInit {
   addContractorForm: FormGroup;
 
-  constructor(private contractorsService: ContractorService, private authService: AuthService) { }
+  constructor(
+    private contractorsService: ContractorService,
+    private authService: AuthService,
+    private route: ActivatedRoute,
+    private router: Router,
+  ) { }
 
   ngOnInit() {
     this.addContractorForm = this.initForm();
@@ -31,6 +37,8 @@ export class AddContractorComponent implements OnInit {
     this.contractorsService.addContractor(newContractor)
 
     this.addContractorForm = this.initForm();
+
+    this.router.navigate(['../'], {relativeTo: this.route});
   }
 
 

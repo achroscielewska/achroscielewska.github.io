@@ -6,6 +6,7 @@ import { ActivatedRoute, Router, Params } from '@angular/router';
 import { ToDo } from '../../../../models/toDo';
 import { GuidHelper } from '../../../../helpers/guid.helper';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { DatepickerOptions } from 'materialize-css';
 
 @Component({
   selector: 'app-edit-task',
@@ -21,6 +22,8 @@ export class EditTaskComponent implements OnInit, OnDestroy {
   inspirations: Inspiration[];
 
   addInspirationForm: FormGroup;
+  datepicker: Element;
+
 
   constructor(
     private roomsService: RoomsService,
@@ -44,6 +47,7 @@ export class EditTaskComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
+    this.toDo.planedExecutionDate = M.Datepicker.getInstance(this.datepicker).toString()
     this.subscription.unsubscribe();
   }
 
@@ -84,4 +88,19 @@ export class EditTaskComponent implements OnInit, OnDestroy {
     return index;
   }
 
+  ngAfterViewInit() {
+    this.datepicker = document.querySelector('.datepicker');
+
+    const [year, month, day] = this.toDo.planedExecutionDate.split("-");
+    const date = new Date(parseInt(year), parseInt(month)-1, parseInt(day));
+
+    const options: Partial<DatepickerOptions> = {
+      autoClose: true,
+      format: 'yyyy-mm-dd',
+      defaultDate: date,
+      setDefaultDate: true
+    };
+
+    M.Datepicker.init(this.datepicker, options)
+  }
 }

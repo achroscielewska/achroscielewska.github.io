@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, AfterViewInit } from '@angular/core';
 import { RoomsService } from '../../../../services/room.service';
 import { ActivatedRoute, Router, Params } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
@@ -6,16 +6,21 @@ import { ToDo } from '../../../../models/toDo';
 import { GuidHelper } from '../../../../helpers/guid.helper';
 import { Subscription } from 'rxjs';
 
+import * as M from 'materialize-css';
+import { DatepickerOptions } from 'materialize-css';
+
 @Component({
   selector: 'app-add-task',
   templateUrl: './add-task.component.html',
   styleUrls: ['./add-task.component.sass']
 })
-export class AddTaskComponent implements OnInit, OnDestroy  {
+export class AddTaskComponent implements OnInit, AfterViewInit, OnDestroy  {
 
   id: number;
   subscription: Subscription;
   addToDoForm: FormGroup;
+
+  datepicker: Element;
 
   constructor(
     private roomsService: RoomsService,
@@ -30,11 +35,15 @@ export class AddTaskComponent implements OnInit, OnDestroy  {
     this.addToDoForm = this.initForm();
   }
 
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+  }
+
   initForm() {
     return new FormGroup({
       newToDoName: new FormControl(null, Validators.required),
       newToDoFinished: new FormControl(false, Validators.required),
-      newToDoPlanedExecutionDate: new FormControl(null, Validators.required),
+      newToDoPlanedExecutionDate: new FormControl(null),
       newToDoContractor: new FormControl(null, Validators.required),
       newToDoPlanedCost: new FormControl(null, Validators.required),
       newToDoCost: new FormControl(null, Validators.required),
@@ -49,7 +58,7 @@ export class AddTaskComponent implements OnInit, OnDestroy  {
       GuidHelper.guid(),
       value.newToDoName,
       value.newToDoFinished,
-      value.newToDoPlanedExecutionDate,
+      M.Datepicker.getInstance(this.datepicker).toString(),
       value.newToDoContractor,
       value.newToDoPlanedCost,
       value.newToDoCost,
@@ -62,7 +71,18 @@ export class AddTaskComponent implements OnInit, OnDestroy  {
       this.router.navigate(['../', index, 'editTask'], {relativeTo: this.route});
   }
 
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
+  ngAfterViewInit() {
+    this.datepicker = document.querySelector('.datepicker');
+
+    const options: Partial<DatepickerOptions> = {
+      autoClose: true,
+      format: 'yyyy-mm-dd'
+    }
+
+    M.Datepicker.init(this.datepicker, options)
+
+    const select = document.querySelector('select');
+
+    M.FormSelect.init(select);
   }
 }

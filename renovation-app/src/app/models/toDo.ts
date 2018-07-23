@@ -4,7 +4,7 @@ export class ToDo {
   public id: string;
   public name: string;
   public finished: boolean;
-  public planedExecutionDate: Date;
+  public planedExecutionDate: string;
   public contractor: string;
   public planedCost: number;
   public cost: number;
@@ -16,7 +16,7 @@ export class ToDo {
     id: string,
     name: string,
     finished: boolean,
-    planedExecutionDate: Date,
+    planedExecutionDate: string,
     contractor: string,
     planedCost: number,
     cost: number,

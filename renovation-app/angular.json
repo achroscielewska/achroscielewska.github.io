@@ -23,11 +23,11 @@
               "src/assets"
             ],
             "styles": [
-              "./node_modules/materialize-css/dist/css/materialize.css",
+              "./node_modules/materialize-css/dist/css/materialize.min.css",
               "src/styles.sass"
             ],
             "scripts": [
-              "./node_modules/materialize-css/dist/js/materialize.js"
+              "./node_modules/materialize-css/dist/js/materialize.min.js"
             ]
           },
           "configurations": {

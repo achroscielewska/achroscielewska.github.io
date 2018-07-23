@@ -31,13 +31,19 @@
 
       <div class="row app-edit-form">
         <div class="input-field col s4">
-          <input type="date" class="datepicker" id="newToDoPlanedExecutionDate" formControlName="newToDoPlanedExecutionDate">
+          <input type="text" class="datepicker" id="newToDoPlanedExecutionDate" formControlName="newToDoPlanedExecutionDate">
           <label for="newToDoPlanedExecutionDate">Planowana data wykonania</label>
         </div>
+
         <div class="input-field col s4">
-          <input type="text" id="newToDoContractor" formControlName="newToDoContractor">
-          <label for="newToDoContractor">Wykonawca</label>
-        </div>
+            <select id="newToDoContractor" formControlName="newToDoContractor">
+              <option value="" disabled selected>Choose your option</option>
+              <option value="1">Option 1</option>
+              <option value="2">Option 2</option>
+              <option value="3">Option 3</option>
+            </select>
+            <label for="newToDoContractor">Wykonawca</label>
+          </div>
       </div>
 
       <div class="row app-edit-form">

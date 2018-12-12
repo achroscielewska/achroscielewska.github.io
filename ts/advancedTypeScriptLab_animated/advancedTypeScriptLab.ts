@@ -67,7 +67,6 @@ function animated(constructor: Function) {
     return constructor;
  }
 
-@animated
 class movingElement implements Rotater, Mover {
     rotate: (elem: HTMLElement) => any
     move: (elem: HTMLElement) => any

@@ -6,13 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  newTask = 'nowe zadanie';
   tasksList: Array<string> = [];
   tasksDone: Array<string> = [];
 
-  add() {
-    this.tasksList.push(this.newTask);
-    this.newTask = '';
+  add(task: string) {
+    this.tasksList.push(task);
   }
 
   removeTask(task: string) {

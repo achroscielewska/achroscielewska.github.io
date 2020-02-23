@@ -1,0 +1,57 @@
+{
+  "Global": {
+    "yes": "Tak",
+    "no": "Nie",
+    "language": "Język"
+  },
+  "PersonalInfo": {
+    "name": "Agnieszka Chróścielewska",
+    "position": "Front-end Developer",
+    "mail": "achroscielewska@gmail.com",
+    "phone": "+48602370054",
+    "phoneToDisplay": "+48 602 370 054",
+    "linkedin": "https://www.linkedin.com/in/agnieszka-chróścielewska-366a63a/",
+    "github": "https://github.com/achroscielewska",
+    "web": "https://achroscielewska.github.io/"
+  },
+  "CarrerSummary": {
+    "header": "Profil zawodowy",
+    "content": "TO_DO"
+  },
+  "WorkExperience": {
+    "header": "Historia zatrudnienia",
+    "content": "TO_DO"
+  },
+  "SkillsAndTools": {
+    "header": "Kluczowe kompetencje",
+    "content": "TO_DO"
+  },
+  "Education": {
+    "header": "Edukacja i szkolenia",
+    "content": "TO_DO"
+  },
+  "Language": {
+    "header": "Języki",
+    "content": [
+      {
+        "language": "Polski",
+        "level": "ojczyst"
+      },
+      {
+        "language": "Angielski",
+        "level": "B2"
+      },
+      {
+        "language": "Rosyjski",
+        "level": "B1"
+      }
+
+
+
+    ]
+  },
+  "Interests": {
+    "header": "Zainteresowania",
+    "content": "Nurkowanie, podróże"
+  }
+}

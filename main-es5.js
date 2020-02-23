@@ -1,8 +1,8 @@
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["main"], {
   /***/
@@ -51,7 +51,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"App-main-container\">\n  <app-personal-info></app-personal-info>\n  <app-carrer-summary></app-carrer-summary>\n  <div class=\"App-two-columns\">\n    <div>\n      <app-work-experience></app-work-experience>\n    </div>\n    <div>\n      <app-skills-and-tools></app-skills-and-tools>\n      <app-education></app-education>\n      <app-language [languages]=\"languages\"></app-language>\n      <app-interests></app-interests>\n    </div>\n  </div>\n\n</div>\n\n\n";
+    __webpack_exports__["default"] = "<div class=\"App-main-container\">\n  <select class=\"App-lang-selector\" [(ngModel)]=\"selectedLanguage\" (change)=\"setUpLanguage($event.target.value)\">\n    <option *ngFor=\"let language of languagesDict\">{{language}}</option>\n  </select>\n  <app-personal-info></app-personal-info>\n  <app-carrer-summary></app-carrer-summary>\n  <div class=\"App-two-columns\">\n    <div>\n      <app-work-experience [workExperience]=\"workExperienceContent\"></app-work-experience>\n    </div>\n    <div>\n      <app-skills-and-tools [skillAndTools]=\"skillAndToolsContent\"></app-skills-and-tools>\n      <app-education [education]=\"educationContent\"></app-education>\n      <app-language [languages]=\"languagesContent\"></app-language>\n      <app-interests></app-interests>\n    </div>\n  </div>\n\n</div>\n";
     /***/
   },
 
@@ -131,7 +131,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"App-section-container\">\n  <app-section-header sectionHeader=\"{{'Education.header' | translate}}\"></app-section-header>\n  <div>\n    <p>{{'Education.content' | translate}}</p>\n  </div>\n</div>\n\n";
+    __webpack_exports__["default"] = "<div class=\"App-section-container\">\n  <app-section-header sectionHeader=\"{{'Education.header' | translate}}\"></app-section-header>\n  <div>\n    <div *ngFor=\"let educationSet of education\">\n      <div class=\"App-education\">\n        <p><b>{{educationSet.field}}</b></p>\n        <p>{{educationSet.school}}</p>\n        <p>{{educationSet.period}}</p>\n      </div>\n    </div>\n  </div>\n</div>\n";
     /***/
   },
 
@@ -191,7 +191,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"App-personal-info\">\n  <h2>{{'PersonalInfo.name' | translate}}</h2>\n  <div class=\"App-info\">\n    <div>\n      <h3>{{'PersonalInfo.position' | translate}}</h3>\n      <app-contact-with-img img=\"../../../../assets/icons/mail.png\" link=\"mailto:{{'PersonalInfo.mail' | translate}}\"\n        text=\"{{'PersonalInfo.mail' | translate}}\">\n      </app-contact-with-img>\n      <app-contact-with-img img=\"../../../../assets/icons/mobilePhone.png\"\n        link=\"tel:{{'PersonalInfo.phone' | translate}}\" text=\"{{'PersonalInfo.phoneToDisplay' | translate}}\">\n      </app-contact-with-img>\n    </div>\n    <div>\n      <app-contact-with-img img=\"../../../../assets/icons/linkedin.png\" link=\"{{'PersonalInfo.linkedin' | translate}}\"\n        text=\"{{'PersonalInfo.linkedin' | translate}}\">\n      </app-contact-with-img>\n      <app-contact-with-img img=\"../../../../assets/icons/github.png\" link=\"{{'PersonalInfo.github' | translate}}\"\n        text=\"{{'PersonalInfo.github' | translate}}\">\n      </app-contact-with-img>\n      <app-contact-with-img img=\"../../../../assets/icons/web.png\" link=\"{{'PersonalInfo.web' | translate}}\"\n        text=\"{{'PersonalInfo.web' | translate}}\">\n      </app-contact-with-img>\n    </div>\n  </div>\n\n</div>\n";
+    __webpack_exports__["default"] = "<div class=\"App-personal-info\">\n  <h2>{{'PersonalInfo.name' | translate}}</h2>\n  <div class=\"App-info\">\n    <div>\n      <h3>{{'PersonalInfo.position' | translate}}</h3>\n      <app-contact-with-img img=\"../../../../assets/icons/mail.png\" link=\"mailto:{{'PersonalInfo.mail' | translate}}\"\n        text=\"{{'PersonalInfo.mail' | translate}}\">\n      </app-contact-with-img>\n      <!-- <app-contact-with-img img=\"../../../../assets/icons/mobilePhone.png\"\n        link=\"tel:{{'PersonalInfo.phone' | translate}}\" text=\"{{'PersonalInfo.phoneToDisplay' | translate}}\">\n      </app-contact-with-img> -->\n    </div>\n    <div>\n      <app-contact-with-img img=\"../../../../assets/icons/linkedin.png\" link=\"{{'PersonalInfo.linkedin' | translate}}\"\n        text=\"{{'PersonalInfo.linkedin' | translate}}\">\n      </app-contact-with-img>\n      <app-contact-with-img img=\"../../../../assets/icons/github.png\" link=\"{{'PersonalInfo.github' | translate}}\"\n        text=\"{{'PersonalInfo.github' | translate}}\">\n      </app-contact-with-img>\n      <app-contact-with-img img=\"../../../../assets/icons/web.png\" link=\"{{'PersonalInfo.web' | translate}}\"\n        text=\"{{'PersonalInfo.web' | translate}}\">\n      </app-contact-with-img>\n    </div>\n  </div>\n\n</div>\n";
     /***/
   },
 
@@ -211,7 +211,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"App-section-container\">\n  <app-section-header sectionHeader=\"{{'SkillsAndTools.header' | translate}}\"></app-section-header>\n  <div>\n    <p>{{'SkillsAndTools.content' | translate}}</p>\n  </div>\n</div>\n";
+    __webpack_exports__["default"] = "<div class=\"App-section-container\">\n  <app-section-header sectionHeader=\"{{'SkillsAndTools.header' | translate}}\"></app-section-header>\n  <div class=\"App-skills\">\n    <p class=\"App-skills-header\"><b>{{'SkillsAndTools.content.frontendSkills.header' | translate}}</b></p>\n    <div *ngFor=\"let skill of skillAndTools.frontendSkills.content\">\n      <p>{{skill.skill}}</p>\n      <div class=\"App-skill-container\">\n        <div class=\"App-skill-base\"></div>\n      <div class=\"App-skill-level\" [style.width]=\"skill.level\"></div>\n      </div>\n    </div>\n  </div>\n  <div class=\"App-skills\">\n    <p class=\"App-skills-header\"><b>{{'SkillsAndTools.content.others.header' | translate}}</b></p>\n    <p>{{skillAndTools.others.content}}</p>\n  </div>\n</div>\n";
     /***/
   },
 
@@ -231,7 +231,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"App-section-container\">\n  <app-section-header sectionHeader=\"{{'WorkExperience.header' | translate}}\"></app-section-header>\n  <div>\n    <p>{{'WorkExperience.content' | translate}}</p>\n  </div>\n</div>\n\n";
+    __webpack_exports__["default"] = "<div class=\"App-section-container\">\n  <app-section-header sectionHeader=\"{{'WorkExperience.header' | translate}}\"></app-section-header>\n  <div *ngFor=\"let work of workExperience\">\n    <p class=\"App-company-name\"><b>{{work.company}}</b></p>\n    <p class=\"App-work-period\">{{work.period}}</p>\n    <div *ngFor=\"let project of work.projects\">\n      <div class=\"App-project\">\n        <p class=\"App-project-role\"><b>{{project.role}}</b></p>\n        <p class=\"App-work-period\">{{project.period}}</p>\n        <p>{{project.company}}</p>\n        <p class=\"App-project-area\">{{project.area}}</p>\n        <p><b>{{'WorkExperience.technologiesUsed' | translate}}</b>:</p>\n        <div class=\"App-technologies\">\n          <div *ngFor=\"let technology of project.technologiesUsed\">\n            <div class=\"App-bage\"><p>{{technology}}</p></div>\n          </div>\n        </div>\n\n      </div>\n\n    </div>\n  </div>\n</div>\n\n";
     /***/
   },
 
@@ -844,7 +844,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "@media (min-width: 992px) {\n  .App-two-columns {\n    display: -webkit-box;\n    display: flex;\n  }\n  .App-two-columns div:first-child {\n    width: 70%;\n  }\n  .App-two-columns div:last-child {\n    width: 30%;\n  }\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvQzpcXFVzZXJzXFxhY2hyb3NjaWVsZXdza2FcXF9QUk9KRUtUWVxcVEVTVC1BTkdVTEFSXFxjdi1hbmd1bGFyXFxteS1jdi9zcmNcXGFwcFxcYXBwLmNvbXBvbmVudC5zY3NzIiwic3JjL2FwcC9hcHAuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBS0E7RUFDRTtJQUNFLG9CQUFBO0lBQUEsYUFBQTtFQ0pGO0VES0U7SUFDRSxVQUFBO0VDSEo7RURLRTtJQUNFLFVBQUE7RUNISjtBQUNGIiwiZmlsZSI6InNyYy9hcHAvYXBwLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiQGltcG9ydCBcIi4uL2Fzc2V0cy9jb25maWcvYnJlYWtwb2ludHNcIjtcclxuXHJcbkBtZWRpYSAobWluLXdpZHRoOiAkbWQpIHtcclxufVxyXG5cclxuQG1lZGlhIChtaW4td2lkdGg6ICRsZykge1xyXG4gIC5BcHAtdHdvLWNvbHVtbnMge1xyXG4gICAgZGlzcGxheTogZmxleDtcclxuICAgIGRpdjpmaXJzdC1jaGlsZCB7XHJcbiAgICAgIHdpZHRoOiA3MCU7XHJcbiAgICB9XHJcbiAgICBkaXY6bGFzdC1jaGlsZCB7XHJcbiAgICAgIHdpZHRoOiAzMCU7XHJcbiAgICB9XHJcbiAgfVxyXG59XHJcblxyXG5AbWVkaWEgKG1pbi13aWR0aDogJHhsKSB7XHJcbn1cclxuIiwiQG1lZGlhIChtaW4td2lkdGg6IDk5MnB4KSB7XG4gIC5BcHAtdHdvLWNvbHVtbnMge1xuICAgIGRpc3BsYXk6IGZsZXg7XG4gIH1cbiAgLkFwcC10d28tY29sdW1ucyBkaXY6Zmlyc3QtY2hpbGQge1xuICAgIHdpZHRoOiA3MCU7XG4gIH1cbiAgLkFwcC10d28tY29sdW1ucyBkaXY6bGFzdC1jaGlsZCB7XG4gICAgd2lkdGg6IDMwJTtcbiAgfVxufSJdfQ== */";
+    __webpack_exports__["default"] = ".App-lang-selector {\n  position: absolute;\n  right: 10px;\n  top: 10px;\n  padding: 5px;\n  font-size: 0.8rem;\n  border-radius: 4px;\n}\n\n@media (min-width: 992px) {\n  .App-two-columns {\n    display: -webkit-box;\n    display: flex;\n  }\n  .App-two-columns div:first-child {\n    width: 70%;\n  }\n  .App-two-columns div:last-child {\n    width: 30%;\n  }\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvQzpcXFVzZXJzXFxhY2hyb3NjaWVsZXdza2FcXF9QUk9KRUtUWVxcVEVTVC1BTkdVTEFSXFxjdi1hbmd1bGFyXFxteS1jdi9zcmNcXGFwcFxcYXBwLmNvbXBvbmVudC5zY3NzIiwic3JjL2FwcC9hcHAuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBRUE7RUFDRSxrQkFBQTtFQUNBLFdBQUE7RUFDQSxTQUFBO0VBQ0EsWUFBQTtFQUNBLGlCQUFBO0VBQ0Esa0JBQUE7QUNERjs7QURPQTtFQUNFO0lBQ0Usb0JBQUE7SUFBQSxhQUFBO0VDSkY7RURLRTtJQUNFLFVBQUE7RUNISjtFREtFO0lBQ0UsVUFBQTtFQ0hKO0FBQ0YiLCJmaWxlIjoic3JjL2FwcC9hcHAuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyJAaW1wb3J0IFwiLi4vYXNzZXRzL2NvbmZpZy9icmVha3BvaW50c1wiO1xyXG5cclxuLkFwcC1sYW5nLXNlbGVjdG9yIHtcclxuICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgcmlnaHQ6IDEwcHg7XHJcbiAgdG9wOiAxMHB4O1xyXG4gIHBhZGRpbmc6IDVweDtcclxuICBmb250LXNpemU6IDAuOHJlbTtcclxuICBib3JkZXItcmFkaXVzOiA0cHg7XHJcbn1cclxuXHJcbkBtZWRpYSAobWluLXdpZHRoOiAkbWQpIHtcclxufVxyXG5cclxuQG1lZGlhIChtaW4td2lkdGg6ICRsZykge1xyXG4gIC5BcHAtdHdvLWNvbHVtbnMge1xyXG4gICAgZGlzcGxheTogZmxleDtcclxuICAgIGRpdjpmaXJzdC1jaGlsZCB7XHJcbiAgICAgIHdpZHRoOiA3MCU7XHJcbiAgICB9XHJcbiAgICBkaXY6bGFzdC1jaGlsZCB7XHJcbiAgICAgIHdpZHRoOiAzMCU7XHJcbiAgICB9XHJcbiAgfVxyXG59XHJcblxyXG5AbWVkaWEgKG1pbi13aWR0aDogJHhsKSB7XHJcbn1cclxuIiwiLkFwcC1sYW5nLXNlbGVjdG9yIHtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICByaWdodDogMTBweDtcbiAgdG9wOiAxMHB4O1xuICBwYWRkaW5nOiA1cHg7XG4gIGZvbnQtc2l6ZTogMC44cmVtO1xuICBib3JkZXItcmFkaXVzOiA0cHg7XG59XG5cbkBtZWRpYSAobWluLXdpZHRoOiA5OTJweCkge1xuICAuQXBwLXR3by1jb2x1bW5zIHtcbiAgICBkaXNwbGF5OiBmbGV4O1xuICB9XG4gIC5BcHAtdHdvLWNvbHVtbnMgZGl2OmZpcnN0LWNoaWxkIHtcbiAgICB3aWR0aDogNzAlO1xuICB9XG4gIC5BcHAtdHdvLWNvbHVtbnMgZGl2Omxhc3QtY2hpbGQge1xuICAgIHdpZHRoOiAzMCU7XG4gIH1cbn0iXX0= */";
     /***/
   },
 
@@ -891,22 +891,53 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var _services_translation_loader_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
     /*! ./services/translation-loader.service */
     "./src/app/services/translation-loader.service.ts");
+    /* harmony import */
 
-    var AppComponent = function AppComponent(translate, translationLoader) {
-      _classCallCheck(this, AppComponent);
 
-      this.translate = translate;
-      this.translationLoader = translationLoader;
-      this.translate.use('pl');
-      this.content = this.translationLoader.loadTranslations();
-      this.languages = this.content.Language.content;
-    };
+    var _services_language_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! ./services/language.service */
+    "./src/app/services/language.service.ts");
+
+    var AppComponent =
+    /*#__PURE__*/
+    function () {
+      function AppComponent(translate, translationLoader, languageService) {
+        _classCallCheck(this, AppComponent);
+
+        this.translate = translate;
+        this.translationLoader = translationLoader;
+        this.languageService = languageService;
+      }
+
+      _createClass(AppComponent, [{
+        key: "ngOnInit",
+        value: function ngOnInit() {
+          this.languagesDict = this.languageService.getAvailableLanguages();
+          this.setUpLanguage('pl');
+        }
+      }, {
+        key: "setUpLanguage",
+        value: function setUpLanguage(language) {
+          this.selectedLanguage = language;
+          this.translate.use(language);
+          this.content = this.translationLoader.loadTranslations(language);
+          this.languagesContent = this.content.Language.content;
+          this.educationContent = this.content.Education.content;
+          this.skillAndToolsContent = this.content.SkillsAndTools.content;
+          this.workExperienceContent = this.content.WorkExperience.content;
+        }
+      }]);
+
+      return AppComponent;
+    }();
 
     AppComponent.ctorParameters = function () {
       return [{
         type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_2__["TranslateService"]
       }, {
         type: _services_translation_loader_service__WEBPACK_IMPORTED_MODULE_3__["TranslationLoaderService"]
+      }, {
+        type: _services_language_service__WEBPACK_IMPORTED_MODULE_4__["LanguageService"]
       }];
     };
 
@@ -962,67 +993,73 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! @angular/forms */
+    "./node_modules/@angular/forms/fesm2015/forms.js");
+    /* harmony import */
+
+
+    var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
     /*! @ngx-translate/core */
     "./node_modules/@ngx-translate/core/fesm2015/ngx-translate-core.js");
     /* harmony import */
 
 
-    var _services_language_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    var _services_language_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
     /*! ./services/language.service */
     "./src/app/services/language.service.ts");
     /* harmony import */
 
 
-    var _services_translation_loader_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    var _services_translation_loader_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
     /*! ./services/translation-loader.service */
     "./src/app/services/translation-loader.service.ts");
     /* harmony import */
 
 
-    var _app_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    var _app_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
     /*! ./app.component */
     "./src/app/app.component.ts");
     /* harmony import */
 
 
-    var _components_sections__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    var _components_sections__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
     /*! ./components/sections */
     "./src/app/components/sections/index.ts");
     /* harmony import */
 
 
-    var _components_common__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    var _components_common__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
     /*! ./components/common */
     "./src/app/components/common/index.ts");
     /* harmony import */
 
 
-    var _components_sections_language_language_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+    var _components_sections_language_language_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
     /*! ./components/sections/language/language.component */
     "./src/app/components/sections/language/language.component.ts");
     /* harmony import */
 
 
-    var _components_sections_education_education_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+    var _components_sections_education_education_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
     /*! ./components/sections/education/education.component */
     "./src/app/components/sections/education/education.component.ts");
     /* harmony import */
 
 
-    var _components_sections_skills_and_tools_skills_and_tools_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+    var _components_sections_skills_and_tools_skills_and_tools_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
     /*! ./components/sections/skills-and-tools/skills-and-tools.component */
     "./src/app/components/sections/skills-and-tools/skills-and-tools.component.ts");
     /* harmony import */
 
 
-    var _components_sections_work_experience_work_experience_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
+    var _components_sections_work_experience_work_experience_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
     /*! ./components/sections/work-experience/work-experience.component */
     "./src/app/components/sections/work-experience/work-experience.component.ts");
     /* harmony import */
 
 
-    var _components_sections_carrer_summary_carrer_summary_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
+    var _components_sections_carrer_summary_carrer_summary_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
     /*! ./components/sections/carrer-summary/carrer-summary.component */
     "./src/app/components/sections/carrer-summary/carrer-summary.component.ts");
 
@@ -1031,10 +1068,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     };
 
     AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["NgModule"])({
-      declarations: [_app_component__WEBPACK_IMPORTED_MODULE_6__["AppComponent"], _components_sections__WEBPACK_IMPORTED_MODULE_7__["PersonalInfoComponent"], _components_common__WEBPACK_IMPORTED_MODULE_8__["ContactWithImgComponent"], _components_sections__WEBPACK_IMPORTED_MODULE_7__["InterestsComponent"], _components_common__WEBPACK_IMPORTED_MODULE_8__["SectionHeaderComponent"], _components_sections_language_language_component__WEBPACK_IMPORTED_MODULE_9__["LanguageComponent"], _components_sections_education_education_component__WEBPACK_IMPORTED_MODULE_10__["EducationComponent"], _components_sections_skills_and_tools_skills_and_tools_component__WEBPACK_IMPORTED_MODULE_11__["SkillsAndToolsComponent"], _components_sections_work_experience_work_experience_component__WEBPACK_IMPORTED_MODULE_12__["WorkExperienceComponent"], _components_sections_carrer_summary_carrer_summary_component__WEBPACK_IMPORTED_MODULE_13__["CarrerSummaryComponent"]],
-      imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__["TranslateModule"].forRoot()],
-      providers: [_ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__["TranslateService"], _services_language_service__WEBPACK_IMPORTED_MODULE_4__["LanguageService"], _services_translation_loader_service__WEBPACK_IMPORTED_MODULE_5__["TranslationLoaderService"]],
-      bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_6__["AppComponent"]]
+      declarations: [_app_component__WEBPACK_IMPORTED_MODULE_7__["AppComponent"], _components_sections__WEBPACK_IMPORTED_MODULE_8__["PersonalInfoComponent"], _components_common__WEBPACK_IMPORTED_MODULE_9__["ContactWithImgComponent"], _components_sections__WEBPACK_IMPORTED_MODULE_8__["InterestsComponent"], _components_common__WEBPACK_IMPORTED_MODULE_9__["SectionHeaderComponent"], _components_sections_language_language_component__WEBPACK_IMPORTED_MODULE_10__["LanguageComponent"], _components_sections_education_education_component__WEBPACK_IMPORTED_MODULE_11__["EducationComponent"], _components_sections_skills_and_tools_skills_and_tools_component__WEBPACK_IMPORTED_MODULE_12__["SkillsAndToolsComponent"], _components_sections_work_experience_work_experience_component__WEBPACK_IMPORTED_MODULE_13__["WorkExperienceComponent"], _components_sections_carrer_summary_carrer_summary_component__WEBPACK_IMPORTED_MODULE_14__["CarrerSummaryComponent"]],
+      imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_4__["TranslateModule"].forRoot()],
+      providers: [_ngx_translate_core__WEBPACK_IMPORTED_MODULE_4__["TranslateService"], _services_language_service__WEBPACK_IMPORTED_MODULE_5__["LanguageService"], _services_translation_loader_service__WEBPACK_IMPORTED_MODULE_6__["TranslationLoaderService"]],
+      bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_7__["AppComponent"]]
     })], AppModule);
     /***/
   },
@@ -1321,7 +1358,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvc2VjdGlvbnMvZWR1Y2F0aW9uL2VkdWNhdGlvbi5jb21wb25lbnQuc2NzcyJ9 */";
+    __webpack_exports__["default"] = ".App-education {\n  padding-top: 5px;\n}\n.App-education p:first-child {\n  padding-bottom: 3px;\n}\n.App-education p:last-child {\n  opacity: 0.8;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9zZWN0aW9ucy9lZHVjYXRpb24vQzpcXFVzZXJzXFxhY2hyb3NjaWVsZXdza2FcXF9QUk9KRUtUWVxcVEVTVC1BTkdVTEFSXFxjdi1hbmd1bGFyXFxteS1jdi9zcmNcXGFwcFxcY29tcG9uZW50c1xcc2VjdGlvbnNcXGVkdWNhdGlvblxcZWR1Y2F0aW9uLmNvbXBvbmVudC5zY3NzIiwic3JjL2FwcC9jb21wb25lbnRzL3NlY3Rpb25zL2VkdWNhdGlvbi9lZHVjYXRpb24uY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxnQkFBQTtBQ0NGO0FEQUU7RUFDRSxtQkFBQTtBQ0VKO0FEQUU7RUFDRSxZQUFBO0FDRUoiLCJmaWxlIjoic3JjL2FwcC9jb21wb25lbnRzL3NlY3Rpb25zL2VkdWNhdGlvbi9lZHVjYXRpb24uY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuQXBwLWVkdWNhdGlvbiB7XHJcbiAgcGFkZGluZy10b3A6IDVweDtcclxuICBwOmZpcnN0LWNoaWxkIHtcclxuICAgIHBhZGRpbmctYm90dG9tOiAzcHg7XHJcbiAgfTtcclxuICBwOmxhc3QtY2hpbGQge1xyXG4gICAgb3BhY2l0eTogMC44O1xyXG4gIH1cclxufVxyXG4iLCIuQXBwLWVkdWNhdGlvbiB7XG4gIHBhZGRpbmctdG9wOiA1cHg7XG59XG4uQXBwLWVkdWNhdGlvbiBwOmZpcnN0LWNoaWxkIHtcbiAgcGFkZGluZy1ib3R0b206IDNweDtcbn1cbi5BcHAtZWR1Y2F0aW9uIHA6bGFzdC1jaGlsZCB7XG4gIG9wYWNpdHk6IDAuODtcbn0iXX0= */";
     /***/
   },
 
@@ -1357,21 +1394,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*! @angular/core */
     "./node_modules/@angular/core/fesm2015/core.js");
 
-    var EducationComponent =
-    /*#__PURE__*/
-    function () {
-      function EducationComponent() {
-        _classCallCheck(this, EducationComponent);
-      }
+    var EducationComponent = function EducationComponent() {
+      _classCallCheck(this, EducationComponent);
+    };
 
-      _createClass(EducationComponent, [{
-        key: "ngOnInit",
-        value: function ngOnInit() {}
-      }]);
-
-      return EducationComponent;
-    }();
-
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()], EducationComponent.prototype, "education", void 0);
     EducationComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
       selector: 'app-education',
       template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
@@ -1655,7 +1682,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = ".App-personal-info {\n  background-color: #464159;\n  color: #FFF;\n  padding: 5px;\n  text-align: center;\n}\n\n@media (min-width: 768px) {\n  .App-personal-info {\n    padding: 15px;\n  }\n}\n\n@media (min-width: 992px) {\n  .App-personal-info {\n    padding: 25px;\n    text-align: left;\n  }\n\n  .App-info {\n    display: -webkit-box;\n    display: flex;\n  }\n  .App-info div:first-child {\n    width: 70%;\n    text-align: left;\n  }\n  .App-info div:last-child {\n    width: 30%;\n    text-align: right;\n  }\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9zZWN0aW9ucy9wZXJzb25hbC1pbmZvL0M6XFxVc2Vyc1xcYWNocm9zY2llbGV3c2thXFxfUFJPSkVLVFlcXFRFU1QtQU5HVUxBUlxcY3YtYW5ndWxhclxcbXktY3Yvc3JjXFxhcHBcXGNvbXBvbmVudHNcXHNlY3Rpb25zXFxwZXJzb25hbC1pbmZvXFxwZXJzb25hbC1pbmZvLmNvbXBvbmVudC5zY3NzIiwic3JjL2FwcC9jb21wb25lbnRzL3NlY3Rpb25zL3BlcnNvbmFsLWluZm8vQzpcXFVzZXJzXFxhY2hyb3NjaWVsZXdza2FcXF9QUk9KRUtUWVxcVEVTVC1BTkdVTEFSXFxjdi1hbmd1bGFyXFxteS1jdi9zcmNcXGFzc2V0c1xcY29uZmlnXFxfY29sb3JzLnNjc3MiLCJzcmMvYXBwL2NvbXBvbmVudHMvc2VjdGlvbnMvcGVyc29uYWwtaW5mby9wZXJzb25hbC1pbmZvLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUdBO0VBQ0UseUJDRmM7RURHZCxXQUFBO0VBQ0EsWUFBQTtFQUNBLGtCQUFBO0FFRkY7O0FGS0E7RUFDRTtJQUNFLGFBQUE7RUVGRjtBQUNGOztBRktBO0VBQ0U7SUFDRSxhQUFBO0lBQ0EsZ0JBQUE7RUVIRjs7RUZLQTtJQUNFLG9CQUFBO0lBQUEsYUFBQTtFRUZGO0VGR0U7SUFDRSxVQUFBO0lBQ0EsZ0JBQUE7RUVESjtFRkdFO0lBQ0UsVUFBQTtJQUNBLGlCQUFBO0VFREo7QUFDRiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvc2VjdGlvbnMvcGVyc29uYWwtaW5mby9wZXJzb25hbC1pbmZvLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiQGltcG9ydCAnLi4vLi4vLi4vLi4vYXNzZXRzL2NvbmZpZy9jb2xvcnMnO1xyXG5AaW1wb3J0ICcuLi8uLi8uLi8uLi9hc3NldHMvY29uZmlnL2JyZWFrcG9pbnRzJztcclxuXHJcbi5BcHAtcGVyc29uYWwtaW5mbyB7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogJHByaW1hcnktY29sb3I7XHJcbiAgY29sb3I6ICNGRkY7XHJcbiAgcGFkZGluZzogNXB4O1xyXG4gIHRleHQtYWxpZ246IGNlbnRlcjtcclxufVxyXG5cclxuQG1lZGlhIChtaW4td2lkdGg6ICRtZCkge1xyXG4gIC5BcHAtcGVyc29uYWwtaW5mbyB7XHJcbiAgICBwYWRkaW5nOiAxNXB4O1xyXG4gIH1cclxufVxyXG5cclxuQG1lZGlhIChtaW4td2lkdGg6ICRsZykge1xyXG4gIC5BcHAtcGVyc29uYWwtaW5mbyB7XHJcbiAgICBwYWRkaW5nOiAyNXB4O1xyXG4gICAgdGV4dC1hbGlnbjogbGVmdDtcclxuICB9XHJcbiAgLkFwcC1pbmZvIHtcclxuICAgIGRpc3BsYXk6IGZsZXg7XHJcbiAgICBkaXY6Zmlyc3QtY2hpbGQge1xyXG4gICAgICB3aWR0aDogNzAlO1xyXG4gICAgICB0ZXh0LWFsaWduOiBsZWZ0O1xyXG4gICAgfTtcclxuICAgIGRpdjpsYXN0LWNoaWxkIHtcclxuICAgICAgd2lkdGg6IDMwJTtcclxuICAgICAgdGV4dC1hbGlnbjogcmlnaHRcclxuICAgIH1cclxuICB9XHJcbn1cclxuXHJcbkBtZWRpYSAobWluLXdpZHRoOiAkeGwpIHtcclxufVxyXG5cclxuXHJcbiIsIiRiYWNrZ3JvdW5kLWNvbG9yOiAjRjhGOEY4O1xyXG5cclxuJHByaW1hcnktY29sb3I6ICM0NjQxNTk7XHJcbiRzZWNvbmRhcnktY29sb3I6ICM4QkJBQkI7XHJcblxyXG4iLCIuQXBwLXBlcnNvbmFsLWluZm8ge1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAjNDY0MTU5O1xuICBjb2xvcjogI0ZGRjtcbiAgcGFkZGluZzogNXB4O1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG59XG5cbkBtZWRpYSAobWluLXdpZHRoOiA3NjhweCkge1xuICAuQXBwLXBlcnNvbmFsLWluZm8ge1xuICAgIHBhZGRpbmc6IDE1cHg7XG4gIH1cbn1cbkBtZWRpYSAobWluLXdpZHRoOiA5OTJweCkge1xuICAuQXBwLXBlcnNvbmFsLWluZm8ge1xuICAgIHBhZGRpbmc6IDI1cHg7XG4gICAgdGV4dC1hbGlnbjogbGVmdDtcbiAgfVxuXG4gIC5BcHAtaW5mbyB7XG4gICAgZGlzcGxheTogZmxleDtcbiAgfVxuICAuQXBwLWluZm8gZGl2OmZpcnN0LWNoaWxkIHtcbiAgICB3aWR0aDogNzAlO1xuICAgIHRleHQtYWxpZ246IGxlZnQ7XG4gIH1cbiAgLkFwcC1pbmZvIGRpdjpsYXN0LWNoaWxkIHtcbiAgICB3aWR0aDogMzAlO1xuICAgIHRleHQtYWxpZ246IHJpZ2h0O1xuICB9XG59Il19 */";
+    __webpack_exports__["default"] = ".App-personal-info {\n  background-color: #464159;\n  color: #FFF;\n  padding: 5px;\n  text-align: center;\n}\n.App-personal-info h2 {\n  text-align: left;\n  padding-left: 5px;\n}\n@media (min-width: 768px) {\n  .App-personal-info {\n    padding: 15px;\n  }\n}\n@media (min-width: 992px) {\n  .App-personal-info {\n    padding: 25px;\n    text-align: left;\n  }\n\n  .App-info {\n    display: -webkit-box;\n    display: flex;\n  }\n  .App-info div:first-child {\n    width: 70%;\n    text-align: left;\n  }\n  .App-info div:last-child {\n    width: 30%;\n    text-align: right;\n  }\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9zZWN0aW9ucy9wZXJzb25hbC1pbmZvL0M6XFxVc2Vyc1xcYWNocm9zY2llbGV3c2thXFxfUFJPSkVLVFlcXFRFU1QtQU5HVUxBUlxcY3YtYW5ndWxhclxcbXktY3Yvc3JjXFxhcHBcXGNvbXBvbmVudHNcXHNlY3Rpb25zXFxwZXJzb25hbC1pbmZvXFxwZXJzb25hbC1pbmZvLmNvbXBvbmVudC5zY3NzIiwic3JjL2FwcC9jb21wb25lbnRzL3NlY3Rpb25zL3BlcnNvbmFsLWluZm8vQzpcXFVzZXJzXFxhY2hyb3NjaWVsZXdza2FcXF9QUk9KRUtUWVxcVEVTVC1BTkdVTEFSXFxjdi1hbmd1bGFyXFxteS1jdi9zcmNcXGFzc2V0c1xcY29uZmlnXFxfY29sb3JzLnNjc3MiLCJzcmMvYXBwL2NvbXBvbmVudHMvc2VjdGlvbnMvcGVyc29uYWwtaW5mby9wZXJzb25hbC1pbmZvLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUdBO0VBQ0UseUJDRmM7RURHZCxXQUFBO0VBQ0EsWUFBQTtFQUNBLGtCQUFBO0FFRkY7QUZHRTtFQUNFLGdCQUFBO0VBQ0EsaUJBQUE7QUVESjtBRktBO0VBQ0U7SUFDRSxhQUFBO0VFRkY7QUFDRjtBRktBO0VBQ0U7SUFDRSxhQUFBO0lBQ0EsZ0JBQUE7RUVIRjs7RUZLQTtJQUNFLG9CQUFBO0lBQUEsYUFBQTtFRUZGO0VGR0U7SUFDRSxVQUFBO0lBQ0EsZ0JBQUE7RUVESjtFRkdFO0lBQ0UsVUFBQTtJQUNBLGlCQUFBO0VFREo7QUFDRiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvc2VjdGlvbnMvcGVyc29uYWwtaW5mby9wZXJzb25hbC1pbmZvLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiQGltcG9ydCAnLi4vLi4vLi4vLi4vYXNzZXRzL2NvbmZpZy9jb2xvcnMnO1xyXG5AaW1wb3J0ICcuLi8uLi8uLi8uLi9hc3NldHMvY29uZmlnL2JyZWFrcG9pbnRzJztcclxuXHJcbi5BcHAtcGVyc29uYWwtaW5mbyB7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogJHByaW1hcnktY29sb3I7XHJcbiAgY29sb3I6ICNGRkY7XHJcbiAgcGFkZGluZzogNXB4O1xyXG4gIHRleHQtYWxpZ246IGNlbnRlcjtcclxuICBoMiB7XHJcbiAgICB0ZXh0LWFsaWduOiBsZWZ0O1xyXG4gICAgcGFkZGluZy1sZWZ0OiA1cHg7XHJcbiAgfVxyXG59XHJcblxyXG5AbWVkaWEgKG1pbi13aWR0aDogJG1kKSB7XHJcbiAgLkFwcC1wZXJzb25hbC1pbmZvIHtcclxuICAgIHBhZGRpbmc6IDE1cHg7XHJcbiAgfVxyXG59XHJcblxyXG5AbWVkaWEgKG1pbi13aWR0aDogJGxnKSB7XHJcbiAgLkFwcC1wZXJzb25hbC1pbmZvIHtcclxuICAgIHBhZGRpbmc6IDI1cHg7XHJcbiAgICB0ZXh0LWFsaWduOiBsZWZ0O1xyXG4gIH1cclxuICAuQXBwLWluZm8ge1xyXG4gICAgZGlzcGxheTogZmxleDtcclxuICAgIGRpdjpmaXJzdC1jaGlsZCB7XHJcbiAgICAgIHdpZHRoOiA3MCU7XHJcbiAgICAgIHRleHQtYWxpZ246IGxlZnQ7XHJcbiAgICB9O1xyXG4gICAgZGl2Omxhc3QtY2hpbGQge1xyXG4gICAgICB3aWR0aDogMzAlO1xyXG4gICAgICB0ZXh0LWFsaWduOiByaWdodFxyXG4gICAgfVxyXG4gIH1cclxufVxyXG5cclxuQG1lZGlhIChtaW4td2lkdGg6ICR4bCkge1xyXG59XHJcblxyXG5cclxuIiwiJGJhY2tncm91bmQtY29sb3I6ICNGOEY4Rjg7XHJcblxyXG4kcHJpbWFyeS1jb2xvcjogIzQ2NDE1OTtcclxuJHNlY29uZGFyeS1jb2xvcjogIzhCQkFCQjtcclxuXHJcbiIsIi5BcHAtcGVyc29uYWwtaW5mbyB7XG4gIGJhY2tncm91bmQtY29sb3I6ICM0NjQxNTk7XG4gIGNvbG9yOiAjRkZGO1xuICBwYWRkaW5nOiA1cHg7XG4gIHRleHQtYWxpZ246IGNlbnRlcjtcbn1cbi5BcHAtcGVyc29uYWwtaW5mbyBoMiB7XG4gIHRleHQtYWxpZ246IGxlZnQ7XG4gIHBhZGRpbmctbGVmdDogNXB4O1xufVxuXG5AbWVkaWEgKG1pbi13aWR0aDogNzY4cHgpIHtcbiAgLkFwcC1wZXJzb25hbC1pbmZvIHtcbiAgICBwYWRkaW5nOiAxNXB4O1xuICB9XG59XG5AbWVkaWEgKG1pbi13aWR0aDogOTkycHgpIHtcbiAgLkFwcC1wZXJzb25hbC1pbmZvIHtcbiAgICBwYWRkaW5nOiAyNXB4O1xuICAgIHRleHQtYWxpZ246IGxlZnQ7XG4gIH1cblxuICAuQXBwLWluZm8ge1xuICAgIGRpc3BsYXk6IGZsZXg7XG4gIH1cbiAgLkFwcC1pbmZvIGRpdjpmaXJzdC1jaGlsZCB7XG4gICAgd2lkdGg6IDcwJTtcbiAgICB0ZXh0LWFsaWduOiBsZWZ0O1xuICB9XG4gIC5BcHAtaW5mbyBkaXY6bGFzdC1jaGlsZCB7XG4gICAgd2lkdGg6IDMwJTtcbiAgICB0ZXh0LWFsaWduOiByaWdodDtcbiAgfVxufSJdfQ== */";
     /***/
   },
 
@@ -1691,20 +1718,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*! @angular/core */
     "./node_modules/@angular/core/fesm2015/core.js");
 
-    var PersonalInfoComponent =
-    /*#__PURE__*/
-    function () {
-      function PersonalInfoComponent() {
-        _classCallCheck(this, PersonalInfoComponent);
-      }
-
-      _createClass(PersonalInfoComponent, [{
-        key: "ngOnInit",
-        value: function ngOnInit() {}
-      }]);
-
-      return PersonalInfoComponent;
-    }();
+    var PersonalInfoComponent = function PersonalInfoComponent() {
+      _classCallCheck(this, PersonalInfoComponent);
+    };
 
     PersonalInfoComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
       selector: 'app-personal-info',
@@ -1734,7 +1750,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvc2VjdGlvbnMvc2tpbGxzLWFuZC10b29scy9za2lsbHMtYW5kLXRvb2xzLmNvbXBvbmVudC5zY3NzIn0= */";
+    __webpack_exports__["default"] = ".App-skills {\n  padding-top: 5px;\n}\n\n.App-skills-header {\n  padding-bottom: 3px;\n  font-size: 1.1rem;\n}\n\n.App-skill-container {\n  width: 100%;\n  height: 20px;\n  position: relative;\n  margin-bottom: 5px;\n}\n\n.App-skill-base {\n  width: 100%;\n  height: 20px;\n  background-color: #464159;\n  opacity: 0.5;\n  position: absolute;\n}\n\n.App-skill-level {\n  height: 20px;\n  background-color: #464159;\n  position: absolute;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9zZWN0aW9ucy9za2lsbHMtYW5kLXRvb2xzL0M6XFxVc2Vyc1xcYWNocm9zY2llbGV3c2thXFxfUFJPSkVLVFlcXFRFU1QtQU5HVUxBUlxcY3YtYW5ndWxhclxcbXktY3Yvc3JjXFxhcHBcXGNvbXBvbmVudHNcXHNlY3Rpb25zXFxza2lsbHMtYW5kLXRvb2xzXFxza2lsbHMtYW5kLXRvb2xzLmNvbXBvbmVudC5zY3NzIiwic3JjL2FwcC9jb21wb25lbnRzL3NlY3Rpb25zL3NraWxscy1hbmQtdG9vbHMvc2tpbGxzLWFuZC10b29scy5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvY29tcG9uZW50cy9zZWN0aW9ucy9za2lsbHMtYW5kLXRvb2xzL0M6XFxVc2Vyc1xcYWNocm9zY2llbGV3c2thXFxfUFJPSkVLVFlcXFRFU1QtQU5HVUxBUlxcY3YtYW5ndWxhclxcbXktY3Yvc3JjXFxhc3NldHNcXGNvbmZpZ1xcX2NvbG9ycy5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUVBO0VBQ0UsZ0JBQUE7QUNERjs7QURHQTtFQUNFLG1CQUFBO0VBQ0EsaUJBQUE7QUNBRjs7QURHQTtFQUNFLFdBQUE7RUFDQSxZQUFBO0VBQ0Esa0JBQUE7RUFDQSxrQkFBQTtBQ0FGOztBREdBO0VBQ0UsV0FBQTtFQUNBLFlBQUE7RUFDQSx5QkVsQmM7RUZtQmQsWUFBQTtFQUNBLGtCQUFBO0FDQUY7O0FER0E7RUFDRSxZQUFBO0VBQ0EseUJFekJjO0VGMEJkLGtCQUFBO0FDQUYiLCJmaWxlIjoic3JjL2FwcC9jb21wb25lbnRzL3NlY3Rpb25zL3NraWxscy1hbmQtdG9vbHMvc2tpbGxzLWFuZC10b29scy5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIkBpbXBvcnQgJy4uLy4uLy4uLy4uL2Fzc2V0cy9jb25maWcvY29sb3JzJztcclxuXHJcbi5BcHAtc2tpbGxzIHtcclxuICBwYWRkaW5nLXRvcDogNXB4O1xyXG59XHJcbi5BcHAtc2tpbGxzLWhlYWRlciB7XHJcbiAgcGFkZGluZy1ib3R0b206IDNweDtcclxuICBmb250LXNpemU6IDEuMXJlbTtcclxufVxyXG5cclxuLkFwcC1za2lsbC1jb250YWluZXIge1xyXG4gIHdpZHRoOiAxMDAlO1xyXG4gIGhlaWdodDogMjBweDtcclxuICBwb3NpdGlvbjogcmVsYXRpdmU7XHJcbiAgbWFyZ2luLWJvdHRvbTogNXB4O1xyXG59XHJcblxyXG4uQXBwLXNraWxsLWJhc2Uge1xyXG4gIHdpZHRoOiAxMDAlO1xyXG4gIGhlaWdodDogMjBweDtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiAkcHJpbWFyeS1jb2xvcjtcclxuICBvcGFjaXR5OiAwLjU7XHJcbiAgcG9zaXRpb246IGFic29sdXRlO1xyXG59XHJcblxyXG4uQXBwLXNraWxsLWxldmVsIHtcclxuICBoZWlnaHQ6IDIwcHg7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogJHByaW1hcnktY29sb3I7O1xyXG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxufVxyXG4iLCIuQXBwLXNraWxscyB7XG4gIHBhZGRpbmctdG9wOiA1cHg7XG59XG5cbi5BcHAtc2tpbGxzLWhlYWRlciB7XG4gIHBhZGRpbmctYm90dG9tOiAzcHg7XG4gIGZvbnQtc2l6ZTogMS4xcmVtO1xufVxuXG4uQXBwLXNraWxsLWNvbnRhaW5lciB7XG4gIHdpZHRoOiAxMDAlO1xuICBoZWlnaHQ6IDIwcHg7XG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgbWFyZ2luLWJvdHRvbTogNXB4O1xufVxuXG4uQXBwLXNraWxsLWJhc2Uge1xuICB3aWR0aDogMTAwJTtcbiAgaGVpZ2h0OiAyMHB4O1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAjNDY0MTU5O1xuICBvcGFjaXR5OiAwLjU7XG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbn1cblxuLkFwcC1za2lsbC1sZXZlbCB7XG4gIGhlaWdodDogMjBweDtcbiAgYmFja2dyb3VuZC1jb2xvcjogIzQ2NDE1OTtcbiAgcG9zaXRpb246IGFic29sdXRlO1xufSIsIiRiYWNrZ3JvdW5kLWNvbG9yOiAjRjhGOEY4O1xyXG5cclxuJHByaW1hcnktY29sb3I6ICM0NjQxNTk7XHJcbiRzZWNvbmRhcnktY29sb3I6ICM4QkJBQkI7XHJcblxyXG4iXX0= */";
     /***/
   },
 
@@ -1770,21 +1786,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*! @angular/core */
     "./node_modules/@angular/core/fesm2015/core.js");
 
-    var SkillsAndToolsComponent =
-    /*#__PURE__*/
-    function () {
-      function SkillsAndToolsComponent() {
-        _classCallCheck(this, SkillsAndToolsComponent);
-      }
+    var SkillsAndToolsComponent = function SkillsAndToolsComponent() {
+      _classCallCheck(this, SkillsAndToolsComponent);
+    };
 
-      _createClass(SkillsAndToolsComponent, [{
-        key: "ngOnInit",
-        value: function ngOnInit() {}
-      }]);
-
-      return SkillsAndToolsComponent;
-    }();
-
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()], SkillsAndToolsComponent.prototype, "skillAndTools", void 0);
     SkillsAndToolsComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
       selector: 'app-skills-and-tools',
       template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
@@ -1813,7 +1819,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvc2VjdGlvbnMvd29yay1leHBlcmllbmNlL3dvcmstZXhwZXJpZW5jZS5jb21wb25lbnQuc2NzcyJ9 */";
+    __webpack_exports__["default"] = ".App-company-name {\n  padding-bottom: 3px;\n}\n\n.App-work-period {\n  opacity: 0.8;\n}\n\n.App-project {\n  padding: 10px;\n}\n\n.App-project-area {\n  padding: 5px 0;\n}\n\n.App-technologies {\n  display: -webkit-box;\n  display: flex;\n}\n\n.App-bage {\n  background-color: #8BBABB;\n  color: #FFF;\n  font-size: 0.6rem;\n  display: inline-block;\n  padding: 5px;\n  margin-right: 3px;\n  border-radius: 3px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9zZWN0aW9ucy93b3JrLWV4cGVyaWVuY2UvQzpcXFVzZXJzXFxhY2hyb3NjaWVsZXdza2FcXF9QUk9KRUtUWVxcVEVTVC1BTkdVTEFSXFxjdi1hbmd1bGFyXFxteS1jdi9zcmNcXGFwcFxcY29tcG9uZW50c1xcc2VjdGlvbnNcXHdvcmstZXhwZXJpZW5jZVxcd29yay1leHBlcmllbmNlLmNvbXBvbmVudC5zY3NzIiwic3JjL2FwcC9jb21wb25lbnRzL3NlY3Rpb25zL3dvcmstZXhwZXJpZW5jZS93b3JrLWV4cGVyaWVuY2UuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL2NvbXBvbmVudHMvc2VjdGlvbnMvd29yay1leHBlcmllbmNlL0M6XFxVc2Vyc1xcYWNocm9zY2llbGV3c2thXFxfUFJPSkVLVFlcXFRFU1QtQU5HVUxBUlxcY3YtYW5ndWxhclxcbXktY3Yvc3JjXFxhc3NldHNcXGNvbmZpZ1xcX2NvbG9ycy5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUVBO0VBQ0UsbUJBQUE7QUNERjs7QURJQTtFQUNFLFlBQUE7QUNERjs7QURJQTtFQUNFLGFBQUE7QUNERjs7QURJQTtFQUNFLGNBQUE7QUNERjs7QURJQTtFQUNFLG9CQUFBO0VBQUEsYUFBQTtBQ0RGOztBRElBO0VBQ0UseUJFcEJnQjtFRnFCaEIsV0FBQTtFQUNBLGlCQUFBO0VBQ0EscUJBQUE7RUFDQSxZQUFBO0VBQ0EsaUJBQUE7RUFDQSxrQkFBQTtBQ0RGIiwiZmlsZSI6InNyYy9hcHAvY29tcG9uZW50cy9zZWN0aW9ucy93b3JrLWV4cGVyaWVuY2Uvd29yay1leHBlcmllbmNlLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiQGltcG9ydCAnLi4vLi4vLi4vLi4vYXNzZXRzL2NvbmZpZy9jb2xvcnMnO1xyXG5cclxuLkFwcC1jb21wYW55LW5hbWUge1xyXG4gIHBhZGRpbmctYm90dG9tOiAzcHg7XHJcbn1cclxuXHJcbi5BcHAtd29yay1wZXJpb2Qge1xyXG4gIG9wYWNpdHk6IDAuODtcclxufVxyXG5cclxuLkFwcC1wcm9qZWN0IHtcclxuICBwYWRkaW5nOiAxMHB4O1xyXG59XHJcblxyXG4uQXBwLXByb2plY3QtYXJlYSB7XHJcbiAgcGFkZGluZzogNXB4IDA7XHJcbn1cclxuXHJcbi5BcHAtdGVjaG5vbG9naWVzIHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG59XHJcblxyXG4uQXBwLWJhZ2Uge1xyXG4gIGJhY2tncm91bmQtY29sb3I6ICRzZWNvbmRhcnktY29sb3I7XHJcbiAgY29sb3I6ICNGRkY7XHJcbiAgZm9udC1zaXplOiAwLjZyZW07XHJcbiAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xyXG4gIHBhZGRpbmc6IDVweDtcclxuICBtYXJnaW4tcmlnaHQ6IDNweDtcclxuICBib3JkZXItcmFkaXVzOiAzcHg7XHJcbn1cclxuIiwiLkFwcC1jb21wYW55LW5hbWUge1xuICBwYWRkaW5nLWJvdHRvbTogM3B4O1xufVxuXG4uQXBwLXdvcmstcGVyaW9kIHtcbiAgb3BhY2l0eTogMC44O1xufVxuXG4uQXBwLXByb2plY3Qge1xuICBwYWRkaW5nOiAxMHB4O1xufVxuXG4uQXBwLXByb2plY3QtYXJlYSB7XG4gIHBhZGRpbmc6IDVweCAwO1xufVxuXG4uQXBwLXRlY2hub2xvZ2llcyB7XG4gIGRpc3BsYXk6IGZsZXg7XG59XG5cbi5BcHAtYmFnZSB7XG4gIGJhY2tncm91bmQtY29sb3I6ICM4QkJBQkI7XG4gIGNvbG9yOiAjRkZGO1xuICBmb250LXNpemU6IDAuNnJlbTtcbiAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xuICBwYWRkaW5nOiA1cHg7XG4gIG1hcmdpbi1yaWdodDogM3B4O1xuICBib3JkZXItcmFkaXVzOiAzcHg7XG59IiwiJGJhY2tncm91bmQtY29sb3I6ICNGOEY4Rjg7XHJcblxyXG4kcHJpbWFyeS1jb2xvcjogIzQ2NDE1OTtcclxuJHNlY29uZGFyeS1jb2xvcjogIzhCQkFCQjtcclxuXHJcbiJdfQ== */";
     /***/
   },
 
@@ -1849,21 +1855,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*! @angular/core */
     "./node_modules/@angular/core/fesm2015/core.js");
 
-    var WorkExperienceComponent =
-    /*#__PURE__*/
-    function () {
-      function WorkExperienceComponent() {
-        _classCallCheck(this, WorkExperienceComponent);
-      }
+    var WorkExperienceComponent = function WorkExperienceComponent() {
+      _classCallCheck(this, WorkExperienceComponent);
+    };
 
-      _createClass(WorkExperienceComponent, [{
-        key: "ngOnInit",
-        value: function ngOnInit() {}
-      }]);
-
-      return WorkExperienceComponent;
-    }();
-
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()], WorkExperienceComponent.prototype, "workExperience", void 0);
     WorkExperienceComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
       selector: 'app-work-experience',
       template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
@@ -1926,17 +1922,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _createClass(LanguageService, [{
         key: "getAvailableLanguages",
         value: function getAvailableLanguages() {
-          return [{
-            value: 'pl',
-            label: 'PL'
-          }];
+          return ['pl', 'en'];
         }
       }, {
         key: "getCurrentLanguage",
         value: function getCurrentLanguage() {
           var currentLangCode = this.translate.currentLang;
           return this.getAvailableLanguages().find(function (item) {
-            return item.value === currentLangCode;
+            return item === currentLangCode;
           });
         }
       }]);
@@ -2003,7 +1996,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
       _createClass(TranslationLoaderService, [{
         key: "loadTranslations",
-        value: function loadTranslations() {
+        value: function loadTranslations(lang) {
           var i18nPl = __webpack_require__(
           /*! ../../assets/translations/pl.json */
           "./src/assets/translations/pl.json");
@@ -2012,8 +2005,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           /*! ../../assets/translations/en.json */
           "./src/assets/translations/en.json");
 
-          this.translate.setTranslation('pl', i18nPl, true);
-          return i18nPl;
+          if (lang === 'pl') {
+            this.translate.setTranslation('pl', i18nPl, true);
+            return i18nPl;
+          }
+
+          if (lang === 'en') {
+            this.translate.setTranslation('en', i18nENG, true);
+            return i18nENG;
+          }
         }
       }]);
 
@@ -2036,11 +2036,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     !*** ./src/assets/translations/en.json ***!
     \*****************************************/
 
-  /*! exports provided: Global, default */
+  /*! exports provided: Global, PersonalInfo, CarrerSummary, WorkExperience, SkillsAndTools, Education, Language, Interests, default */
 
   /***/
   function srcAssetsTranslationsEnJson(module) {
-    module.exports = JSON.parse("{\"Global\":{\"yes\":\"Tak\",\"no\":\"Nie\",\"header\":\"Test header\",\"language\":\"Język\"}}");
+    module.exports = JSON.parse("{\"Global\":{\"yes\":\"Tak\",\"no\":\"Nie\",\"language\":\"Język\"},\"PersonalInfo\":{\"name\":\"Agnieszka Chróścielewska\",\"position\":\"Front-end Developer\",\"mail\":\"achroscielewska@gmail.com\",\"phone\":\"+48602370054\",\"phoneToDisplay\":\"+48 602 370 054\",\"linkedin\":\"https://www.linkedin.com/in/agnieszka-chróścielewska-366a63a/\",\"github\":\"https://github.com/achroscielewska\",\"web\":\"https://achroscielewska.github.io/\"},\"CarrerSummary\":{\"header\":\"Carrer Summary\",\"content\":\"Front-End developer with 1,5 years commercial experience. Buissness analyst with over 13 years commercial experience in IT (in insurance and banking sector).\"},\"WorkExperience\":{\"header\":\"Work Experience\",\"technologiesUsed\":\"Technologies used\",\"content\":[{\"company\":\"Alktom Akademia S.A / Altkom Software and Consulting\",\"period\":\"06.2009 - present\",\"projects\":[{\"role\":\"Front-end developer\",\"period\":\"11.2019 - present\",\"company\":\"Project for bank\",\"area\":\"Mortgages for individual clients\",\"technologiesUsed\":[\"Angular 8\",\"Ngx-formly\",\"HTML / SASS\",\"Microfronteds\"]},{\"role\":\"Front-end developer, UX designer\",\"period\":\"10.2019 - 12.2019\",\"company\":\"Project for insurance company\",\"area\":\"Underwriting\",\"technologiesUsed\":[\"Angular 8\",\"Ngx-formly\",\"HTML / SASS\"]},{\"role\":\"Front-end developer\",\"period\":\"09.2019 - 09.2019\",\"company\":\"Project for premium TV channel\",\"area\":\"Autorization component\",\"technologiesUsed\":[\"ReactJS\",\"HTML / SASS\"]},{\"role\":\"Front-end developer, UX designer\",\"period\":\"08.2018 - 09.2019\",\"company\":\"Project for bank\",\"area\":\"Platform for selling banking products on the internet channel\",\"technologiesUsed\":[\"Angular 6\",\"HTML / CSS\",\"Orbeon\"]},{\"role\":\"Front-end developer, UX designer\",\"period\":\"01.2018 - 06.2019\",\"company\":\"Project for start up\",\"area\":\"CMS for mobile app for classical music concerts and opera performances\",\"technologiesUsed\":[\"Angular 6\",\"HTML / SCSS\"]},{\"role\":\"Analist\",\"period\":\"06.2009 - 01.2019\",\"company\":\"Projects for insurance companies\",\"area\":\"Projects supporting the handling of insurance company processes. Projects for the private medical services sector.\",\"technologiesUsed\":[\"Balsamiq\",\"Confluence\",\"UML\"]}]},{\"company\":\"Affecto Poland (Mebius IT)\",\"period\":\"09.2008 - 06.2009\",\"projects\":[]},{\"company\":\"Infovide - Matrix S.A\",\"period\":\"03.2006 - 08.2008\",\"projects\":[]}]},\"SkillsAndTools\":{\"header\":\"Skills And Tools\",\"content\":{\"frontendSkills\":{\"header\":\"Frontend\",\"content\":[{\"skill\":\"JavaScript (ES6), HTML5, SASS, TypeScript\",\"level\":\"80%\"},{\"skill\":\"Angular 2+ / RxJS\",\"level\":\"80%\"},{\"skill\":\"React JS, Redux\",\"level\":\"40%\"},{\"skill\":\"Bootstrap, Semantic UI, Material UI\",\"level\":\"80%\"},{\"skill\":\"Jest, Karma\",\"level\":\"40%\"}]},\"others\":{\"header\":\"Others\",\"content\":\"express.js, mongoosejs, Git,  Confluence, JIRA, Redmine, Balsamiq, UX, analytical skills\"}}},\"Education\":{\"header\":\"Education\",\"content\":[{\"school\":\"Infoshare Academy\",\"field\":\"Junior Front-End Developer Course\",\"period\":\"09.2017 - 02.2018\"},{\"school\":\"Warsaw School of Economics Post-graduate studies\",\"field\":\"IT management in company\",\"period\":\"09.2012 - 06.2013\"},{\"school\":\"Warsaw School of Economics\",\"field\":\"Quantitative Methods in Economics and Information Systems\",\"period\":\"09.2000 - 03.2006\"}]},\"Language\":{\"header\":\"Languages\",\"content\":[{\"language\":\"Polish\",\"level\":\"native\"},{\"language\":\"English\",\"level\":\"B2\"},{\"language\":\"Russian\",\"level\":\"B1\"}]},\"Interests\":{\"header\":\"Interests\",\"content\":\"Diving, traveling\"}}");
     /***/
   },
 
@@ -2054,7 +2054,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
   /***/
   function srcAssetsTranslationsPlJson(module) {
-    module.exports = JSON.parse("{\"Global\":{\"yes\":\"Tak\",\"no\":\"Nie\",\"language\":\"Język\"},\"PersonalInfo\":{\"name\":\"Agnieszka Chróścielewska\",\"position\":\"Front-end Developer\",\"mail\":\"achroscielewska@gmail.com\",\"phone\":\"+48602370054\",\"phoneToDisplay\":\"+48 602 370 054\",\"linkedin\":\"https://www.linkedin.com/in/agnieszka-chróścielewska-366a63a/\",\"github\":\"https://github.com/achroscielewska\",\"web\":\"https://achroscielewska.github.io/\"},\"CarrerSummary\":{\"header\":\"Profil zawodowy\",\"content\":\"TO_DO\"},\"WorkExperience\":{\"header\":\"Historia zatrudnienia\",\"content\":\"TO_DO\"},\"SkillsAndTools\":{\"header\":\"Kluczowe kompetencje\",\"content\":\"TO_DO\"},\"Education\":{\"header\":\"Edukacja i szkolenia\",\"content\":\"TO_DO\"},\"Language\":{\"header\":\"Języki\",\"content\":[{\"language\":\"Polski\",\"level\":\"ojczyst\"},{\"language\":\"Angielski\",\"level\":\"B2\"},{\"language\":\"Rosyjski\",\"level\":\"B1\"}]},\"Interests\":{\"header\":\"Zainteresowania\",\"content\":\"Nurkowanie, podróże\"}}");
+    module.exports = JSON.parse("{\"Global\":{\"yes\":\"Tak\",\"no\":\"Nie\",\"language\":\"Język\"},\"PersonalInfo\":{\"name\":\"Agnieszka Chróścielewska\",\"position\":\"Front-end Developer\",\"mail\":\"achroscielewska@gmail.com\",\"phone\":\"+48602370054\",\"phoneToDisplay\":\"+48 602 370 054\",\"linkedin\":\"https://www.linkedin.com/in/agnieszka-chróścielewska-366a63a/\",\"github\":\"https://github.com/achroscielewska\",\"web\":\"https://achroscielewska.github.io/\"},\"CarrerSummary\":{\"header\":\"Profil zawodowy\",\"content\":\"Front-End developer 1,5 letnim doświadczeniem zawodowym. Analityk biznesowy z ponad 13 letnim doświadczeniem zawodowym w obszarze rozwiązań IT (w obszarze ubezpieczeń i bankowości).\"},\"WorkExperience\":{\"header\":\"Historia zatrudnienia\",\"technologiesUsed\":\"Użyte technologie\",\"content\":[{\"company\":\"Alktom Akademia S.A / Altkom Software and Consulting\",\"period\":\"06.2009 - obecnie\",\"projects\":[{\"role\":\"Front-end developer\",\"period\":\"11.2019 - present\",\"company\":\"Projekt dla banku\",\"area\":\"Kredyty hipoteczne dla klientów indywidualnych\",\"technologiesUsed\":[\"Angular 8\",\"Ngx-formly\",\"HTML / SASS\",\"Microfronteds\"]},{\"role\":\"Front-end developer, UX designer\",\"period\":\"10.2019 - 12.2019\",\"company\":\"Projekt dla firmy ubezpieczeniowej\",\"area\":\"Underwriting\",\"technologiesUsed\":[\"Angular 8\",\"Ngx-formly\",\"HTML / SASS\"]},{\"role\":\"Front-end developer\",\"period\":\"09.2019 - 09.2019\",\"company\":\"Projekt dla telewizynjego kanału premium\",\"area\":\"Komponent do autoryzacji\",\"technologiesUsed\":[\"ReactJS\",\"HTML / SASS\"]},{\"role\":\"Front-end developer, UX designer\",\"period\":\"08.2018 - 09.2019\",\"company\":\"Projekt dla banku\",\"area\":\"Platforma do sprzedaży produktów bankowych w kanale Internetowym\",\"technologiesUsed\":[\"Angular 6\",\"HTML / CSS\",\"Orbeon\"]},{\"role\":\"Front-end developer, UX designer\",\"period\":\"01.2018 - 06.2019\",\"company\":\"Start up\",\"area\":\"CMS dla mobilnej aplikacji wykorzystywanej podczas koncertów\",\"technologiesUsed\":[\"Angular 6\",\"HTML / SCSS\"]},{\"role\":\"Analityk\",\"period\":\"06.2009 - 01.2019\",\"company\":\"Projekty dla firmy ubezpieczeniowych\",\"area\":\"Projekty wspierające obsługę procesów towarzystawa ubezpieczeniowego. Projekty dla sektora prywatnych usług medycznych \",\"technologiesUsed\":[\"Balsamiq\",\"Confluence\",\"UML\"]}]},{\"company\":\"Affecto Poland (Mebius IT)\",\"period\":\"09.2008 - 06.2009\",\"projects\":[]},{\"company\":\"Infovide - Matrix S.A\",\"period\":\"03.2006 - 08.2008\",\"projects\":[]}]},\"SkillsAndTools\":{\"header\":\"Kluczowe kompetencje\",\"content\":{\"frontendSkills\":{\"header\":\"Frontend\",\"content\":[{\"skill\":\"JavaScript (ES6), HTML5, SASS, TypeScript\",\"level\":\"80%\"},{\"skill\":\"Angular 2+ / RxJS\",\"level\":\"80%\"},{\"skill\":\"React JS, Redux\",\"level\":\"40%\"},{\"skill\":\"Bootstrap, Semantic UI, Material UI\",\"level\":\"80%\"},{\"skill\":\"Jest, Karma\",\"level\":\"40%\"}]},\"others\":{\"header\":\"Pozostałe\",\"content\":\"express.js, mongoosejs, Git,  Confluence, JIRA, Redmine, Balsamiq, UX, umiejętności analityczne\"}}},\"Education\":{\"header\":\"Edukacja i szkolenia\",\"content\":[{\"school\":\"Infoshare Academy\",\"field\":\"Kurs Junior Front-End Developer\",\"period\":\"09.2017 - 02.2018\"},{\"school\":\"Szkoła Główna Handlowa Stydia podyplomowe\",\"field\":\"Zarządzanie IT w przedsiębiorstwie\",\"period\":\"09.2012 - 06.2013\"},{\"school\":\"Szkoła Główna Handlowa\",\"field\":\"Metody ilościowe w ekonomii i systemy informacyjne\",\"period\":\"09.2000 - 03.2006\"}]},\"Language\":{\"header\":\"Języki\",\"content\":[{\"language\":\"Polski\",\"level\":\"ojczyst\"},{\"language\":\"Angielski\",\"level\":\"B2\"},{\"language\":\"Rosyjski\",\"level\":\"B1\"}]},\"Interests\":{\"header\":\"Zainteresowania\",\"content\":\"Nurkowanie, podróże\"}}");
     /***/
   },
 

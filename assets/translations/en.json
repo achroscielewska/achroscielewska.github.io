@@ -2,7 +2,159 @@
   "Global": {
     "yes": "Tak",
     "no": "Nie",
-    "header": "Test header",
     "language": "Język"
+  },
+  "PersonalInfo": {
+    "name": "Agnieszka Chróścielewska",
+    "position": "Front-end Developer",
+    "mail": "achroscielewska@gmail.com",
+    "phone": "+48602370054",
+    "phoneToDisplay": "+48 602 370 054",
+    "linkedin": "https://www.linkedin.com/in/agnieszka-chróścielewska-366a63a/",
+    "github": "https://github.com/achroscielewska",
+    "web": "https://achroscielewska.github.io/"
+  },
+  "CarrerSummary": {
+    "header": "Carrer Summary",
+    "content": "Front-End developer with 1,5 years commercial experience. Buissness analyst with over 13 years commercial experience in IT (in insurance and banking sector)."
+  },
+  "WorkExperience": {
+    "header": "Work Experience",
+    "technologiesUsed": "Technologies used",
+    "content": [
+      {
+        "company": "Alktom Akademia S.A / Altkom Software and Consulting",
+        "period": "06.2009 - present",
+        "projects": [
+          {
+            "role": "Front-end developer",
+            "period": "11.2019 - present",
+            "company": "Project for bank",
+            "area": "Mortgages for individual clients",
+            "technologiesUsed": ["Angular 8", "Ngx-formly", "HTML / SASS", "Microfronteds"]
+          },
+          {
+            "role": "Front-end developer, UX designer",
+            "period": "10.2019 - 12.2019",
+            "company": "Project for insurance company",
+            "area": "Underwriting",
+            "technologiesUsed": ["Angular 8", "Ngx-formly", "HTML / SASS"]
+          },
+          {
+            "role": "Front-end developer",
+            "period": "09.2019 - 09.2019",
+            "company": "Project for premium TV channel",
+            "area": "Autorization component",
+            "technologiesUsed": ["ReactJS", "HTML / SASS"]
+          },
+          {
+            "role": "Front-end developer, UX designer",
+            "period": "08.2018 - 09.2019",
+            "company": "Project for bank",
+            "area": "Platform for selling banking products on the internet channel",
+            "technologiesUsed": ["Angular 6", "HTML / CSS", "Orbeon"]
+          },
+          {
+            "role": "Front-end developer, UX designer",
+            "period": "01.2018 - 06.2019",
+            "company": "Project for start up",
+            "area": "CMS for mobile app for classical music concerts and opera performances",
+            "technologiesUsed": ["Angular 6", "HTML / SCSS"]
+          },
+          {
+            "role": "Analist",
+            "period": "06.2009 - 01.2019",
+            "company": "Projects for insurance companies",
+            "area": "Projects supporting the handling of insurance company processes. Projects for the private medical services sector.",
+            "technologiesUsed": ["Balsamiq", "Confluence", "UML"]
+          }
+        ]
+      },
+      {
+        "company": "Affecto Poland (Mebius IT)",
+        "period": "09.2008 - 06.2009",
+        "projects": []
+      },
+      {
+        "company": "Infovide - Matrix S.A",
+        "period": "03.2006 - 08.2008",
+        "projects": []
+      }
+    ]
+  },
+  "SkillsAndTools": {
+    "header": "Skills And Tools",
+    "content": {
+      "frontendSkills": {
+        "header": "Frontend",
+        "content": [
+          {
+            "skill": "JavaScript (ES6), HTML5, SASS, TypeScript",
+            "level": "80%"
+          },
+          {
+            "skill": "Angular 2+ / RxJS",
+            "level": "80%"
+          },
+          {
+            "skill": "React JS, Redux",
+            "level": "40%"
+          },
+          {
+            "skill": "Bootstrap, Semantic UI, Material UI",
+            "level": "80%"
+          },
+          {
+            "skill": "Jest, Karma",
+            "level": "40%"
+          }
+        ]
+      },
+      "others": {
+        "header": "Others",
+        "content": "express.js, mongoosejs, Git,  Confluence, JIRA, Redmine, Balsamiq, UX, analytical skills"
+      }
+    }
+  },
+  "Education": {
+    "header": "Education",
+    "content": [
+      {
+        "school": "Infoshare Academy",
+        "field": "Junior Front-End Developer Course",
+        "period": "09.2017 - 02.2018"
+      },
+      {
+        "school": "Warsaw School of Economics Post-graduate studies",
+        "field": "IT management in company",
+        "period": "09.2012 - 06.2013"
+      },
+      {
+        "school": "Warsaw School of Economics",
+        "field": "Quantitative Methods in Economics and Information Systems",
+        "period": "09.2000 - 03.2006"
+      }
+    ]
+  },
+  "Language": {
+    "header": "Languages",
+    "content": [
+      {
+        "language": "Polish",
+        "level": "native"
+      },
+      {
+        "language": "English",
+        "level": "B2"
+      },
+      {
+        "language": "Russian",
+        "level": "B1"
+      }
+    ]
+  },
+  "Interests": {
+    "header": "Interests",
+    "content": "Diving, traveling"
   }
 }

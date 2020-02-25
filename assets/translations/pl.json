@@ -16,14 +16,14 @@
   },
   "CarrerSummary": {
     "header": "Profil zawodowy",
-    "content": "Front-End developer 1,5-letnim doświadczeniem zawodowym. Analityk biznesowy z ponad 13-letnim doświadczeniem zawodowym w obszarze rozwiązań IT (ubezpieczenia i bankowość)."
+    "content": "Front-End developer z 1,5-letnim doświadczeniem zawodowym. Analityk biznesowy z ponad 13-letnim doświadczeniem zawodowym w obszarze rozwiązań IT (ubezpieczenia i bankowość)."
   },
   "WorkExperience": {
     "header": "Historia zatrudnienia",
     "technologiesUsed": "Użyte technologie",
     "content": [
       {
-        "company": "Alktom Akademia S.A. / Altkom Software and Consulting",
+        "company": "Altkom Akademia S.A. / Altkom Software and Consulting",
         "period": "06.2009 - obecnie",
         "projects": [
           {
@@ -57,7 +57,7 @@
           {
             "role": "Front-end developer, UX designer",
             "period": "01.2018 - 06.2019",
-            "company": "Start up",
+            "company": "Start-up",
             "area": "CMS dla mobilnej aplikacji wykorzystywanej podczas koncertów.",
             "technologiesUsed": ["Angular 7", "RxJs", "HTML / SCSS", "ngx-markdown", "ngx-image-editor", "SemanticUI"]
           },
@@ -86,7 +86,7 @@
     "header": "Kluczowe kompetencje",
     "content": {
       "frontendSkills": {
-        "header" : "Frontend",
+        "header" : "Front-end",
         "content": [
           {
             "skill": "HTML5, JavaScript (ES6), TypeScript, CSS, SASS",

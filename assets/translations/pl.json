@@ -57,7 +57,7 @@
           {
             "role": "Front-end developer, UX designer",
             "period": "01.2018 - 06.2019",
-            "company": "Start-up",
+            "company": "Start up",
             "area": "CMS dla mobilnej aplikacji wykorzystywanej podczas koncertów.",
             "technologiesUsed": ["Angular 7", "RxJs", "HTML / SCSS", "ngx-markdown", "ngx-image-editor", "SemanticUI"]
           },

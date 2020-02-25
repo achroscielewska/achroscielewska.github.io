@@ -16,14 +16,14 @@
   },
   "CarrerSummary": {
     "header": "Carrer Summary",
-    "content": "Front-End developer with 1,5 years commercial experience. Buissness analyst with over 13 years commercial experience in IT (in insurance and banking sector)."
+    "content": "Front-End developer with 1,5 years commercial experience. Business  analyst with over 13 years commercial experience in IT (in insurance and banking sector)."
   },
   "WorkExperience": {
     "header": "Work Experience",
     "technologiesUsed": "Technologies used",
     "content": [
       {
-        "company": "Alktom Akademia S.A / Altkom Software and Consulting",
+        "company": "Alktom Akademia S.A. / Altkom Software and Consulting",
         "period": "06.2009 - present",
         "projects": [
           {
@@ -31,41 +31,41 @@
             "period": "11.2019 - present",
             "company": "Project for bank",
             "area": "Mortgages for individual clients",
-            "technologiesUsed": ["Angular 8", "Ngx-formly", "HTML / SASS", "Microfronteds"]
+            "technologiesUsed": ["Angular 8", "RxJs", "ngx-formly", "HTML / SASS", "Bootstrap", "Microfronteds"]
           },
           {
             "role": "Front-end developer, UX designer",
             "period": "10.2019 - 12.2019",
             "company": "Project for insurance company",
             "area": "Underwriting",
-            "technologiesUsed": ["Angular 8", "Ngx-formly", "HTML / SASS"]
+            "technologiesUsed": ["Angular 8", "RxJs", "ngx-formly", "HTML / SASS", "Bootstrap"]
           },
           {
             "role": "Front-end developer",
             "period": "09.2019 - 09.2019",
             "company": "Project for premium TV channel",
-            "area": "Autorization component",
-            "technologiesUsed": ["ReactJS", "HTML / SASS"]
+            "area": "Authorization component",
+            "technologiesUsed": ["ReactJS", "TypeScript", "HTML / SASS", "Bootstrap"]
           },
           {
             "role": "Front-end developer, UX designer",
             "period": "08.2018 - 09.2019",
             "company": "Project for bank",
-            "area": "Platform for selling banking products on the internet channel",
-            "technologiesUsed": ["Angular 6", "HTML / CSS", "Orbeon"]
+            "area": "Platform for selling banking products by the internet channel",
+            "technologiesUsed": ["Angular 6", "HTML / CSS", "Orbeon", "Bootstrap"]
           },
           {
             "role": "Front-end developer, UX designer",
             "period": "01.2018 - 06.2019",
             "company": "Project for start up",
             "area": "CMS for mobile app for classical music concerts and opera performances",
-            "technologiesUsed": ["Angular 6", "HTML / SCSS"]
+            "technologiesUsed": ["Angular 7", "RxJs", "HTML / SCSS", "ngx-markdown", "ngx-image-editor", "SemanticUI"]
           },
           {
-            "role": "Analist",
+            "role": "Analyst",
             "period": "06.2009 - 01.2019",
             "company": "Projects for insurance companies",
-            "area": "Projects supporting the handling of insurance company processes. Projects for the private medical services sector.",
+            "area": "Projects supporting the handling of insurance company processes. Projects for the private medical services' sector.",
             "technologiesUsed": ["Balsamiq", "Confluence", "UML"]
           }
         ]
@@ -76,7 +76,7 @@
         "projects": []
       },
       {
-        "company": "Infovide - Matrix S.A",
+        "company": "Infovide - Matrix S.A.",
         "period": "03.2006 - 08.2008",
         "projects": []
       }
@@ -89,7 +89,7 @@
         "header": "Frontend",
         "content": [
           {
-            "skill": "JavaScript (ES6), HTML5, SASS, TypeScript",
+            "skill": "HTML5, JavaScript (ES6), TypeScript, CSS, SASS",
             "level": "80%"
           },
           {
@@ -155,6 +155,6 @@
   },
   "Interests": {
     "header": "Interests",
-    "content": "Diving, traveling"
+    "content": "Diving, travelling"
   }
 }

@@ -16,7 +16,7 @@ h1 {
 }
 
 h2 {
-  font-size: 1.25rem;
+  font-size: 1rem;
   font-weight: 600;
   font-family: 'roboto-bold', 'Open Sans', sans-serif;
   padding: 10px 0;
@@ -53,8 +53,15 @@ a:hover {
 }
 
 .App-section-container {
-  padding: 15px;
+  padding: 15px 15px 0 15px;
   text-align: left;
+}
+
+
+@media (min-width: $s) {
+  h2 {
+    font-size: 1.25rem;
+  }
 }
 
 @media (min-width: $md) {

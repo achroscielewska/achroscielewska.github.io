@@ -1,6 +1,8 @@
 {
   "Global": {
-    
+    "yes": "Tak",
+    "no": "Nie",
+    "language": "Język"
   },
   "PersonalInfo": {
     "name": "Agnieszka Chróścielewska",
@@ -28,7 +30,7 @@
             "role": "Front-end developer",
             "period": "11.2019 - present",
             "company": "Project for bank",
-            "area": "Mortgages for individual clients.",
+            "area": "Mortgages for individual clients",
             "technologiesUsed": ["Angular 8", "RxJs", "ngx-formly", "HTML / SASS", "Bootstrap", "Microfronteds"]
           },
           {
@@ -71,13 +73,11 @@
       {
         "company": "Affecto Poland (Mebius IT)",
         "period": "09.2008 - 06.2009",
-        "role": "Analyst",
         "projects": []
       },
       {
         "company": "Infovide - Matrix S.A.",
         "period": "03.2006 - 08.2008",
-        "role": "Analyst",
         "projects": []
       }
     ]

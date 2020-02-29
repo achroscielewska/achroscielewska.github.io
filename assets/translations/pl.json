@@ -36,15 +36,15 @@
           {
             "role": "Front-end developer, UX designer",
             "period": "10.2019 - 12.2019",
-            "company": "Projekt dla firmy ubezpieczeniowej.",
-            "area": "Underwriting",
+            "company": "Projekt dla firmy ubezpieczeniowej",
+            "area": "Underwriting.",
             "technologiesUsed": ["Angular 8", "RxJs", "ngx-formly", "HTML / SASS", "Bootstrap"]
           },
           {
             "role": "Front-end developer",
             "period": "09.2019 - 09.2019",
-            "company": "Projekt dla telewizyjnego kanału premium.",
-            "area": "Komponent do autoryzacji",
+            "company": "Projekt dla telewizyjnego kanału premium",
+            "area": "Komponent do autoryzacji.",
             "technologiesUsed": ["ReactJS", "TypeScript", "HTML / SASS", "Bootstrap"]
           },
           {

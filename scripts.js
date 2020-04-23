@@ -281,7 +281,7 @@ class CircularSlider {
         svg.setAttributeNS(null, "width", boxSize);
         svg.setAttributeNS(null, "height", boxSize);
         svg.setAttributeNS(null, "viewBox", "-200 -200 400 400");
-        svg.setAttributeNS(null, "preserveAspectRatio", "none");
+        svg.setAttributeNS(null, "preserveAspectRatio", "xMidYMid none");
 
         return svg;
     }

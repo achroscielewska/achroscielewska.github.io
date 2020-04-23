@@ -1,0 +1,30 @@
+@import "../breakpoints";
+
+.app-view-data-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  padding: 0 5px;
+}
+
+.app-view-data-item {
+  padding: 5px;
+}
+
+.app-card-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.app-card-subtitle {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+@media (min-width: $md) {
+  .app-view-data-item {
+    padding: 10px;
+  }
+}

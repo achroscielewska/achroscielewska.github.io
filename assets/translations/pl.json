@@ -2,162 +2,280 @@
   "Global": {
     "yes": "Tak",
     "no": "Nie",
-    "language": "Język"
+    "header": "Kredyt hipoteczny",
+    "language": "Język",
+    "Btn": {
+      "change": "Zmień",
+      "next": "Dalej",
+      "back": "Wróć",
+      "submit": "Zatwierdź",
+      "remove": "Usuń",
+      "send": "Zapisz i wyślij",
+      "simulationUpdate": "Aktualizuj symulacje",
+      "checklist": "Sprawdź dokumenty do wniosku kredytowego",
+      "backToSimulation": "Wróć do kalkulatora",
+      "getChecklist": "Dalej"
+    },
+    "toggler": {
+      "moreLabel": "Więcej",
+      "lessLabel": "Zwiń"
+    },
+    "MethodUnavailableSend": "Niestety nie możemy wysłać wiadomości. Sprawdź, czy podany adres email jest poprawny.<br>Jeżeli tak, przepraszamy, niestety nasz serwis jest chwilowo niedostępny. Prosimy spróbować ponownie za chwilę.",
+    "MethodUnavailable": "Przepraszamy, niestety nasz serwis jest chwilowo niedostępny. Prosimy spróbować ponownie za chwilę."
   },
-  "PersonalInfo": {
-    "name": "Agnieszka Chróścielewska",
-    "position": "Front-end Developer",
-    "mail": "achroscielewska@gmail.com",
-    "phone": "+48602370054",
-    "phoneToDisplay": "+48 602 370 054",
-    "linkedin": "https://www.linkedin.com/in/agnieszka-chróścielewska-366a63a/",
-    "github": "https://github.com/achroscielewska",
-    "web": "https://achroscielewska.github.io/"
+  "Validations": {
+    "email": "Podano niepoprawny adres email",
+    "phone": "Podano niepoprawny numer telefonu",
+    "firstName": "Podano nieprawidłowe dane",
+    "lastName": "Podano nieprawidłowe dane",
+    "minLength": "Liczba znaków musi być większa niż {{number}}",
+    "maxLength": "Liczba znaków nie może przekraczać {{number}}",
+    "min": "Wartość nie powinna być niższa niż {{number}}",
+    "max": "Wartość nie powinna być wyższa niż {{number}}",
+    "required": "Pole wymagane"
   },
-  "CarrerSummary": {
-    "header": "Profil zawodowy",
-    "content": "Front-End developer z 1,5-letnim doświadczeniem zawodowym. Analityk biznesowy z ponad 13-letnim doświadczeniem zawodowym w obszarze rozwiązań IT (ubezpieczenia i bankowość)."
+  "Navigation": {
+    "simulator": "Symulator",
+    "checklist": "Dokumenty do wniosku"
   },
-  "WorkExperience": {
-    "header": "Historia zatrudnienia",
-    "technologiesUsed": "Użyte technologie",
-    "content": [
-      {
-        "company": "Altkom Akademia S.A. / Altkom Software and Consulting",
-        "period": "06.2009 - obecnie",
-        "projects": [
-          {
-            "role": "Front-end developer",
-            "period": "11.2019 - obecnie",
-            "company": "Projekt dla banku",
-            "area": "Kredyty hipoteczne dla klientów indywidualnych.",
-            "technologiesUsed": ["Angular 8", "RxJs", "ngx-formly", "HTML / SASS", "Bootstrap", "Microfronteds"]
-          },
-          {
-            "role": "Front-end developer, UX designer",
-            "period": "10.2019 - 12.2019",
-            "company": "Projekt dla firmy ubezpieczeniowej",
-            "area": "Underwriting.",
-            "technologiesUsed": ["Angular 8", "RxJs", "ngx-formly", "HTML / SASS", "Bootstrap"]
-          },
-          {
-            "role": "Front-end developer",
-            "period": "09.2019 - 09.2019",
-            "company": "Projekt dla telewizyjnego kanału premium",
-            "area": "Komponent do autoryzacji.",
-            "technologiesUsed": ["ReactJS", "TypeScript", "HTML / SASS", "Bootstrap"]
-          },
-          {
-            "role": "Front-end developer, UX designer",
-            "period": "08.2018 - 09.2019",
-            "company": "Projekt dla banku",
-            "area": "Platforma do sprzedaży produktów bankowych w kanale Internetowym.",
-            "technologiesUsed": ["Angular 6", "HTML / CSS", "Orbeon", "Bootstrap"]
-          },
-          {
-            "role": "Front-end developer, UX designer",
-            "period": "01.2018 - 06.2019",
-            "company": "Start up",
-            "area": "CMS dla mobilnej aplikacji wykorzystywanej podczas koncertów.",
-            "technologiesUsed": ["Angular 7", "RxJs", "HTML / SCSS", "ngx-markdown", "ngx-image-editor", "SemanticUI"]
-          },
-          {
-            "role": "Analityk",
-            "period": "06.2009 - 01.2019",
-            "company": "Projekty dla firm ubezpieczeniowych",
-            "area": "Projekty wspierające obsługę procesów towarzystwa ubezpieczeniowego. Projekty dla sektora prywatnych usług medycznych.",
-            "technologiesUsed": ["Balsamiq", "Confluence", "UML"]
-          }
-        ]
+  "Footer": {
+    "info": "Zostaw swoje dane. Oddzwonimy",
+    "contactLink": "Formularz kontaktowy"
+  },
+  "Contact": {
+    "header": "Wypełnij formularz",
+    "info": "Oddzwonimy i przedstawimy Ci ofertę",
+    "send": "Wyślij"
+  },
+  "ContactConfirmation": {
+    "header": "Szanowny Kliencie,",
+    "info": "dziękujemy za przesłanie wiadomości.<p>Nasz doradca oddzwoni, aby przedstawić Ci szczegóły oferty i odpowiedzieć na wszystkie Twoje pytania.</p><p>Pozdrawiamy,</p><p>Zespół BNP Paribas Bank Polska SA</p>"
+  },
+  "ContactForm": {
+    "fields": {
+      "firstName": {
+        "label": "Imię"
       },
-      {
-        "company": "Affecto Poland (Mebius IT)",
-        "period": "09.2008 - 06.2009",
-        "projects": []
+      "lastName": {
+        "label": "Nazwisko"
       },
-      {
-        "company": "Infovide - Matrix S.A.",
-        "period": "03.2006 - 08.2008",
-        "projects": []
+      "email": {
+        "label": "E-mail"
+      },
+      "phoneNumber": {
+        "label": "Telefon komórkowy"
       }
-    ]
-  },
-  "SkillsAndTools": {
-    "header": "Kluczowe kompetencje",
-    "content": {
-      "frontendSkills": {
-        "header" : "Front-end",
-        "content": [
-          {
-            "skill": "HTML5, JavaScript (ES6), TypeScript, CSS, SASS",
-            "level": "80%"
-          },
-          {
-            "skill": "Angular 2+ / RxJS",
-            "level": "80%"
-          },
-          {
-            "skill": "React JS, Redux",
-            "level": "40%"
-          },
-          {
-            "skill": "Bootstrap, Semantic UI, Material UI",
-            "level": "80%"
-          },
-          {
-            "skill": "Jest, Karma",
-            "level": "40%"
-          }
-        ]
+    },
+    "consents": {
+      "selectAll": "Akceptuje wszystkie zgody",
+      "marketingConsent": {
+        "labelShort": "Wyrażam zgodę na przetwarzanie moich danych osobowych dla celów marketingowych Banku...",
+        "label": "Wyrażam zgodę, na przetwarzanie moich danych osobowych podanych w powyższym formularzu przez BNP Paribas Bank Polska S.A. z siedzibą w Warszawie przy ul. Kasprzaka 10/16 („Bank”) jako administratora danych w celu prowadzenia marketingu, w tym przekazywania mi informacji o produktach i usługach oferowanych przez Bank."
       },
-      "others": {
-        "header" : "Pozostałe",
-        "content" : "express.js, mongoosejs, Git,  Confluence, JIRA, Redmine, Balsamiq, UX, umiejętności analityczne"
+      "digitalMarketingConsent": {
+        "labelShort": "Wyrażam zgodę na przekazywanie treści marketingowych z wykorzystaniem wiadomości SMS oraz email...",
+        "label": "Wyrażam zgodę, zgodnie z ustawą z dnia 18 lipca 2002 r. o świadczeniu usług drogą elektroniczną na otrzymywanie drogą elektroniczną informacji stanowiących informacje handlowe w rozumieniu ww. ustawy, w tym wiadomości SMS oraz email, dotyczących nowych produktów, usług, promocji produktów Banku oraz usług podmiotów wchodzących w skład grupy kapitałowej, do której należy Bank. Szczegółowy wykaz danych dotyczących tej grupy znajduje się na stronie internetowej Banku (https://www.bnpparibas.pl/korporacje/oferta-grupy-bnp/podmioty-bnp-paribas-w-polsce) oraz w oddziałach Banku."
+      },
+      "offerPresentationConsent": {
+        "labelShort": "Wyrażam zgodę na przekazywanie mi informacji o ofercie podmiotów grupy kapitałowej...",
+        "label": "Wyrażam zgodę na przetwarzanie moich danych przez Bank w celu przekazywania informacji dotyczących ofert lub promocji produktów i usług podmiotów wchodzących w skład grupy kapitałowej, do której należy Bank. zarówno w okresie obowiązywania umowy, jak i po jej wygaśnięciu. Szczegółowy wykaz danych dotyczących tej grupy znajduje się na stronie internetowej Banku (https://www.bnpparibas.pl/korporacje/oferta-grupy-bnp/podmioty-bnp-paribas-w-polsce) oraz w oddziałach Banku."
+      },
+      "digitalOfferPresentationConsent": {
+        "labelShort": "Wyrażam zgodę na przekazywanie treści marketingowych z wykorzystaniem telefonu...",
+        "label": "Wyrażam zgodę, zgodnie z ustawą z dnia 16 lipca 2004 r. Prawo telekomunikacyjne na przedstawianie przez Bank drogą telefoniczną informacji dotyczących ofert lub promocji produktów i usług oferowanych przez Bank."
       }
     }
   },
-  "Education": {
-    "header": "Edukacja i szkolenia",
-    "content": [
-      {
-        "school": "Infoshare Academy",
-        "field": "Kurs Junior Front-End Developer",
-        "period": "09.2017 - 02.2018"
+  "Simulator": {
+    "step0": {
+      "header": "",
+      "info": "<p>Masz już wybraną nieruchomość i <strong>chcesz poznać szczegóły jej finansowania?</strong><br/>A może wiesz już, jaką chcesz płacić ratę i <strong>zastanawiasz się, na jaką nieruchomość Cię stać?</strong></p><p>Skorzystaj z naszego symulatora kredytu hipotecznego i dowiedz się już teraz.</p>",
+      "goToInstallmenPath": "<strong>Wiem, jaką chcę płacić <span class='app-accent'>ratę kredytu</span></strong>",
+      "goToLoanPath": "<strong>Wiem, jaką chcę <span class='app-accent'>kwotę kredytu</span></strong>",
+      "goToInstallmenPathBtn": "Rozpocznij symulację",
+      "goToLoanPathBtn": "Rozpocznij symulację"
+    },
+    "step1": {
+      "label": "krok 1",
+      "headerText": "Kredyt"
+    },
+    "step2": {
+      "label": "krok 2",
+      "headerText": "Twoja rodzina"
+    },
+    "step3": {
+      "label": "krok 3",
+      "headerText": "Wynik symulacji"
+    },
+    "fields": {
+      "installmentMonthlyAmount": {
+        "label": "Chcę płacić miesięczną ratę w wysokości (zł):",
+        "placeholder": "np. 1 200",
+        "description": "min {{min}} zł, max {{max}} zł",
+        "tooltip": "Wysokość raty, która co miesiąc zostanie pobrana z Twojego ROR jako spłata kredytu mieszkaniowego."
       },
-      {
-        "school": "Szkoła Główna Handlowa Studia podyplomowe",
-        "field": "Zarządzanie IT w przedsiębiorstwie",
-        "period": "09.2012 - 06.2013"
+      "loanTermInYears": {
+        "label": "Chcę spłacać kredyt przez okres (liczony w latach):",
+        "placeholder": "np. 20",
+        "description": "max {{max}}",
+        "tooltip": "Podaj liczbę lat, przez które chcesz spłacić kredyt mieszkaniowy."
       },
-      {
-        "school": "Szkoła Główna Handlowa",
-        "field": "Metody ilościowe w ekonomii i systemy informacyjne",
-        "period": "09.2000 - 03.2006"
+      "expectedContributionAmount": {
+        "label": "Posiadam wkład własny w wysokości (zł):",
+        "placeholder": "",
+        "description": "",
+        "tooltip": "Konieczny będzie minimalny udział własnych środków w wysokości 20% ceny za jaką kupujesz / budujesz nieruchomość."
+      },
+      "familySize": {
+        "label": "Moja rodzina liczy (liczba osób):",
+        "placeholder": "",
+        "description": "",
+        "tooltip": "Liczba osób w Twoim gospodarstwie domowym, uzyskujących dochód oraz nie pracujących (np. dzieci)."
+      },
+      "totalIncomeAmount": {
+        "label": "Łączny dochód gospodarstwa (zł):",
+        "placeholder": "",
+        "description": "min {{min}} zł, max {{max}} zł",
+        "tooltip": "Dochód gospodarstwa jest to dochód netto, który trafia na Twój rachunek bankowy. Podaj średnią z 3 miesięcy (uwględnij również premie jeśli otrzymujesz)."
+      },
+      "totalCostOfLiving": {
+        "label": "Łączne koszty utrzymania rodziny (zł):",
+        "placeholder": "",
+        "description": "",
+        "tooltip": "Łączne miesięczne stałe koszty utrzymania, które ponosi Twoje gospodarstwo domowe z tytułu rachunków: za telefon, internet, wodę, prąd, czynsz itp."
+      },
+      "totalCostOfLiabilitiesLoan": {
+        "label": "Łączny koszt zobowiązań z tytułu kredytów ratalnych (zł):",
+        "placeholder": "",
+        "description": "",
+        "tooltip": "Suma miesięcznych rat, które spłacają członkowie Twojego gospodarstwa domowego (np.: za telewizor, kredyty  mieszkaniowe, pożyczki itp.)"
+      },
+      "totalCostOfLiabilitiesCreditCards": {
+        "label": "Łączna wysokość limitów z tytułu kart kredytowych i debetowych (zł):",
+        "placeholder": "",
+        "description": "",
+        "tooltip": "Suma wszystkich limitów debetowych / w ROR / kart kredytowych, które posiadają członkowie Twojego gospodarstwa domowego."
+      },
+      "totalLoanAmount": {
+        "label": "Chce wnioskować o kredyt w wysokości (zł):",
+        "placeholder": "",
+        "description": "min {{min}} zł, max {{max}} zł",
+        "tooltip": ""
       }
-    ]
+    }
   },
-  "Language": {
-    "header": "Języki",
-    "content": [
-      {
-        "language": "Polski",
-        "level": "ojczyst"
-      },
-      {
-        "language": "Angielski",
-        "level": "B2"
-      },
-      {
-        "language": "Rosyjski",
-        "level": "B1"
+  "SimulatorResults": {
+    "info": "<p>Poniżej znajduje się <strong>wynik Twojej symulacji</strong>. Możesz edytować wartości i obserwować, jak zmieniają się wyniki symulacji.<br /><strong>Znajdź wariant optymalny dla siebie</strong> i łatwo porównaj go z innymi ofertami.<p><strong>Chcesz otrzymać podsumowanie Twojej symulacji w wersji elektronicznej?</strong> Kliknij \"Zapisz i wyślij\" i wypełnij formularz, a my prześlemy je na Twoją skrzynkę e-mail.</p>",
+    "infoTextBottom": "Symulacja ma charakter orientacyjny",
+    "warningReducedInstallment": "Biorąc pod uwagę Twoje możliwości finansowe musieliśmy obniżyć maksymalną kwotę raty.",
+    "warningReducedLoan": "Biorąc pod uwagę Twoje możliwości finansowe musieliśmy obniżyć maksymalną kwotę kredytu.",
+    "warningLowOwnContribution": "Podana kwota wkładu własnego jest za niska.",
+    "switch": {
+      "optimal": "Twoja symulacja",
+      "quick": "Szybka spłata",
+      "safe": "Bezpieczna rata"
+    },
+    "option": {
+      "installment": "Rata",
+      "zł": "zł",
+      "installmentTerm": "Okres kredytowania",
+      "term1": "rok",
+      "term2": "lata",
+      "term": "lat",
+      "loan": "Kwota kredytu"
+    },
+    "panel": {
+      "changeParameters": "Edycja parametrów kredytu",
+      "parameters": {
+        "interestRate": "Oprocentowanie kredytu (% w skali roku)",
+        "maxLoanCapability": "Maksymalna zdolność kredytowa (zł)",
+        "maxPropertyValue": "Maksymalna cena zakupu nieruchomości (zł)"
       }
-
-
-
-    ]
+    }
   },
-  "Interests": {
-    "header": "Zainteresowania",
-    "content": "Nurkowanie, podróże"
+  "SimulatorNoResults": {
+    "info": "<p>Wynik Twojej symulacji <strong>nie jest w tej chwili dostępny.</strong></p>",
+    "waringInfo": "Wygląda na to, że przy podanych parmaterach niestety nie posiadasz zdolności kredytowej. <strong>Zweryfikuj ponownie dane i zaktaulizuj je,</strong> aby poznać wyniki symulacji."
+  },
+  "SimulationSend": {
+    "header": "Wypełnij formularz",
+    "info": "Prześlemy na Twoją skrzynkę e-mail z wynikiem zapisanej symulacji kredytowej.",
+    "send": "Wyślij"
+  },
+  "SimulationSent": {
+    "header": "",
+    "info": "<p>Dziękujemy za wypełnienie formularza.</p><p>E-mail z wynikami Twojej symulacji powinien niebawem pojawić się na Twojej skrzynce.<br/>W razie jego braku sprawdź również folder \"SPAM\".</p>",
+    "newSimulation": "Wykonaj ponownie symulację kredytu",
+    "goToChecklist": "Wygeneruj listę dokumentów"
+  },
+  "Checklist": {
+    "step0": {
+      "header": "",
+      "info": "Wiemy, że <strong>skompletowanie dokumentów kredytowych bywa czasem żmudne</strong> i nierzadko wiąże się nawet z kilkoma wizytami w oddziale.<br><br> Szanujemy Twój czas i dlatego <strong>postanowiliśmy ten proces zdecydowanie uprościć. </strong> Opowiedz nam swoją historię, a my przedstawimy Ci listę tylko tych dokumentów, które będą potrzebne do złożenia Twojego wniosku kredytowego.",
+      "start": "Rozpocznij"
+    },
+    "step1": {
+      "label": "krok 1",
+      "headerText": "Kwota kredytu"
+    },
+    "step2": {
+      "label": "krok 2",
+      "headerText": "Cel kredytu"
+    },
+    "step3": {
+      "label": "krok 3",
+      "headerText": "Wnioskujący"
+    },
+    "step4": {
+      "label": "krok 4",
+      "headerText": "Lista dokumentów"
+    }
+  },
+  "ChecklistResults": {
+    "header": "",
+    "info": "<p>Gratulujemy! Poniżej znajduje się <strong>lista dokumentów kredytowych, które będą wymagane do złożenia Twojego wniosku. Finalna lista dokumentów może ulec zmianie, np. w wyniku zmiany oferty produktowej Banku.</strong></p><p><strong>Chcesz otrzymać tę listę na swój e-mail? </strong>Kliknij \"Zapisz i wyślij\" i wypełnij formularz. My prześlemy ją na Twoją pocztę elektroniczną, a nasz Doradca skontaktuje się z Tobą, aby ustalić finalną listę dokumentów.</p>",
+    "sections": {
+      "showDocumentList": "Pokaż listę dokumentów",
+      "hideDocumentList": "Ukryj listę dokumentów",
+      "applicants": {
+        "label": "Wnioskujący",
+        "main": "(główny)",
+        "next": "(kolejny)"
+      },
+      "purposes": {
+        "label": "Cel kredytu",
+        "main": "(podstawowy)",
+        "next": "(dodatkowy)"
+      }
+    },
+    "send": "Zapisz i wyślij",
+    "edit": "Zmień",
+    "goBack": "Wróć",
+    "documentsInSectionAbove": "Lista dokumentów jest pokazana w sekcji powyżej"
+  },
+  "ChecklistSend": {
+    "header": "Wypełnij formularz",
+    "info": "Prześlemy na Twoją skrzynkę e-mail pełną listę wymaganych dokumentów kredytowych.",
+    "send": "Wyślij"
+  },
+  "ChecklistSent": {
+    "header": "",
+    "info": "<p>Dziękujemy za wypełnienie formularza.</p><p>E-mail z listą dokumentów kredytowych powinien niebawem pojawić się na Twojej skrzynce.<br/>W razie jego braku sprawdź również folder \"SPAM\".</p>",
+    "next": "Wygeneruj ponownie listę dokumentów",
+    "makeCalculation": "Wykonaj symulację kredytu"
+  },
+  "Login": {
+    "button": "Zaloguj",
+    "incorrectAuthentication": "Niepoprawny login lub hasło",
+    "loginForm": {
+      "fields": {
+        "login": {
+          "label": "Użytkownik"
+        },
+        "password": {
+          "label": "Hasło"
+        }
+      }
+    }
   }
 }

@@ -3156,7 +3156,7 @@ var __extends = (this && this.__extends) || (function () {
         /*!*****************************************************!*\
           !*** ./src/app/modules/contact/components/index.ts ***!
           \*****************************************************/
-        /*! exports provided: ContactComponent, ContactConfirmationComponent, ContactBaseComponent */
+        /*! exports provided: ContactBaseComponent, ContactComponent, ContactConfirmationComponent */
         /***/ (function (module, __webpack_exports__, __webpack_require__) {
             "use strict";
             __webpack_require__.r(__webpack_exports__);
@@ -3585,6 +3585,440 @@ var __extends = (this && this.__extends) || (function () {
             ], LoaderComponent);
             /***/ 
         }),
+        /***/ "./src/app/modules/shared-module/components/simulation-results-view/circularSlider.ts": 
+        /*!********************************************************************************************!*\
+          !*** ./src/app/modules/shared-module/components/simulation-results-view/circularSlider.ts ***!
+          \********************************************************************************************/
+        /*! exports provided: CircularSlider */
+        /***/ (function (module, __webpack_exports__, __webpack_require__) {
+            "use strict";
+            __webpack_require__.r(__webpack_exports__);
+            /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CircularSlider", function () { return CircularSlider; });
+            /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+            // Copyright (c) 2018 Matic Balantič
+            // Licensed under the MIT license.
+            var SVG_NAMESPACE = "http://www.w3.org/2000/svg";
+            var _validateOptions = Symbol('validateOptions');
+            var _init = Symbol('init');
+            var _isIEorEdge = Symbol('isIEorEdge');
+            var _createRootSVG = Symbol('createRootSVG');
+            var _initSlider = Symbol("addSliderToRootSVG");
+            var _createSliderCircle = Symbol('createSliderCircle');
+            var _createEmptyCircle = Symbol('createEmptyCircle');
+            var _createClickCircle = Symbol('createClickCircle');
+            var _createCircle = Symbol('createSlider');
+            var _createHandle = Symbol('createHandle');
+            var _deg2Step = Symbol('deg2Step');
+            var _step2Rad = Symbol('step2Rad');
+            var _val2Step = Symbol('_val2Step');
+            var _deg2Val = Symbol('deg2Val');
+            var _point2Radians = Symbol('point2Radians');
+            var _setStepFallback = Symbol('setStepFallback');
+            var _move = Symbol('move');
+            var _canMove = Symbol('cantMove');
+            var _updateState = Symbol("updateState");
+            var _cancelDrag = Symbol('cancelDrag');
+            var _startDrag = Symbol('startDrag');
+            var _handleDrag = Symbol('handleDrag');
+            var _handleSliderClick = Symbol('handleSlideClick');
+            var _initEventHandlers = Symbol('initEventHandlers');
+            var _touchHandler = Symbol('touchHandler');
+            var _calculateNewPosition = Symbol('calculateNewPoint');
+            var _transformClientToLocalCoordinate = Symbol('transformClientToLocalCoordinate');
+            var STROKE_WIDTH = 20;
+            var HANDLER_RADIUS = (STROKE_WIDTH / 2) + 6;
+            var TOLERANCE = 40;
+            var CircularSlider = /** @class */ (function () {
+                function CircularSlider(id, options) {
+                    this.options = options;
+                    this.id = id;
+                    this[_validateOptions]();
+                    this[_init]();
+                }
+                Object.defineProperty(CircularSlider.prototype, "currentValue", {
+                    get: function () {
+                        return this.options.min + (this.currentStepNo * this.options.step);
+                    },
+                    enumerable: true,
+                    configurable: true
+                });
+                Object.defineProperty(CircularSlider.prototype, "stepNo", {
+                    set: function (stepNo) {
+                        var _this = this;
+                        var maxSteps = (this.options.max - this.options.min) / this.options.step;
+                        if (isNaN(parseFloat(stepNo)) || stepNo < 0 || stepNo > maxSteps) {
+                            throw new Error("Step number " + stepNo + " is not between 0 and " + maxSteps);
+                        }
+                        if (this.isIEorEdge) {
+                            this[_setStepFallback](stepNo);
+                        }
+                        else {
+                            var radiansEnd = this[_step2Rad](stepNo);
+                            var newPosition_1 = this[_calculateNewPosition](radiansEnd);
+                            this.slider.style.transition = "stroke-dashoffset 0.5s ease-in-out";
+                            this.handle.style.transition = "all 0.5s ease-in-out";
+                            requestAnimationFrame(function () {
+                                _this.slider.setAttributeNS(null, 'stroke-dashoffset', "" + (_this.circumference - newPosition_1.path));
+                                _this.handle.style.transform = "rotate(" + newPosition_1.degrees + "deg)";
+                                _this[_updateState](newPosition_1, stepNo);
+                            });
+                        }
+                    },
+                    enumerable: true,
+                    configurable: true
+                });
+                CircularSlider.prototype[_setStepFallback] = function (stepNo) {
+                    var _this = this;
+                    //stop current animation if in progress
+                    if (this.animationFrameId !== null) {
+                        cancelAnimationFrame(this.animationFrameId);
+                        this.animationFrameId = null;
+                    }
+                    // calculate start/end points
+                    var radiansStart = this.position.radians;
+                    var radiansEnd = this[_step2Rad](stepNo);
+                    var isIncreasing = radiansStart < radiansEnd;
+                    var radiansMove = radiansStart;
+                    var animate = function () {
+                        // add easing if we are close to end of the step
+                        radiansMove += (Math.abs(radiansEnd - radiansMove) <= 0.2) ? (isIncreasing ? 0.01 : -0.01) : (isIncreasing ? 0.05 : -0.05);
+                        _this[_move](radiansMove);
+                        // allow for a small error because of the rounding
+                        if ((Math.abs(radiansMove - radiansEnd) > 0.01)) {
+                            _this.animationFrameId = requestAnimationFrame(animate);
+                        }
+                        else {
+                            _this.animationFrameId = null; // animation ended
+                        }
+                    };
+                    this.animationFrameId = requestAnimationFrame(animate);
+                };
+                /**
+                 * Moves slider on the orbit for the given coordinates.
+                 *
+                 * @param angelRadians
+                 */
+                CircularSlider.prototype[_move] = function (angelRadians) {
+                    var _this = this;
+                    var newPosition = this[_calculateNewPosition](angelRadians);
+                    if (!this[_canMove](newPosition)) {
+                        return;
+                    }
+                    var nextStep = this[_deg2Step](newPosition.degrees);
+                    this[_updateState](newPosition, nextStep);
+                    if (this.isIEorEdge) {
+                        var transform = 'rotate(' + newPosition.degrees + ')';
+                        this.handle.setAttributeNS(null, 'transform', transform);
+                        this.slider.setAttributeNS(null, 'stroke-dashoffset', "" + (this.circumference - newPosition.path));
+                    }
+                    else {
+                        this.slider.style.transition = "";
+                        this.handle.style.transition = "";
+                        requestAnimationFrame(function () {
+                            _this.slider.setAttributeNS(null, 'stroke-dashoffset', "" + (_this.circumference - newPosition.path));
+                            _this.handle.style.transform = "rotate(" + newPosition.degrees + "deg)";
+                        });
+                    }
+                };
+                /**
+                 * Returns false if slider wants to be moved past the top zero point.
+                 *
+                 * @param newPosition
+                 * @returns {boolean}
+                 */
+                CircularSlider.prototype[_canMove] = function (newPosition) {
+                    return !(this.position.y < 0 && ((this.position.x >= 0 && newPosition.x < 0) || (this.position.x < 0 && newPosition.x >= 0)));
+                };
+                /**
+                 * Calculates new position, angles and path traveled based on local coordinate system (center = 0,0).
+                 *
+                 * @param angleRadians
+                 * @returns {{x: number, y: number, degrees: number, radians: number, path: number}}
+                 */
+                CircularSlider.prototype[_calculateNewPosition] = function (angleRadians) {
+                    var newX = Math.round(Math.sin(angleRadians) * this.radius);
+                    var newY = Math.round(Math.cos(angleRadians) * this.radius) * -1;
+                    // we have our coordinates right, but angles need to be adjusted to positive number
+                    // basically just add 2PI - 360 degrees
+                    var radians360 = angleRadians < 0 ? angleRadians + 2 * Math.PI : angleRadians;
+                    var angelDegrees = radians360 * 180.0 / Math.PI;
+                    var path = Math.round(this.radius * radians360);
+                    return {
+                        x: Math.floor(angelDegrees) === 359 ? -1 : newX,
+                        y: newY,
+                        degrees: angelDegrees,
+                        radians: radians360,
+                        path: path
+                    };
+                };
+                CircularSlider.prototype[_updateState] = function (newPosition, nextStep) {
+                    // notify about value change
+                    if (this.currentStepNo !== nextStep && (this.options.valueChange && typeof (this.options.valueChange) === 'function')) {
+                        this.currentStepNo = nextStep; // set step here so we send the latest value
+                        this.options.valueChange(this.currentValue, this.options.eventType);
+                        this.options.eventType = '';
+                    }
+                    // update slider internal state
+                    this.value = this[_deg2Val](newPosition.degrees);
+                    this.currentStepNo = nextStep;
+                    this.position = newPosition;
+                };
+                CircularSlider.prototype[_validateOptions] = function () {
+                    var step = this.options.step;
+                    var min = this.options.min;
+                    var max = this.options.max;
+                    if (min > max) {
+                        throw new Error("Min " + min + " must be smaller than max " + max + "!");
+                    }
+                    if (max % step !== 0 || min % step !== 0) {
+                        throw new Error("Min " + min + " and max " + max + " + must be divisible by step " + step + "!");
+                    }
+                    if (this.options.radius > 200 || this.options.radius < 0) {
+                        throw new Error("Radius must be between 1 and 200. The slider will adjust the to the size of the container automatically. Radius 200 means slider will be touching the boundaries");
+                    }
+                };
+                /**
+                 * Initializes (calculates values of) all properties and creates a slider.
+                 */
+                CircularSlider.prototype[_init] = function () {
+                    this.isIEorEdge = this[_isIEorEdge](); // cache the result since we'll be checking it very often
+                    this.centerX = 0;
+                    this.centerY = 0;
+                    this.radius = this.options.radius - (STROKE_WIDTH / 2); // subtract border width from radius
+                    this.circumference = this.options.radius * 2 * Math.PI;
+                    this.currentStepNo = 0;
+                    this.isDragging = false;
+                    this.position = this[_calculateNewPosition](this.centerX);
+                    this.value = this.options.min;
+                    this.lastTouchType = '';
+                    this.animationFrameId = null;
+                    this[_initSlider]();
+                    this[_initEventHandlers]();
+                };
+                /**
+                 * Creates slider composed of underlying stripped SVG circle and top colored circle which will behave as slider.
+                 */
+                CircularSlider.prototype[_initSlider] = function () {
+                    this.container = document.getElementById(this.options.container);
+                    // create root svg only when the first slider is added to the container.
+                    this.rootSVG = document.getElementById(this.id);
+                    if (this.rootSVG === null) {
+                        this.rootSVG = this[_createRootSVG](this.container.offsetWidth);
+                        this.container.appendChild(this.rootSVG);
+                    }
+                    this.slider = this[_createSliderCircle]();
+                    this.handle = this[_createHandle]();
+                    this.clickCircle = this[_createClickCircle]();
+                    this.rootSVG.appendChild(this[_createEmptyCircle]());
+                    this.rootSVG.appendChild(this.clickCircle);
+                    this.rootSVG.appendChild(this.slider);
+                    this.rootSVG.appendChild(this.handle);
+                };
+                /**
+                 * Creates root svg to which all sliders residing in the same container are later appended.
+                 * @returns {SVGCircleElement}
+                 */
+                CircularSlider.prototype[_createRootSVG] = function (boxSize) {
+                    var svg = document.createElementNS(SVG_NAMESPACE, "svg");
+                    // let's keep it a square
+                    svg.setAttributeNS(null, "class", "sliderRootSVG");
+                    svg.setAttributeNS(null, "id", this.id);
+                    svg.setAttributeNS(null, "width", boxSize);
+                    svg.setAttributeNS(null, "height", boxSize);
+                    svg.setAttributeNS(null, "viewBox", "-200 -200 400 400");
+                    return svg;
+                };
+                CircularSlider.prototype[_transformClientToLocalCoordinate] = function (svgPoint, event) {
+                    svgPoint.x = event.clientX;
+                    svgPoint.y = event.clientY;
+                    return svgPoint.matrixTransform(this.rootSVG.getScreenCTM().inverse());
+                };
+                /**
+                 * Creates new SVG circle used as a top slider.
+                 */
+                CircularSlider.prototype[_createSliderCircle] = function () {
+                    var slider = this[_createCircle]();
+                    slider.setAttributeNS(null, 'class', 'top-slider');
+                    slider.setAttributeNS(null, 'transform', 'rotate(-90)');
+                    slider.setAttributeNS(null, 'stroke-dasharray', this.circumference + " " + this.circumference);
+                    slider.setAttributeNS(null, 'stroke-dashoffset', "" + this.circumference);
+                    slider.style.stroke = this.options.color;
+                    slider.style.strokeWidth = STROKE_WIDTH + "px";
+                    return slider;
+                };
+                /**
+                 * Creates transparent circle so we can click on it (dashed border is not click-able everywhere)
+                 * @returns SVG
+                 */
+                CircularSlider.prototype[_createClickCircle] = function () {
+                    var slider = this[_createCircle]();
+                    slider.style.strokeWidth = STROKE_WIDTH + "px";
+                    slider.style.stroke = "transparent";
+                    return slider;
+                };
+                /**
+                 * Creates new SVG circle with dashed border used as empty "underlying" slider.
+                 */
+                CircularSlider.prototype[_createEmptyCircle] = function () {
+                    var slider = this[_createCircle]();
+                    slider.setAttributeNS(null, 'class', 'dashed-circle');
+                    slider.setAttributeNS(null, 'transform', 'rotate(-90)');
+                    slider.style.strokeWidth = STROKE_WIDTH + "px";
+                    slider.style.strokeDasharray = "5, 2";
+                    slider.style.fill = "#FFF";
+                    return slider;
+                };
+                /**
+                 * Creates new SVG circle element based on passed options.
+                 *
+                 * @returns {SVGCircleElement}
+                 */
+                CircularSlider.prototype[_createCircle] = function () {
+                    var slider = document.createElementNS(SVG_NAMESPACE, 'circle');
+                    slider.setAttributeNS(null, "cx", this.centerX);
+                    slider.setAttributeNS(null, "cy", this.centerY);
+                    slider.setAttributeNS(null, "r", this.radius);
+                    slider.setAttributeNS(null, "fill", "none");
+                    return slider;
+                };
+                /**
+                 * Creates a handle for the slider.
+                 */
+                CircularSlider.prototype[_createHandle] = function () {
+                    var handle = document.createElementNS(SVG_NAMESPACE, 'circle');
+                    handle.setAttributeNS(null, "cx", "" + this.centerX);
+                    handle.setAttributeNS(null, "cy", "" + (this.centerY - this.radius));
+                    handle.setAttributeNS(null, "r", "" + HANDLER_RADIUS);
+                    handle.setAttributeNS(null, "fill", "#fff");
+                    handle.setAttributeNS(null, "class", "handle");
+                    handle.setAttributeNS(null, "id", "handle" + this.options.container + this.radius); // add uniqueId
+                    return handle;
+                };
+                CircularSlider.prototype[_deg2Step] = function (deg) {
+                    var val = this[_deg2Val](deg);
+                    return this[_val2Step](val);
+                };
+                CircularSlider.prototype[_deg2Val] = function (deg) {
+                    var range = this.options.max - this.options.min;
+                    return Math.round(deg * (range / 360.0)) + this.options.min;
+                };
+                CircularSlider.prototype[_val2Step] = function (val) {
+                    return Math.round((val - this.options.min) / this.options.step);
+                };
+                CircularSlider.prototype[_step2Rad] = function (stepNo) {
+                    var val = stepNo * this.options.step + this.options.min;
+                    var adjustedVal = val - this.options.min;
+                    var range = this.options.max - this.options.min;
+                    var degrees = this.options.max === val ? 359.99 : (Math.round(adjustedVal * (360.0 / range))) % 360;
+                    return Math.round(degrees * Math.PI / 180 * 100) / 100;
+                };
+                CircularSlider.prototype[_point2Radians] = function (x, y) {
+                    // calculate distance from rotated circle (0° is on top)
+                    // replacing x and y in Math.atan2 method rotates the axis for 90 degrees but in wrong direction
+                    // multiply Y with -1 to "rotate" for 180° in the right direction :)
+                    return Math.atan2(x - this.centerX, -y - this.centerY);
+                };
+                CircularSlider.prototype[_initEventHandlers] = function () {
+                    var _this = this;
+                    this.container.addEventListener("mousemove", function (e) { return _this[_handleDrag](e); });
+                    this.container.addEventListener("mouseup", function (e) { return _this[_cancelDrag](e); });
+                    this.container.addEventListener("mouseleave", function (e) { return _this[_cancelDrag](e); });
+                    this.container.addEventListener("touchcancel", function (e) { return _this[_touchHandler](e); });
+                    this.container.addEventListener("touchend", function (e) { return _this[_touchHandler](e); });
+                    this.clickCircle.addEventListener('click', function (e) { return _this[_handleSliderClick](e); });
+                    this.clickCircle.addEventListener("touchend", function (e) { return _this[_touchHandler](e); });
+                    this.clickCircle.addEventListener("touchstart", function (e) { return _this[_touchHandler](e); });
+                    this.slider.addEventListener('click', function (e) { return _this[_handleSliderClick](e); });
+                    this.slider.addEventListener("touchend", function (e) { return _this[_touchHandler](e); });
+                    this.slider.addEventListener("touchstart", function (e) { return _this[_touchHandler](e); });
+                    this.handle.addEventListener("touchmove", function (e) { return _this[_touchHandler](e); });
+                    this.handle.addEventListener("touchstart", function (e) { return _this[_touchHandler](e); });
+                    this.handle.addEventListener("mousedown", function (e) { return _this[_startDrag](e); });
+                };
+                CircularSlider.prototype[_startDrag] = function (e) {
+                    e.preventDefault();
+                    this.isDragging = true;
+                };
+                ;
+                /**
+                 * Handles drag as long as the touch/mouse is inside the tolerance radius.
+                 * @param e
+                 */
+                CircularSlider.prototype[_handleDrag] = function (e) {
+                    e.preventDefault();
+                    if (!this.isDragging) {
+                        return;
+                    }
+                    var svgPoint = this.rootSVG.createSVGPoint();
+                    var localCoords = this[_transformClientToLocalCoordinate](svgPoint, e);
+                    var mouseHandleOffsetX = this.position.x - localCoords.x;
+                    var mouseHandleOffsetY = this.position.y - localCoords.y;
+                    if (mouseHandleOffsetX > TOLERANCE || mouseHandleOffsetY > TOLERANCE) {
+                        this[_cancelDrag](e);
+                    }
+                    else {
+                        var angelRadians = this[_point2Radians](localCoords.x, localCoords.y);
+                        this[_move](angelRadians);
+                    }
+                };
+                /**
+                 * Cancels drag and finishes the move by scrolling to the closest step.
+                 *
+                 * @param e
+                 */
+                CircularSlider.prototype[_cancelDrag] = function (e) {
+                    e.preventDefault();
+                    this.options.eventType = e.type;
+                    // only complete step if you are currently moving
+                    if (this.isDragging) {
+                        this.stepNo = this[_val2Step](this.value);
+                    }
+                    this.isDragging = false;
+                    this.options.valueChange(this.currentValue, this.options.eventType);
+                    this.options.eventType = '';
+                };
+                CircularSlider.prototype[_handleSliderClick] = function (e) {
+                    var _this = this;
+                    var svgPoint = this.rootSVG.createSVGPoint();
+                    var localCoords = this[_transformClientToLocalCoordinate](svgPoint, e);
+                    var newPosition = this[_calculateNewPosition](this[_point2Radians](localCoords.x, localCoords.y));
+                    var nextStep = this[_deg2Step](newPosition.degrees);
+                    if (this.currentStepNo === nextStep) {
+                        this.handle.classList.add('same-step-error');
+                        setTimeout(function () { return _this.handle.classList.remove('same-step-error'); }, 300);
+                    }
+                    else {
+                        this.stepNo = nextStep;
+                    }
+                    this.options.eventType = e.type;
+                };
+                CircularSlider.prototype[_touchHandler] = function (e) {
+                    var touches = e.changedTouches;
+                    // Ignore multi-touch
+                    if (touches.length > 1)
+                        return;
+                    var touch = touches[0];
+                    var events = ["touchstart", "touchmove", "touchend", "touchcancel"];
+                    var mouseEvents = ["mousedown", "mousemove", "mouseup", "mouseleave"];
+                    var ev = events.indexOf(e.type);
+                    if (ev === -1)
+                        return;
+                    var type = e.type === events[2] && this.lastTouchType === events[0] ? 'click' : mouseEvents[ev];
+                    var simulatedEvent = document.createEvent("MouseEvent");
+                    simulatedEvent.initMouseEvent(type, true, true, window, 1, touch.screenX, touch.screenY, touch.clientX, touch.clientY, false, false, false, false, 0, null);
+                    touch.target.dispatchEvent(simulatedEvent);
+                    e.preventDefault();
+                    this.lastTouchType = e.type;
+                    this.options.eventType = e.type;
+                };
+                ;
+                CircularSlider.prototype[_isIEorEdge] = function () {
+                    return document.DOCUMENT_NODE || navigator.appName === 'Microsoft Internet Explorer' || (navigator.appName === "Netscape" && navigator.appVersion.indexOf('Edge') > -1);
+                };
+                return CircularSlider;
+            }());
+            /***/ 
+        }),
         /***/ "./src/app/modules/shared-module/components/simulation-results-view/simulation-results-view.component.scss": 
         /*!*****************************************************************************************************************!*\
           !*** ./src/app/modules/shared-module/components/simulation-results-view/simulation-results-view.component.scss ***!
@@ -3612,6 +4046,8 @@ var __extends = (this && this.__extends) || (function () {
             /* harmony import */ var _app_modules_simulation_service_simulation_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @app/modules/simulation/service/simulation.service */ "./src/app/modules/simulation/service/simulation.service.ts");
             /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
             /* harmony import */ var _model__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../model */ "./src/app/modules/shared-module/model/index.ts");
+            /* harmony import */ var _circularSlider__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./circularSlider */ "./src/app/modules/shared-module/components/simulation-results-view/circularSlider.ts");
+            // declare const CircularSlider;
             var SimulationResultsViewComponent = /** @class */ (function () {
                 function SimulationResultsViewComponent(simulationService) {
                     this.simulationService = simulationService;
@@ -3664,7 +4100,7 @@ var __extends = (this && this.__extends) || (function () {
                     this.resultCircleSliderOptions = new _model__WEBPACK_IMPORTED_MODULE_6__["CircleSliderOption"]('resultCircle', '#00965E', min, max, 1, 195, function (val, eventType) {
                         _this.installmentValueChange((val < 0 ? 1 : val), eventType);
                     });
-                    this.resultCircleSlider = new CircularSlider(this.cirleSliderId, this.resultCircleSliderOptions);
+                    this.resultCircleSlider = new _circularSlider__WEBPACK_IMPORTED_MODULE_7__["CircularSlider"](this.cirleSliderId, this.resultCircleSliderOptions);
                     this.resultCircleSlider.stepNo = this.simulation.installmentMonthlyAmount - _assets_parameters_systemParameters__WEBPACK_IMPORTED_MODULE_3__["simulationParameters"].minInstallment;
                 };
                 SimulationResultsViewComponent.prototype.setUpLoanViewSlider = function () {
@@ -3674,7 +4110,7 @@ var __extends = (this && this.__extends) || (function () {
                     this.resultCircleSliderOptions = new _model__WEBPACK_IMPORTED_MODULE_6__["CircleSliderOption"]('resultCircle', '#00965E', min, max, 1, 195, function (val, eventType) {
                         _this.loanSliderValueChange((val < 0 ? 1 : val), eventType);
                     });
-                    this.resultCircleSlider = new CircularSlider(this.cirleSliderId, this.resultCircleSliderOptions);
+                    this.resultCircleSlider = new _circularSlider__WEBPACK_IMPORTED_MODULE_7__["CircularSlider"](this.cirleSliderId, this.resultCircleSliderOptions);
                     this.resultCircleSlider.stepNo = this.simulation.loanAmount - _assets_parameters_systemParameters__WEBPACK_IMPORTED_MODULE_3__["simulationParameters"].mintotalLoanAmount;
                 };
                 SimulationResultsViewComponent.prototype.initLoanTermCircleSlider = function () {
@@ -3684,7 +4120,7 @@ var __extends = (this && this.__extends) || (function () {
                     this.loanTermCircleSliderOptions = new _model__WEBPACK_IMPORTED_MODULE_6__["CircleSliderOption"]('loanTermCircle', '#00965E', min, max, 1, 195, function (val, eventType) {
                         _this.numberOfInstallmentsInYearsChange((val < 0 ? 1 : val), eventType);
                     });
-                    this.loanTermCircleSlider = new CircularSlider(this.termCirleSliderId, this.loanTermCircleSliderOptions);
+                    this.loanTermCircleSlider = new _circularSlider__WEBPACK_IMPORTED_MODULE_7__["CircularSlider"](this.termCirleSliderId, this.loanTermCircleSliderOptions);
                     this.loanTermCircleSlider.stepNo = this.simulation.numberOfInstallmentsInYears - _assets_parameters_systemParameters__WEBPACK_IMPORTED_MODULE_3__["simulationParameters"].minLoanTermInYears;
                 };
                 SimulationResultsViewComponent.prototype.startTrackSlider = function (eventType) {
@@ -4076,7 +4512,7 @@ var __extends = (this && this.__extends) || (function () {
         /*!******************************************************!*\
           !*** ./src/app/modules/shared-module/pipes/index.ts ***!
           \******************************************************/
-        /*! exports provided: SpacePipe, InstalmentSufix */
+        /*! exports provided: InstalmentSufix, SpacePipe */
         /***/ (function (module, __webpack_exports__, __webpack_require__) {
             "use strict";
             __webpack_require__.r(__webpack_exports__);

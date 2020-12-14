@@ -16,7 +16,7 @@
   },
   "CarrerSummary": {
     "header": "Carrer Summary",
-    "content": "Front-End developer with 2 years commercial experience. Business and System Analyst with over 13 years commercial experience in IT (in insurance and banking sector)."
+    "content": "Front-End developer with 3 years commercial experience. Business and System Analyst with over 14 years commercial experience in IT (in insurance and banking sector)."
   },
   "WorkExperience": {
     "header": "Work Experience",
@@ -30,7 +30,13 @@
             "role": "Front-end developer",
             "period": "05.2020 - present",
             "area": "MyClaim - order processing",
-            "technologiesUsed": ["Vue.js", "Vuex", "HTML / SASS", "Vuetifyjs", "jquery", "xml"]
+            "technologiesUsed": ["Vue.js", "Vuex", "Vuetifyjs", "jquery", "xml", "JAVA 1.8"]
+          },
+          {
+            "role": "Developer",
+            "period": "10.2020 - present",
+            "area": "Fotohub",
+            "technologiesUsed": ["Vue.js", "Vuex", "laravel"]
           }
         ]
       },
@@ -84,12 +90,12 @@
       },
       {
         "company": "Affecto Poland (Mebius IT)",
-        "period": "09.2008 - 06.2009 (Analyst)",
+        "period": "09.2008 - 06.2009 (Analyst - Insurance sector)",
         "projects": []
       },
       {
         "company": "Infovide - Matrix S.A.",
-        "period": "03.2006 - 08.2008 (Analyst)",
+        "period": "03.2006 - 08.2008 (Analyst - Insurance sector)",
         "projects": []
       }
     ]
@@ -110,7 +116,7 @@
           },
           {
             "skill": "Vue.js / Vuex",
-            "level": "40%"
+            "level": "60%"
           },
           {
             "skill": "React JS / Redux",
@@ -128,7 +134,7 @@
       },
       "others": {
         "header": "Others",
-        "content": "express.js, mongoosejs, Git,  Confluence, JIRA, Redmine, Balsamiq, UX, analytical skills"
+        "content": "laravel, JAVA 1.8, express.js, mongoosejs, mySQL, Git,  Confluence, JIRA, Redmine, Balsamiq, UX, strong analytical skills"
       }
     }
   },

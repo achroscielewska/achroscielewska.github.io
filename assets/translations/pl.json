@@ -16,7 +16,7 @@
   },
   "CarrerSummary": {
     "header": "Profil zawodowy",
-    "content": "Front-End developer z 2-letnim doświadczeniem zawodowym. Analityk biznesowy / systemowy z ponad 13-letnim doświadczeniem zawodowym w obszarze rozwiązań IT (ubezpieczenia i bankowość)."
+    "content": "Front-End developer z 3-letnim doświadczeniem zawodowym. Analityk biznesowy / systemowy z ponad 14-letnim doświadczeniem zawodowym w obszarze rozwiązań IT (ubezpieczenia i bankowość)."
   },
   "WorkExperience": {
     "header": "Historia zatrudnienia",
@@ -30,7 +30,13 @@
             "role": "Front-end developer",
             "period": "05.2020 - present",
             "area": "MyClaim - obsługa szkód",
-            "technologiesUsed": ["Vue.js", "Vuex", "HTML / SASS", "Vuetifyjs", "jquery", "xml"]
+            "technologiesUsed": ["Vue.js", "Vuex", "HTML / SASS", "Vuetifyjs", "jquery", "xml", "JAVA 1.8"]
+          },
+          {
+            "role": "Developer",
+            "period": "10.2020 - present",
+            "area": "Fotohub",
+            "technologiesUsed": ["Vue.js", "Vuex", "laravel"]
           }
         ]
       },
@@ -84,12 +90,12 @@
       },
       {
         "company": "Affecto Poland (Mebius IT)",
-        "period": "09.2008 - 06.2009 (Analityk biznesowy / systemowy)",
+        "period": "09.2008 - 06.2009 (Analityk biznesowy / systemowy) - obszar ubezpieczenia",
         "projects": []
       },
       {
         "company": "Infovide - Matrix S.A.",
-        "period": "03.2006 - 08.2008 (Analityk biznesowy / systemowy)",
+        "period": "03.2006 - 08.2008 (Analityk biznesowy / systemowy) - obszar ubezpieczenia",
         "projects": []
       }
     ]
@@ -110,7 +116,7 @@
           },
           {
             "skill": "Vue.js / Vuex",
-            "level": "40%"
+            "level": "60%"
           },
           {
             "skill": "React JS / Redux",
@@ -128,7 +134,7 @@
       },
       "others": {
         "header" : "Pozostałe",
-        "content" : "express.js, mongoosejs, Git,  Confluence, JIRA, Redmine, Balsamiq, UX, umiejętności analityczne"
+        "content" : "laravel, JAVA 1.8, express.js, mySQL, mongoosejs, Git,  Confluence, JIRA, Redmine, Balsamiq, UX, umiejętności analityczne"
       }
     }
   },

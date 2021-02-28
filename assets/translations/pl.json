@@ -16,7 +16,7 @@
   },
   "CarrerSummary": {
     "header": "Profil zawodowy",
-    "content": "Front-End developer z 3-letnim doświadczeniem zawodowym. Analityk biznesowy / systemowy z ponad 14-letnim doświadczeniem zawodowym w obszarze rozwiązań IT (ubezpieczenia i bankowość)."
+    "content": "Front-End developer z 2-letnim doświadczeniem zawodowym. Analityk biznesowy / systemowy z ponad 13-letnim doświadczeniem zawodowym w obszarze rozwiązań IT (ubezpieczenia i bankowość)."
   },
   "WorkExperience": {
     "header": "Historia zatrudnienia",
@@ -24,19 +24,19 @@
     "content": [
       {
         "company": "DAT Polska sp. z o.o",
-        "period": "06.2020 - present",
+        "period": "06.2020 - obecnie",
         "projects": [
           {
             "role": "Front-end developer",
-            "period": "05.2020 - present",
+            "period": "06.2020 - obecnie",
             "area": "MyClaim - obsługa szkód",
-            "technologiesUsed": ["Vue.js", "Vuex", "HTML / SASS", "Vuetifyjs", "jquery", "xml", "JAVA 1.8"]
+            "technologiesUsed": ["Vue.js", "Vuex", "HTML / SASS", "Vuetifyjs", "jquery", "xml"]
           },
           {
             "role": "Developer",
-            "period": "10.2020 - present",
+            "period": "10.2020 - obecnie",
             "area": "Fotohub",
-            "technologiesUsed": ["Vue.js", "Vuex", "laravel"]
+            "technologiesUsed": ["Vue.js", "Vuex", "Laravel"]
           }
         ]
       },
@@ -90,12 +90,12 @@
       },
       {
         "company": "Affecto Poland (Mebius IT)",
-        "period": "09.2008 - 06.2009 (Analityk biznesowy / systemowy) - obszar ubezpieczenia",
+        "period": "09.2008 - 06.2009 (Analityk biznesowy / systemowy)",
         "projects": []
       },
       {
         "company": "Infovide - Matrix S.A.",
-        "period": "03.2006 - 08.2008 (Analityk biznesowy / systemowy) - obszar ubezpieczenia",
+        "period": "03.2006 - 08.2008 (Analityk biznesowy / systemowy)",
         "projects": []
       }
     ]
@@ -111,11 +111,11 @@
             "level": "80%"
           },
           {
-            "skill": "Angular 2+ / RxJS",
-            "level": "80%"
+            "skill": "Vue.js / Vuex",
+            "level": "60%"
           },
           {
-            "skill": "Vue.js / Vuex",
+            "skill": "Angular 2+ / RxJS",
             "level": "60%"
           },
           {
@@ -129,12 +129,16 @@
           {
             "skill": "Jest, Karma",
             "level": "40%"
+          },
+          {
+            "skill": "Laravel",
+            "level": "80%"
           }
         ]
       },
       "others": {
         "header" : "Pozostałe",
-        "content" : "laravel, JAVA 1.8, express.js, mySQL, mongoosejs, Git,  Confluence, JIRA, Redmine, Balsamiq, UX, umiejętności analityczne"
+        "content" : "JAVA 1.8, express.js, mongoosejs, Git,  Confluence, JIRA, Redmine, Balsamiq, UX, umiejętności analityczne"
       }
     }
   },

@@ -28,7 +28,7 @@
         "projects": [
           {
             "role": "Front-end developer",
-            "period": "05.2020 - present",
+            "period": "06.2020 - present",
             "area": "MyClaim - order processing",
             "technologiesUsed": ["Vue.js", "Vuex", "Vuetifyjs", "jquery", "xml", "JAVA 1.8"]
           },
@@ -36,7 +36,7 @@
             "role": "Developer",
             "period": "10.2020 - present",
             "area": "Fotohub",
-            "technologiesUsed": ["Vue.js", "Vuex", "laravel"]
+            "technologiesUsed": ["Vue.js", "Vuex", "Laravel"]
           }
         ]
       },
@@ -111,11 +111,11 @@
             "level": "80%"
           },
           {
-            "skill": "Angular 2+ / RxJS",
-            "level": "80%"
+            "skill": "Vue.js / Vuex",
+            "level": "60%"
           },
           {
-            "skill": "Vue.js / Vuex",
+            "skill": "Angular 2+ / RxJS",
             "level": "60%"
           },
           {
@@ -129,12 +129,16 @@
           {
             "skill": "Jest, Karma",
             "level": "40%"
+          },
+          {
+            "skill": "Laravel",
+            "level": "80%"
           }
         ]
       },
       "others": {
         "header": "Others",
-        "content": "laravel, JAVA 1.8, express.js, mongoosejs, mySQL, Git,  Confluence, JIRA, Redmine, Balsamiq, UX, strong analytical skills"
+        "content": "JAVA 1.8, express.js, mongoosejs, mySQL, Git,  Confluence, JIRA, Redmine, Balsamiq, UX, strong analytical skills"
       }
     }
   },
@@ -177,6 +181,6 @@
   },
   "Interests": {
     "header": "Interests",
-    "content": "Diving, travelling"
+    "content": "Scuba diving, travelling"
   }
 }

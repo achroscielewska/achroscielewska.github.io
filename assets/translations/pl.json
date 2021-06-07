@@ -16,7 +16,7 @@
   },
   "CarrerSummary": {
     "header": "Profil zawodowy",
-    "content": "Front-End developer z 2-letnim doświadczeniem zawodowym. Analityk biznesowy / systemowy z ponad 13-letnim doświadczeniem zawodowym w obszarze rozwiązań IT (ubezpieczenia i bankowość)."
+    "content": "Front-End developer z 3-letnim doświadczeniem zawodowym. Analityk biznesowy / systemowy z ponad 14-letnim doświadczeniem zawodowym w obszarze rozwiązań IT (ubezpieczenia i bankowość)."
   },
   "WorkExperience": {
     "header": "Historia zatrudnienia",
@@ -30,13 +30,13 @@
             "role": "Front-end developer",
             "period": "06.2020 - obecnie",
             "area": "MyClaim - obsługa szkód",
-            "technologiesUsed": ["Vue.js", "Vuex", "HTML / SASS", "Vuetifyjs", "jquery", "xml"]
+            "technologiesUsed": ["jquery", "JavaScript (ES5)", "xml", "JAVA 1.8"]
           },
           {
             "role": "Developer",
             "period": "10.2020 - obecnie",
             "area": "Fotohub",
-            "technologiesUsed": ["Vue.js", "Vuex", "Laravel"]
+            "technologiesUsed": ["Vue.js 2", "Vuex", "Vuetifyjs", "axios", "Laravel"]
           }
         ]
       },
@@ -107,12 +107,12 @@
         "header" : "Front-end",
         "content": [
           {
-            "skill": "HTML5, JavaScript (ES6), TypeScript, CSS, SASS",
+            "skill": "HTML5, JavaScript (ES6, ES5), TypeScript, CSS, SASS",
             "level": "80%"
           },
           {
             "skill": "Vue.js / Vuex",
-            "level": "60%"
+            "level": "70%"
           },
           {
             "skill": "Angular 2+ / RxJS",

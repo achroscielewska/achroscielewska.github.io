@@ -16,7 +16,7 @@
   },
   "CarrerSummary": {
     "header": "Carrer Summary",
-    "content": "Front-End developer with 3 years commercial experience. Business and System Analyst with over 14 years commercial experience in IT (in insurance and banking sector)."
+    "content": "Front-End developer with 4 years commercial experience. Business and System Analyst with over 15 years commercial experience in IT (in insurance and banking sector)."
   },
   "WorkExperience": {
     "header": "Work Experience",
@@ -27,16 +27,22 @@
         "period": "06.2020 - present",
         "projects": [
           {
+            "role": "Developer",
+            "period": "10.2021 - present",
+            "area": "ftAdmin - AI configuration panel",
+            "technologiesUsed": ["React JS 17", "axios", "Laravel 7 /8", "Bootstrap"]
+          },
+          {
             "role": "Front-end developer",
             "period": "06.2020 - present",
             "area": "MyClaim - order processing",
-            "technologiesUsed": ["jquery", "JavaScript (ES5)", "xml", "JAVA 1.8"]
+            "technologiesUsed": ["jquery", "JavaScript (ES5 / ES6)", "xml", "JAVA 1.8"]
           },
           {
             "role": "Developer",
             "period": "10.2020 - present",
             "area": "Fotohub",
-            "technologiesUsed": ["Vue.js 2", "Vuex", "Vuetifyjs", "axios", "Laravel"]
+            "technologiesUsed": ["Vue.js 2", "Vuex", "Vuetifyjs", "axios", "Laravel 7 /8"]
           }
         ]
       },
@@ -112,15 +118,15 @@
           },
           {
             "skill": "Vue.js / Vuex",
-            "level": "70%"
-          },
-          {
-            "skill": "Angular 2+ / RxJS",
             "level": "60%"
           },
           {
-            "skill": "React JS / Redux",
-            "level": "20%"
+            "skill": "React JS",
+            "level": "60%"
+          },
+          {
+            "skill": "Angular 2+ / RxJS",
+            "level": "40%"
           },
           {
             "skill": "Bootstrap, Semantic UI, Material UI, Vuetifyjs",
@@ -132,7 +138,7 @@
           },
           {
             "skill": "Laravel",
-            "level": "80%"
+            "level": "60%"
           }
         ]
       },
